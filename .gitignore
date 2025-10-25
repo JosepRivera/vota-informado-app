@@ -1,15 +1,50 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+# ============================================
+# ANDROID (mobile/)
+# ============================================
+mobile/*.iml
+mobile/.gradle
+mobile/local.properties
+mobile/.idea/caches
+mobile/.idea/libraries
+mobile/.idea/modules.xml
+mobile/.idea/workspace.xml
+mobile/.idea/navEditor.xml
+mobile/.idea/assetWizardSettings.xml
+mobile/.DS_Store
+mobile/build
+mobile/*/build
+mobile/captures
+mobile/.externalNativeBuild
+mobile/.cxx
+
+# ============================================
+# DJANGO/PYTHON (backend/)
+# ============================================
+backend/__pycache__/
+backend/*/__pycache__/
+backend/*/*/__pycache__/
+backend/*.py[cod]
+backend/*/*.py[cod]
+backend/*/*/*.py[cod]
+backend/db.sqlite3
+backend/media/
+backend/staticfiles/
+backend/static_collected/
+backend/.env
+backend/venv/
+backend/env/
+backend/.venv/
+backend/*.log
+backend/*.pot
+backend/*.pyc
+backend/.pytest_cache/
+backend/celerybeat-schedule
+
+# ============================================
+# IDEs
+# ============================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
