@@ -20,25 +20,47 @@ mobile/.cxx
 # ============================================
 # DJANGO/PYTHON (backend/)
 # ============================================
-backend/__pycache__/
-backend/*/__pycache__/
-backend/*/*/__pycache__/
-backend/*.py[cod]
-backend/*/*.py[cod]
-backend/*/*/*.py[cod]
+# Python cache y compilados
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.pyd
+**/*.py.class
+
+# Base de datos y archivos de medios
 backend/db.sqlite3
 backend/media/
 backend/staticfiles/
 backend/static_collected/
+
+# Variables de entorno
 backend/.env
+**/.env
+
+# Entornos virtuales
 backend/venv/
 backend/env/
 backend/.venv/
-backend/*.log
-backend/*.pot
-backend/*.pyc
+venv/
+env/
+.venv/
+
+# Logs
+**/*.log
+**/*.pot
+
+# Migraciones __pycache__
+**/migrations/__pycache__/
+
+# Testing
 backend/.pytest_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Celery
 backend/celerybeat-schedule
+celerybeat-schedule
 
 # ============================================
 # IDEs
@@ -48,3 +70,10 @@ backend/celerybeat-schedule
 *.swp
 *.swo
 *~
+.DS_Store
+
+# ============================================
+# Sistema
+# ============================================
+Thumbs.db
+desktop.ini
