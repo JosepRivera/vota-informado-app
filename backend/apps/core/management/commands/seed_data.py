@@ -1,16 +1,39 @@
+import json
+import os
 from django.core.management.base import BaseCommand
 from apps.core.models import Region, Cargo
 from apps.candidatos.models import Partido, Candidato, Antecedente
-from datetime import date
+from datetime import datetime
 
 
 class Command(BaseCommand):
-    help = "Carga datos iniciales de regiones, cargos, partidos y candidatos"
+    help = "Carga datos iniciales desde seed_data.json"
 
     def handle(self, *args, **options):
-        self.stdout.write("Iniciando carga de datos...\n")
+        self.stdout.write("Iniciando carga de datos desde JSON...\n")
 
-        # 1. Crear Regiones (Departamentos del Perú)
+        # Ruta al archivo JSON
+        json_path = os.path.join(
+            os.path.dirname(__file__), "..", "fixtures", "seed_data.json"
+        )
+
+        # Leer el archivo JSON
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            self.stdout.write(
+                self.style.ERROR(
+                    f"No se encontró el archivo: {json_path}\n"
+                    "Asegúrate de crear: apps/core/management/fixtures/seed_data.json"
+                )
+            )
+            return
+        except json.JSONDecodeError as e:
+            self.stdout.write(self.style.ERROR(f"Error al leer JSON: {e}"))
+            return
+
+        # 1. Crear Regiones (siempre las mismas 25)
         self.stdout.write("Creando regiones...")
         regiones_data = [
             "Amazonas",
@@ -56,215 +79,144 @@ class Command(BaseCommand):
             if created:
                 self.stdout.write(f"  ✓ {cargo_nombre}")
 
-        # 3. Crear Partidos
+        # 3. Crear Partidos desde JSON
         self.stdout.write("\nCreando partidos...")
-        partidos_data = [
-            {
-                "nombre_partido": "Fuerza Popular",
-                "sigla": "FP",
-                "logo_url": "https://ejemplo.com/logos/fp.png",
-            },
-            {
-                "nombre_partido": "Partido Morado",
-                "sigla": "PM",
-                "logo_url": "https://ejemplo.com/logos/pm.png",
-            },
-            {
-                "nombre_partido": "Alianza para el Progreso",
-                "sigla": "APP",
-                "logo_url": "https://ejemplo.com/logos/app.png",
-            },
-            {
-                "nombre_partido": "Perú Libre",
-                "sigla": "PL",
-                "logo_url": "https://ejemplo.com/logos/pl.png",
-            },
-            {
-                "nombre_partido": "Acción Popular",
-                "sigla": "AP",
-                "logo_url": "https://ejemplo.com/logos/ap.png",
-            },
-        ]
-
         partidos = {}
-        for partido_data in partidos_data:
+        for partido_data in data.get("partidos", []):
             partido, created = Partido.objects.get_or_create(
-                sigla=partido_data["sigla"], defaults=partido_data
+                sigla=partido_data["sigla"],
+                defaults={
+                    "nombre_partido": partido_data["nombre_partido"],
+                    "logo_url": partido_data.get("logo_url"),
+                },
             )
             partidos[partido_data["sigla"]] = partido
             if created:
-                self.stdout.write(
-                    f"  ✓ {partido_data['sigla']} - {partido_data['nombre_partido']}"
-                )
+                self.stdout.write(f"  ✓ {partido.sigla} - {partido.nombre_partido}")
 
-        # 4. Crear Candidatos de ejemplo
-        self.stdout.write("\nCreando candidatos...")
+        # 4. Crear Candidatos Presidentes
+        self.stdout.write("\nCreando candidatos presidenciales...")
+        candidatos_dict = {}  # Para relacionar con antecedentes después
 
-        # PRESIDENTES (3 candidatos)
-        candidatos_presidentes = [
-            {
-                "nombre": "Juan Carlos",
-                "apellido_paterno": "Pérez",
-                "apellido_materno": "García",
-                "partido": partidos["FP"],
-                "cargo": cargos["Presidente"],
-                "foto_url": "https://ejemplo.com/fotos/presidente1.jpg",
-            },
-            {
-                "nombre": "María Elena",
-                "apellido_paterno": "Rodríguez",
-                "apellido_materno": "López",
-                "partido": partidos["PM"],
-                "cargo": cargos["Presidente"],
-                "foto_url": "https://ejemplo.com/fotos/presidente2.jpg",
-            },
-            {
-                "nombre": "Carlos Alberto",
-                "apellido_paterno": "Sánchez",
-                "apellido_materno": "Torres",
-                "partido": partidos["APP"],
-                "cargo": cargos["Presidente"],
-                "foto_url": "https://ejemplo.com/fotos/presidente3.jpg",
-            },
-        ]
-
-        for data in candidatos_presidentes:
+        for cand_data in data.get("candidatos_presidente", []):
             candidato, created = Candidato.objects.get_or_create(
-                nombre=data["nombre"],
-                apellido_paterno=data["apellido_paterno"],
-                apellido_materno=data["apellido_materno"],
-                cargo=data["cargo"],
-                defaults={"partido": data["partido"], "foto_url": data["foto_url"]},
+                nombre=cand_data["nombre"],
+                apellido_paterno=cand_data["apellido_paterno"],
+                apellido_materno=cand_data["apellido_materno"],
+                cargo=cargos["Presidente"],
+                defaults={
+                    "partido": partidos[cand_data["partido_sigla"]],
+                    "foto_url": cand_data.get("foto_url"),
+                },
             )
+
+            # Guardar en diccionario para antecedentes
+            key = f"{cand_data['nombre']}|{cand_data['apellido_paterno']}|{cand_data['apellido_materno']}"
+            candidatos_dict[key] = candidato
+
             if created:
                 self.stdout.write(
-                    f"  ✓ Presidente: {candidato.get_full_name()} ({data['partido'].sigla})"
+                    f"  ✓ Presidente: {candidato.get_full_name()} "
+                    f"({candidato.partido.sigla})"
                 )
 
-                # Agregar antecedentes de ejemplo
-                Antecedente.objects.create(
-                    candidato=candidato,
-                    tipo="propuesta",
-                    titulo="Reforma educativa integral",
-                    descripcion="Propuesta para mejorar la calidad educativa en zonas rurales",
-                    fecha=date(2024, 1, 15),
-                    fuente_url="https://ejemplo.com/propuesta1",
-                )
-
-        # SENADORES (5 candidatos)
-        candidatos_senadores = [
-            {
-                "nombre": "Pedro",
-                "apellido_paterno": "Martínez",
-                "apellido_materno": "Luna",
-                "partido": partidos["FP"],
-            },
-            {
-                "nombre": "Ana",
-                "apellido_paterno": "Flores",
-                "apellido_materno": "Quispe",
-                "partido": partidos["PM"],
-            },
-            {
-                "nombre": "Luis",
-                "apellido_paterno": "Castro",
-                "apellido_materno": "Ruiz",
-                "partido": partidos["APP"],
-            },
-            {
-                "nombre": "Rosa",
-                "apellido_paterno": "Mendoza",
-                "apellido_materno": "Vargas",
-                "partido": partidos["PL"],
-            },
-            {
-                "nombre": "Miguel",
-                "apellido_paterno": "Gutiérrez",
-                "apellido_materno": "Silva",
-                "partido": partidos["AP"],
-            },
-        ]
-
-        for data in candidatos_senadores:
+        # 5. Crear Candidatos Senadores
+        self.stdout.write("\nCreando senadores...")
+        for cand_data in data.get("candidatos_senador", []):
             candidato, created = Candidato.objects.get_or_create(
-                nombre=data["nombre"],
-                apellido_paterno=data["apellido_paterno"],
-                apellido_materno=data["apellido_materno"],
+                nombre=cand_data["nombre"],
+                apellido_paterno=cand_data["apellido_paterno"],
+                apellido_materno=cand_data["apellido_materno"],
                 cargo=cargos["Senador"],
-                defaults={"partido": data["partido"]},
+                defaults={
+                    "partido": partidos[cand_data["partido_sigla"]],
+                    "foto_url": cand_data.get("foto_url"),
+                },
             )
+
+            key = f"{cand_data['nombre']}|{cand_data['apellido_paterno']}|{cand_data['apellido_materno']}"
+            candidatos_dict[key] = candidato
+
             if created:
                 self.stdout.write(
-                    f"  ✓ Senador: {candidato.get_full_name()} ({data['partido'].sigla})"
+                    f"  ✓ Senador: {candidato.get_full_name()} "
+                    f"({candidato.partido.sigla})"
                 )
 
-        # DIPUTADOS (2 por región de ejemplo: Lima y Cusco)
-        candidatos_diputados = [
-            # Lima
-            {
-                "nombre": "Jorge",
-                "apellido_paterno": "Ramírez",
-                "apellido_materno": "Paz",
-                "partido": partidos["FP"],
-                "region": regiones["Lima"],
-            },
-            {
-                "nombre": "Carmen",
-                "apellido_paterno": "Vega",
-                "apellido_materno": "Morales",
-                "partido": partidos["PM"],
-                "region": regiones["Lima"],
-            },
-            # Cusco
-            {
-                "nombre": "Roberto",
-                "apellido_paterno": "Chávez",
-                "apellido_materno": "Huamán",
-                "partido": partidos["APP"],
-                "region": regiones["Cusco"],
-            },
-            {
-                "nombre": "Lucia",
-                "apellido_paterno": "Quispe",
-                "apellido_materno": "Ccama",
-                "partido": partidos["PL"],
-                "region": regiones["Cusco"],
-            },
-            # Arequipa
-            {
-                "nombre": "Fernando",
-                "apellido_paterno": "Gonzales",
-                "apellido_materno": "Prado",
-                "partido": partidos["AP"],
-                "region": regiones["Arequipa"],
-            },
-            {
-                "nombre": "Patricia",
-                "apellido_paterno": "Ramos",
-                "apellido_materno": "Díaz",
-                "partido": partidos["FP"],
-                "region": regiones["Arequipa"],
-            },
-        ]
+        # 6. Crear Candidatos Diputados
+        self.stdout.write("\nCreando diputados...")
+        for cand_data in data.get("candidatos_diputado", []):
+            region = regiones[cand_data["region_nombre"]]
 
-        for data in candidatos_diputados:
             candidato, created = Candidato.objects.get_or_create(
-                nombre=data["nombre"],
-                apellido_paterno=data["apellido_paterno"],
-                apellido_materno=data["apellido_materno"],
+                nombre=cand_data["nombre"],
+                apellido_paterno=cand_data["apellido_paterno"],
+                apellido_materno=cand_data["apellido_materno"],
                 cargo=cargos["Diputado"],
-                region=data["region"],
-                defaults={"partido": data["partido"]},
+                region=region,
+                defaults={
+                    "partido": partidos[cand_data["partido_sigla"]],
+                    "foto_url": cand_data.get("foto_url"),
+                },
             )
+
+            key = f"{cand_data['nombre']}|{cand_data['apellido_paterno']}|{cand_data['apellido_materno']}"
+            candidatos_dict[key] = candidato
+
             if created:
                 self.stdout.write(
-                    f"  ✓ Diputado ({data['region'].nombre_region}): {candidato.get_full_name()} ({data['partido'].sigla})"
+                    f"  ✓ Diputado ({region.nombre_region}): "
+                    f"{candidato.get_full_name()} ({candidato.partido.sigla})"
                 )
 
+        # 7. Crear Antecedentes
+        self.stdout.write("\nCreando antecedentes...")
+        for ant_data in data.get("antecedentes", []):
+            # Buscar el candidato
+            key = f"{ant_data['candidato_nombre']}|{ant_data['candidato_apellido_paterno']}|{ant_data['candidato_apellido_materno']}"
+            candidato = candidatos_dict.get(key)
+
+            if not candidato:
+                self.stdout.write(
+                    self.style.WARNING(
+                        f"Candidato no encontrado para antecedente: {key}"
+                    )
+                )
+                continue
+
+            # Convertir fecha de string a date
+            fecha = datetime.strptime(ant_data["fecha"], "%Y-%m-%d").date()
+
+            antecedente, created = Antecedente.objects.get_or_create(
+                candidato=candidato,
+                tipo=ant_data["tipo"],
+                titulo=ant_data["titulo"],
+                defaults={
+                    "descripcion": ant_data["descripcion"],
+                    "fecha": fecha,
+                    "fuente_url": ant_data.get("fuente_url"),
+                },
+            )
+
+            if created:
+                self.stdout.write(
+                    f"  ✓ {ant_data['tipo'].upper()}: {ant_data['titulo'][:50]}..."
+                )
+
+        # Resumen final
         self.stdout.write(self.style.SUCCESS("\nDatos cargados exitosamente!"))
         self.stdout.write("\nResumen:")
         self.stdout.write(f"  - Regiones: {Region.objects.count()}")
         self.stdout.write(f"  - Cargos: {Cargo.objects.count()}")
         self.stdout.write(f"  - Partidos: {Partido.objects.count()}")
         self.stdout.write(f"  - Candidatos: {Candidato.objects.count()}")
+        self.stdout.write(
+            f"    • Presidentes: {Candidato.objects.filter(cargo__nombre_cargo='Presidente').count()}"
+        )
+        self.stdout.write(
+            f"    • Senadores: {Candidato.objects.filter(cargo__nombre_cargo='Senador').count()}"
+        )
+        self.stdout.write(
+            f"    • Diputados: {Candidato.objects.filter(cargo__nombre_cargo='Diputado').count()}"
+        )
         self.stdout.write(f"  - Antecedentes: {Antecedente.objects.count()}\n")
