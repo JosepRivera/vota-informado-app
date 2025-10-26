@@ -1,0 +1,221 @@
+{
+  "partidos": [
+    {
+      "nombre_partido": "Fuerza Popular",
+      "sigla": "FP",
+      "logo_url": "https://i.imgur.com/FP-logo.png"
+    },
+    {
+      "nombre_partido": "Partido Morado",
+      "sigla": "PM",
+      "logo_url": "https://i.imgur.com/PM-logo.png"
+    },
+    {
+      "nombre_partido": "Alianza para el Progreso",
+      "sigla": "APP",
+      "logo_url": "https://i.imgur.com/APP-logo.png"
+    }
+  ],
+
+  "candidatos_presidente": [
+    {
+      "nombre": "Juan Carlos",
+      "apellido_paterno": "Pérez",
+      "apellido_materno": "García",
+      "partido_sigla": "FP",
+      "foto_url": "https://i.imgur.com/candidato1.png",
+      "votos": 1254300
+    },
+    {
+      "nombre": "María Elena",
+      "apellido_paterno": "Rodríguez",
+      "apellido_materno": "López",
+      "partido_sigla": "PM",
+      "foto_url": "https://i.imgur.com/candidato2.png",
+      "votos": 987500
+    },
+    {
+      "nombre": "Carlos Alberto",
+      "apellido_paterno": "Mendoza",
+      "apellido_materno": "Quispe",
+      "partido_sigla": "APP",
+      "foto_url": "https://i.imgur.com/candidato3.png",
+      "votos": 756200
+    }
+  ],
+
+  "candidatos_senador": [
+    {
+      "nombre": "Pedro",
+      "apellido_paterno": "Martínez",
+      "apellido_materno": "Luna",
+      "partido_sigla": "FP",
+      "foto_url": "https://i.imgur.com/senador1.png",
+      "votos": 452000
+    },
+    {
+      "nombre": "Ana María",
+      "apellido_paterno": "Torres",
+      "apellido_materno": "Vega",
+      "partido_sigla": "PM",
+      "foto_url": "https://i.imgur.com/senador2.png",
+      "votos": 398750
+    },
+    {
+      "nombre": "Luis Fernando",
+      "apellido_paterno": "Castillo",
+      "apellido_materno": "Rojas",
+      "partido_sigla": "APP",
+      "foto_url": "https://i.imgur.com/senador3.png",
+      "votos": 321400
+    },
+    {
+      "nombre": "Rosa Elena",
+      "apellido_paterno": "Fernández",
+      "apellido_materno": "Soto",
+      "partido_sigla": "FP",
+      "foto_url": "https://i.imgur.com/senador4.png",
+      "votos": 289600
+    }
+  ],
+
+  "candidatos_diputado": [
+    {
+      "nombre": "Jorge",
+      "apellido_paterno": "Ramírez",
+      "apellido_materno": "Paz",
+      "partido_sigla": "FP",
+      "region_nombre": "Lima",
+      "foto_url": "https://i.imgur.com/diputado1.png",
+      "votos": 83200
+    },
+    {
+      "nombre": "Roberto",
+      "apellido_paterno": "Chávez",
+      "apellido_materno": "Huamán",
+      "partido_sigla": "PM",
+      "region_nombre": "Cusco",
+      "foto_url": "https://i.imgur.com/diputado2.png",
+      "votos": 56700
+    },
+    {
+      "nombre": "Carmen Rosa",
+      "apellido_paterno": "Villanueva",
+      "apellido_materno": "Díaz",
+      "partido_sigla": "APP",
+      "region_nombre": "Arequipa",
+      "foto_url": "https://i.imgur.com/diputado3.png",
+      "votos": 47800
+    },
+    {
+      "nombre": "Miguel Ángel",
+      "apellido_paterno": "Salazar",
+      "apellido_materno": "Pinto",
+      "partido_sigla": "FP",
+      "region_nombre": "La Libertad",
+      "foto_url": "https://i.imgur.com/diputado4.png",
+      "votos": 39500
+    },
+    {
+      "nombre": "Patricia",
+      "apellido_paterno": "Gutiérrez",
+      "apellido_materno": "Ochoa",
+      "partido_sigla": "PM",
+      "region_nombre": "Piura",
+      "foto_url": "https://i.imgur.com/diputado5.png",
+      "votos": 34200
+    },
+    {
+      "nombre": "Daniel Eduardo",
+      "apellido_paterno": "Herrera",
+      "apellido_materno": "Cáceres",
+      "partido_sigla": "APP",
+      "region_nombre": "Junín",
+      "foto_url": "https://i.imgur.com/diputado6.png",
+      "votos": 28900
+    }
+  ],
+
+  "antecedentes": [
+    {
+      "candidato_nombre": "Juan Carlos",
+      "candidato_apellido_paterno": "Pérez",
+      "candidato_apellido_materno": "García",
+      "tipo": "propuesta",
+      "titulo": "Reforma educativa integral",
+      "descripcion": "Propone aumentar el presupuesto educativo al 6% del PBI, priorizando infraestructura en zonas rurales y capacitación docente continua.",
+      "fecha": "2024-01-15",
+      "fuente_url": "https://ejemplo.com/propuesta1"
+    },
+    {
+      "candidato_nombre": "Juan Carlos",
+      "candidato_apellido_paterno": "Pérez",
+      "candidato_apellido_materno": "García",
+      "tipo": "denuncia",
+      "titulo": "Investigación fiscal por presunta corrupción",
+      "descripcion": "En 2022 se abrió investigación preliminar por irregularidades en contrataciones durante su gestión como alcalde.",
+      "fecha": "2022-05-20",
+      "fuente_url": "https://ejemplo.com/denuncia1"
+    },
+    {
+      "candidato_nombre": "María Elena",
+      "candidato_apellido_paterno": "Rodríguez",
+      "candidato_apellido_materno": "López",
+      "tipo": "proyecto",
+      "titulo": "Ley de promoción de energías renovables",
+      "descripcion": "Presentó proyecto de ley para incentivar inversión en energía solar y eólica con beneficios tributarios a empresas.",
+      "fecha": "2023-08-10",
+      "fuente_url": "https://ejemplo.com/proyecto1"
+    },
+    {
+      "candidato_nombre": "María Elena",
+      "candidato_apellido_paterno": "Rodríguez",
+      "apellido_materno": "López",
+      "tipo": "propuesta",
+      "titulo": "Plan nacional de salud mental",
+      "descripcion": "Propone crear centros de salud mental en todas las regiones con atención gratuita y campaña de prevención del suicidio.",
+      "fecha": "2024-03-22",
+      "fuente_url": "https://ejemplo.com/propuesta2"
+    },
+    {
+      "candidato_nombre": "Carlos Alberto",
+      "candidato_apellido_paterno": "Mendoza",
+      "candidato_apellido_materno": "Quispe",
+      "tipo": "proyecto",
+      "titulo": "Modernización de carreteras del sur",
+      "descripcion": "Proyecto de inversión para rehabilitar y ampliar 2,500 km de carreteras en regiones del sur del país.",
+      "fecha": "2023-11-05",
+      "fuente_url": "https://ejemplo.com/proyecto2"
+    },
+    {
+      "candidato_nombre": "Pedro",
+      "candidato_apellido_paterno": "Martínez",
+      "candidato_apellido_materno": "Luna",
+      "tipo": "propuesta",
+      "titulo": "Ley contra la violencia de género",
+      "descripcion": "Propone endurecer penas por feminicidio y crear refugios para víctimas de violencia con presupuesto garantizado.",
+      "fecha": "2024-02-14",
+      "fuente_url": "https://ejemplo.com/propuesta3"
+    },
+    {
+      "candidato_nombre": "Jorge",
+      "candidato_apellido_paterno": "Ramírez",
+      "candidato_apellido_materno": "Paz",
+      "tipo": "denuncia",
+      "titulo": "Investigación por nepotismo",
+      "descripcion": "Denuncia por contratar a familiares directos en cargos de confianza durante su gestión municipal.",
+      "fecha": "2023-06-18",
+      "fuente_url": "https://ejemplo.com/denuncia2"
+    },
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Chávez",
+      "candidato_apellido_materno": "Huamán",
+      "tipo": "proyecto",
+      "titulo": "Revalorización del turismo cultural en Cusco",
+      "descripcion": "Proyecto para mejorar infraestructura turística y crear rutas alternativas al Camino Inca.",
+      "fecha": "2024-01-20",
+      "fuente_url": "https://ejemplo.com/proyecto3"
+    }
+  ]
+}
