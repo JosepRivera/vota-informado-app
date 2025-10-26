@@ -1,0 +1,93 @@
+{
+  "partidos": [
+    {
+      "nombre_partido": "Fuerza Popular",
+      "sigla": "FP",
+      "logo_url": "https://i.imgur.com/FP-logo.png"
+    },
+    {
+      "nombre_partido": "Partido Morado",
+      "sigla": "PM",
+      "logo_url": null
+    }
+  ],
+
+  "candidatos_presidente": [
+    {
+      "nombre": "Juan Carlos",
+      "apellido_paterno": "Pérez",
+      "apellido_materno": "García",
+      "partido_sigla": "FP",
+      "foto_url": "https://i.imgur.com/candidato1.png"
+    },
+    {
+      "nombre": "María Elena",
+      "apellido_paterno": "Rodríguez",
+      "apellido_materno": "López",
+      "partido_sigla": "PM",
+      "foto_url": null
+    }
+  ],
+
+  "candidatos_senador": [
+    {
+      "nombre": "Pedro",
+      "apellido_paterno": "Martínez",
+      "apellido_materno": "Luna",
+      "partido_sigla": "FP",
+      "foto_url": null
+    }
+  ],
+
+  "candidatos_diputado": [
+    {
+      "nombre": "Jorge",
+      "apellido_paterno": "Ramírez",
+      "apellido_materno": "Paz",
+      "partido_sigla": "FP",
+      "region_nombre": "Lima",
+      "foto_url": null
+    },
+    {
+      "nombre": "Roberto",
+      "apellido_paterno": "Chávez",
+      "apellido_materno": "Huamán",
+      "partido_sigla": "PM",
+      "region_nombre": "Cusco",
+      "foto_url": null
+    }
+  ],
+
+  "antecedentes": [
+    {
+      "candidato_nombre": "Juan Carlos",
+      "candidato_apellido_paterno": "Pérez",
+      "candidato_apellido_materno": "García",
+      "tipo": "propuesta",
+      "titulo": "Reforma educativa integral",
+      "descripcion": "Propone aumentar el presupuesto educativo al 6% del PBI, priorizando infraestructura en zonas rurales y capacitación docente continua.",
+      "fecha": "2024-01-15",
+      "fuente_url": "https://ejemplo.com/propuesta1"
+    },
+    {
+      "candidato_nombre": "Juan Carlos",
+      "candidato_apellido_paterno": "Pérez",
+      "candidato_apellido_materno": "García",
+      "tipo": "denuncia",
+      "titulo": "Investigación fiscal por presunta corrupción",
+      "descripcion": "En 2022 se abrió investigación preliminar por irregularidades en contrataciones durante su gestión como alcalde.",
+      "fecha": "2022-05-20",
+      "fuente_url": null
+    },
+    {
+      "candidato_nombre": "María Elena",
+      "candidato_apellido_paterno": "Rodríguez",
+      "candidato_apellido_materno": "López",
+      "tipo": "proyecto",
+      "titulo": "Ley de promoción de energías renovables",
+      "descripcion": "Presentó proyecto de ley para incentivar inversión en energía solar y eólica con beneficios tributarios a empresas.",
+      "fecha": "2023-08-10",
+      "fuente_url": "https://ejemplo.com/proyecto1"
+    }
+  ]
+}
