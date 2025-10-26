@@ -92,9 +92,16 @@ La API estará disponible en `http://127.0.0.1:8000/`
 - `GET /api/usuarios/perfil/` 🔒 - Ver perfil
 
 ### Candidatos
-- `GET /api/candidatos/` - Listar candidatos
-- `GET /api/candidatos/{id}/` - Detalle de candidato
-- `GET /api/candidatos/partidos/` - Listar partidos
+- `GET /api/candidatos/` - Listar todos los candidatos
+- `GET /api/candidatos/?cargo=Presidente` - Filtrar por cargo (Presidente, Senador, Diputado)
+- `GET /api/candidatos/?cargo=Diputado&region=15` - Filtrar por cargo y región
+- `GET /api/candidatos/?partido=1` - Filtrar por partido (ID del partido)
+- `GET /api/candidatos/?search=Juan` - Buscar por nombre
+- `GET /api/candidatos/?cargo=Presidente&partido=1` - Filtrar por cargo y partido
+- `GET /api/candidatos/?cargo=Diputado&region=15&partido=1` - Combinar múltiples filtros
+- `GET /api/candidatos/{id}/` - Detalle de candidato con antecedentes
+  - **Incluye**: `denuncias[]`, `propuestas[]`, `proyectos[]` (ya filtrados por tipo)
+- `GET /api/candidatos/partidos/` - Listar todos los partidos
 
 ### Votación
 - `POST /api/votos/votar/` 🔒 - Emitir voto

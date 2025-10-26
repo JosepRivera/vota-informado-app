@@ -8,7 +8,7 @@
     {
       "nombre_partido": "Partido Morado",
       "sigla": "PM",
-      "logo_url": null
+      "logo_url": "https://i.imgur.com/PM-logo.png"
     }
   ],
 
@@ -25,7 +25,7 @@
       "apellido_paterno": "Rodríguez",
       "apellido_materno": "López",
       "partido_sigla": "PM",
-      "foto_url": null
+      "foto_url": "https://i.imgur.com/candidato2.png"
     }
   ],
 
@@ -35,7 +35,7 @@
       "apellido_paterno": "Martínez",
       "apellido_materno": "Luna",
       "partido_sigla": "FP",
-      "foto_url": null
+      "foto_url": "https://i.imgur.com/senador1.png"
     }
   ],
 
@@ -46,7 +46,7 @@
       "apellido_materno": "Paz",
       "partido_sigla": "FP",
       "region_nombre": "Lima",
-      "foto_url": null
+      "foto_url": "https://i.imgur.com/diputado1.png"
     },
     {
       "nombre": "Roberto",
@@ -54,7 +54,7 @@
       "apellido_materno": "Huamán",
       "partido_sigla": "PM",
       "region_nombre": "Cusco",
-      "foto_url": null
+      "foto_url": "https://i.imgur.com/diputado2.png"
     }
   ],
 
@@ -77,7 +77,7 @@
       "titulo": "Investigación fiscal por presunta corrupción",
       "descripcion": "En 2022 se abrió investigación preliminar por irregularidades en contrataciones durante su gestión como alcalde.",
       "fecha": "2022-05-20",
-      "fuente_url": null
+      "fuente_url": "https://ejemplo.com/denuncia1"
     },
     {
       "candidato_nombre": "María Elena",

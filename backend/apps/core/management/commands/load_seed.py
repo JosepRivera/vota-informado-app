@@ -3,18 +3,31 @@ import os
 from django.core.management.base import BaseCommand
 from apps.core.models import Region, Cargo
 from apps.candidatos.models import Partido, Candidato, Antecedente
+from apps.votos.models import Voto
+from apps.usuarios.models import Usuario
 from datetime import datetime
 
 
 class Command(BaseCommand):
     help = "Carga datos iniciales desde seed_data.json"
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--with-votes",
+            action="store_true",
+            help="Carga seed_data_with_votes.json en lugar de seed_data.json",
+        )
+
     def handle(self, *args, **options):
-        self.stdout.write("Iniciando carga de datos desde JSON...\n")
+        with_votes = options.get("with_votes", False)
+
+        # Seleccionar archivo JSON
+        json_filename = "seed_data_with_votes.json" if with_votes else "seed_data.json"
+        self.stdout.write(f"Iniciando carga de datos desde {json_filename}...\n")
 
         # Ruta al archivo JSON
         json_path = os.path.join(
-            os.path.dirname(__file__), "..", "fixtures", "seed_data.json"
+            os.path.dirname(__file__), "..", "fixtures", json_filename
         )
 
         # Leer el archivo JSON
@@ -25,7 +38,7 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.ERROR(
                     f"No se encontró el archivo: {json_path}\n"
-                    "Asegúrate de crear: apps/core/management/fixtures/seed_data.json"
+                    f"Asegúrate de crear: apps/core/management/fixtures/{json_filename}"
                 )
             )
             return
@@ -96,7 +109,7 @@ class Command(BaseCommand):
 
         # 4. Crear Candidatos Presidentes
         self.stdout.write("\nCreando candidatos presidenciales...")
-        candidatos_dict = {}  # Para relacionar con antecedentes después
+        candidatos_dict = {}
 
         for cand_data in data.get("candidatos_presidente", []):
             candidato, created = Candidato.objects.get_or_create(
@@ -110,7 +123,6 @@ class Command(BaseCommand):
                 },
             )
 
-            # Guardar en diccionario para antecedentes
             key = f"{cand_data['nombre']}|{cand_data['apellido_paterno']}|{cand_data['apellido_materno']}"
             candidatos_dict[key] = candidato
 
@@ -172,7 +184,6 @@ class Command(BaseCommand):
         # 7. Crear Antecedentes
         self.stdout.write("\nCreando antecedentes...")
         for ant_data in data.get("antecedentes", []):
-            # Buscar el candidato
             key = f"{ant_data['candidato_nombre']}|{ant_data['candidato_apellido_paterno']}|{ant_data['candidato_apellido_materno']}"
             candidato = candidatos_dict.get(key)
 
@@ -184,7 +195,6 @@ class Command(BaseCommand):
                 )
                 continue
 
-            # Convertir fecha de string a date
             fecha = datetime.strptime(ant_data["fecha"], "%Y-%m-%d").date()
 
             antecedente, created = Antecedente.objects.get_or_create(
@@ -203,8 +213,67 @@ class Command(BaseCommand):
                     f"  ✓ {ant_data['tipo'].upper()}: {ant_data['titulo'][:50]}..."
                 )
 
+        # 8. Crear votos simulados (solo si se carga con --with-votes)
+        if with_votes and data.get("votos_simulados"):
+            self.stdout.write("\nCreando votos simulados...")
+
+            votos_creados = 0
+            usuario_counter = 1
+
+            for voto_data in data.get("votos_simulados", []):
+                key = f"{voto_data['candidato_nombre']}|{voto_data['candidato_apellido_paterno']}|{voto_data['candidato_apellido_materno']}"
+                candidato = candidatos_dict.get(key)
+
+                if not candidato:
+                    self.stdout.write(
+                        self.style.WARNING(f"Candidato no encontrado: {key}")
+                    )
+                    continue
+
+                cantidad_votos = voto_data.get("cantidad", 0)
+
+                # Crear usuarios ficticios y sus votos
+                for i in range(cantidad_votos):
+                    # DNI único ficticio (8 caracteres máximo)
+                    dni = f"{usuario_counter:08d}"
+
+                    # Crear usuario ficticio
+                    usuario, _ = Usuario.objects.get_or_create(
+                        dni=dni,
+                        defaults={
+                            "nombre": "Votante",
+                            "apellido_paterno": "Ficticio",
+                            "apellido_materno": str(usuario_counter),
+                            "rol": "votante",
+                            "region": candidato.region
+                            if candidato.cargo.nombre_cargo == "Diputado"
+                            else regiones["Lima"],
+                        },
+                    )
+
+                    # Crear voto
+                    try:
+                        Voto.objects.create(
+                            usuario=usuario, candidato=candidato, cargo=candidato.cargo
+                        )
+                        votos_creados += 1
+                        usuario_counter += 1
+                    except Exception as e:
+                        self.stdout.write(
+                            self.style.WARNING(f"Error creando voto: {e}")
+                        )
+
+                if cantidad_votos > 0:
+                    self.stdout.write(
+                        f"  ✓ {cantidad_votos} votos para {candidato.get_full_name()}"
+                    )
+
+            self.stdout.write(
+                self.style.SUCCESS(f"\nTotal de votos creados: {votos_creados}")
+            )
+
         # Resumen final
-        self.stdout.write(self.style.SUCCESS("\nDatos cargados exitosamente!"))
+        self.stdout.write(self.style.SUCCESS("\n✅ Datos cargados exitosamente!"))
         self.stdout.write("\nResumen:")
         self.stdout.write(f"  - Regiones: {Region.objects.count()}")
         self.stdout.write(f"  - Cargos: {Cargo.objects.count()}")
@@ -219,4 +288,12 @@ class Command(BaseCommand):
         self.stdout.write(
             f"    • Diputados: {Candidato.objects.filter(cargo__nombre_cargo='Diputado').count()}"
         )
-        self.stdout.write(f"  - Antecedentes: {Antecedente.objects.count()}\n")
+        self.stdout.write(f"  - Antecedentes: {Antecedente.objects.count()}")
+
+        if with_votes:
+            self.stdout.write(f"  - Votos registrados: {Voto.objects.count()}")
+            self.stdout.write(
+                f"  - Usuarios votantes: {Usuario.objects.filter(rol='votante').count()}"
+            )
+
+        self.stdout.write("")
