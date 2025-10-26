@@ -1,12 +1,11 @@
 from pathlib import Path
 from datetime import timedelta
-from decouple import config
+from decouple import config  # type: ignore
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config(
-    "SECRET_KEY",
-    default="django-insecure-l+w=pq=qp)hb#*ihboim)tbjva!+#5zecw$+g$y!22ky73!*=i",
+    "SECRET_KEY", default="tu-secret-key-super-secreta-cambiar-en-produccion"
 )
 
 DEBUG = config("DEBUG", default=True, cast=bool)
@@ -137,3 +136,6 @@ RENIEC_API_URL = config(
     "RENIEC_API_URL", default="https://api.decolecta.com/v1/reniec/dni"
 )
 RENIEC_API_TOKEN = config("RENIEC_API_TOKEN", default="")  # Si la API requiere token
+
+# Custom user model
+AUTH_USER_MODEL = "usuarios.Usuario"
