@@ -1,93 +1,771 @@
 {
   "partidos": [
     {
-      "nombre_partido": "Fuerza Popular",
-      "sigla": "FP",
-      "logo_url": "https://i.imgur.com/FP-logo.png"
+      "nombre_partido": "Renovación Popular",
+      "sigla": "RP",
+      "logo_url": "https://placehold.co/200x200/0066CC/FFFFFF/png?text=RP"
     },
     {
-      "nombre_partido": "Partido Morado",
-      "sigla": "PM",
-      "logo_url": "https://i.imgur.com/PM-logo.png"
+      "nombre_partido": "Fuerza Popular",
+      "sigla": "FP",
+      "logo_url": "https://placehold.co/200x200/FF6600/FFFFFF/png?text=FP"
+    },
+    {
+      "nombre_partido": "Alianza para el Progreso",
+      "sigla": "APP",
+      "logo_url": "https://placehold.co/200x200/DC143C/FFFFFF/png?text=APP"
+    },
+    {
+      "nombre_partido": "País para Todos",
+      "sigla": "PPT",
+      "logo_url": "https://placehold.co/200x200/228B22/FFFFFF/png?text=PPT"
+    },
+    {
+      "nombre_partido": "Nuevo Perú",
+      "sigla": "NP",
+      "logo_url": "https://placehold.co/200x200/9932CC/FFFFFF/png?text=NP"
+    },
+    {
+      "nombre_partido": "Partido Aprista Peruano",
+      "sigla": "APRA",
+      "logo_url": "https://placehold.co/200x200/CD0000/FFFFFF/png?text=APRA"
+    },
+    {
+      "nombre_partido": "Avanza País",
+      "sigla": "AP",
+      "logo_url": "https://placehold.co/200x200/00CED1/FFFFFF/png?text=AP"
+    },
+    {
+      "nombre_partido": "Acción Popular",
+      "sigla": "ACCPOP",
+      "logo_url": "https://placehold.co/200x200/CD0000/FFFFFF/png?text=ACCPOP"
+    },
+    {
+      "nombre_partido": "Partido Popular Cristiano",
+      "sigla": "PPC",
+      "logo_url": "https://placehold.co/200x200/32CD32/FFFFFF/png?text=PPC"
+    },
+    {
+      "nombre_partido": "Voces del Pueblo",
+      "sigla": "VP",
+      "logo_url": "https://placehold.co/200x200/FF0000/FFFFFF/png?text=VP"
+    },
+    {
+      "nombre_partido": "Perú Primero",
+      "sigla": "PP",
+      "logo_url": "https://placehold.co/200x200/4169E1/FFFFFF/png?text=PP"
+    },
+    {
+      "nombre_partido": "Somos Perú",
+      "sigla": "SP",
+      "logo_url": "https://placehold.co/200x200/FF8C00/FFFFFF/png?text=SP"
+    },
+    {
+      "nombre_partido": "Ahora Nación",
+      "sigla": "AN",
+      "logo_url": "https://placehold.co/200x200/1E90FF/FFFFFF/png?text=AN"
+    },
+    {
+      "nombre_partido": "Fuerza Moderna",
+      "sigla": "FM",
+      "logo_url": "https://placehold.co/200x200/FF1493/FFFFFF/png?text=FM"
+    },
+    {
+      "nombre_partido": "Progresemos",
+      "sigla": "PRO",
+      "logo_url": "https://placehold.co/200x200/8B4513/FFFFFF/png?text=PRO"
+    },
+    {
+      "nombre_partido": "Primero la Gente",
+      "sigla": "PLG",
+      "logo_url": "https://placehold.co/200x200/20B2AA/FFFFFF/png?text=PLG"
     }
   ],
 
   "candidatos_presidente": [
     {
-      "nombre": "Juan Carlos",
-      "apellido_paterno": "Pérez",
-      "apellido_materno": "García",
-      "partido_sigla": "FP",
-      "foto_url": "https://i.imgur.com/candidato1.png"
+      "nombre": "Rafael",
+      "apellido_paterno": "López",
+      "apellido_materno": "Aliaga",
+      "partido_sigla": "RP",
+      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=RLA"
     },
     {
-      "nombre": "María Elena",
-      "apellido_paterno": "Rodríguez",
-      "apellido_materno": "López",
-      "partido_sigla": "PM",
-      "foto_url": "https://i.imgur.com/candidato2.png"
+      "nombre": "Keiko",
+      "apellido_paterno": "Fujimori",
+      "apellido_materno": "Higuchi",
+      "partido_sigla": "FP",
+      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=KF"
+    },
+    {
+      "nombre": "César",
+      "apellido_paterno": "Acuña",
+      "apellido_materno": "Peralta",
+      "partido_sigla": "APP",
+      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=CA"
+    },
+    {
+      "nombre": "Carlos",
+      "apellido_paterno": "Álvarez",
+      "apellido_materno": "Aguilar",
+      "partido_sigla": "PPT",
+      "foto_url": "https://placehold.co/400x400/228B22/FFFFFF/png?text=CAA"
+    },
+    {
+      "nombre": "Vicente",
+      "apellido_paterno": "Alanoca",
+      "apellido_materno": "Apaza",
+      "partido_sigla": "NP",
+      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=VA"
+    },
+    {
+      "nombre": "Hernán",
+      "apellido_paterno": "Garrido",
+      "apellido_materno": "Lecca",
+      "partido_sigla": "APRA",
+      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=HGL"
+    },
+    {
+      "nombre": "Yonhy",
+      "apellido_paterno": "Lescano",
+      "apellido_materno": "Ancieta",
+      "partido_sigla": "ACCPOP",
+      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=YL"
+    },
+    {
+      "nombre": "George",
+      "apellido_paterno": "Forsyth",
+      "apellido_materno": "Sommer",
+      "partido_sigla": "SP",
+      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=GF"
+    },
+    {
+      "nombre": "Roberto",
+      "apellido_paterno": "Chiabra",
+      "apellido_materno": "León",
+      "partido_sigla": "PPC",
+      "foto_url": "https://placehold.co/400x400/32CD32/FFFFFF/png?text=RC"
+    },
+    {
+      "nombre": "Alfonso",
+      "apellido_paterno": "López",
+      "apellido_materno": "Chau",
+      "partido_sigla": "AN",
+      "foto_url": "https://placehold.co/400x400/1E90FF/FFFFFF/png?text=ALC"
+    },
+    {
+      "nombre": "Fiorella",
+      "apellido_paterno": "Molinelli",
+      "apellido_materno": "Alfaro",
+      "partido_sigla": "FM",
+      "foto_url": "https://placehold.co/400x400/FF1493/FFFFFF/png?text=FMA"
+    },
+    {
+      "nombre": "Hernando",
+      "apellido_paterno": "De Soto",
+      "apellido_materno": "Polar",
+      "partido_sigla": "PRO",
+      "foto_url": "https://placehold.co/400x400/8B4513/FFFFFF/png?text=HDS"
+    },
+    {
+      "nombre": "Marisol",
+      "apellido_paterno": "Pérez",
+      "apellido_materno": "Tello",
+      "partido_sigla": "PLG",
+      "foto_url": "https://placehold.co/400x400/20B2AA/FFFFFF/png?text=MPT"
     }
   ],
 
   "candidatos_senador": [
     {
-      "nombre": "Pedro",
-      "apellido_paterno": "Martínez",
-      "apellido_materno": "Luna",
+      "nombre": "Guillermo",
+      "apellido_paterno": "Bermejo",
+      "apellido_materno": "Rojas",
+      "partido_sigla": "VP",
+      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=GB"
+    },
+    {
+      "nombre": "Mario",
+      "apellido_paterno": "Vizcarra",
+      "apellido_materno": "Zea",
+      "partido_sigla": "PP",
+      "foto_url": "https://placehold.co/400x400/4169E1/FFFFFF/png?text=MV"
+    },
+    {
+      "nombre": "Martha",
+      "apellido_paterno": "Chávez",
+      "apellido_materno": "Cossío",
       "partido_sigla": "FP",
-      "foto_url": "https://i.imgur.com/senador1.png"
+      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=MC"
+    },
+    {
+      "nombre": "Jorge",
+      "apellido_paterno": "Del Castillo",
+      "apellido_materno": "Gálvez",
+      "partido_sigla": "APRA",
+      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=JDC"
+    },
+    {
+      "nombre": "Patricia",
+      "apellido_paterno": "Chirinos",
+      "apellido_materno": "Venegas",
+      "partido_sigla": "AP",
+      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=PC"
+    },
+    {
+      "nombre": "José",
+      "apellido_paterno": "Luna",
+      "apellido_materno": "Morales",
+      "partido_sigla": "SP",
+      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=JLM"
+    },
+    {
+      "nombre": "Lady",
+      "apellido_paterno": "Camones",
+      "apellido_materno": "Soriano",
+      "partido_sigla": "APP",
+      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=LC"
+    },
+    {
+      "nombre": "Norma",
+      "apellido_paterno": "Yarrow",
+      "apellido_materno": "Lumbreras",
+      "partido_sigla": "RP",
+      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=NY"
+    },
+    {
+      "nombre": "Susel",
+      "apellido_paterno": "Paredes",
+      "apellido_materno": "Piqué",
+      "partido_sigla": "VP",
+      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=SP"
+    },
+    {
+      "nombre": "Diego",
+      "apellido_paterno": "Bazán",
+      "apellido_materno": "Calderón",
+      "partido_sigla": "ACCPOP",
+      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=DBC"
+    },
+    {
+      "nombre": "Jaime",
+      "apellido_paterno": "Yoshiyama",
+      "apellido_materno": "Tanaka",
+      "partido_sigla": "FP",
+      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=JY"
+    },
+    {
+      "nombre": "Ruth",
+      "apellido_paterno": "Buendía",
+      "apellido_materno": "Mestoquiari",
+      "partido_sigla": "AN",
+      "foto_url": "https://placehold.co/400x400/1E90FF/FFFFFF/png?text=RB"
     }
   ],
 
   "candidatos_diputado": [
     {
-      "nombre": "Jorge",
-      "apellido_paterno": "Ramírez",
-      "apellido_materno": "Paz",
-      "partido_sigla": "FP",
+      "nombre": "María",
+      "apellido_paterno": "Cordero",
+      "apellido_materno": "Jon",
+      "partido_sigla": "RP",
       "region_nombre": "Lima",
-      "foto_url": "https://i.imgur.com/diputado1.png"
+      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=MCJ"
     },
     {
-      "nombre": "Roberto",
-      "apellido_paterno": "Chávez",
-      "apellido_materno": "Huamán",
-      "partido_sigla": "PM",
+      "nombre": "Luis",
+      "apellido_paterno": "Valdez",
+      "apellido_materno": "Farías",
+      "partido_sigla": "FP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=LVF"
+    },
+    {
+      "nombre": "Eduardo",
+      "apellido_paterno": "Salhuana",
+      "apellido_materno": "Cavides",
+      "partido_sigla": "APP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=ES"
+    },
+    {
+      "nombre": "Rosángela",
+      "apellido_paterno": "Barbarán",
+      "apellido_materno": "Reyes",
+      "partido_sigla": "RP",
+      "region_nombre": "Callao",
+      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=RB"
+    },
+    {
+      "nombre": "Carlos",
+      "apellido_paterno": "Anderson",
+      "apellido_materno": "Ramírez",
+      "partido_sigla": "SP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=CAR"
+    },
+    {
+      "nombre": "Waldemar",
+      "apellido_paterno": "Cerrón",
+      "apellido_materno": "Rojas",
+      "partido_sigla": "NP",
+      "region_nombre": "Junín",
+      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=WC"
+    },
+    {
+      "nombre": "Javier",
+      "apellido_paterno": "Velásquez",
+      "apellido_materno": "Quesquén",
+      "partido_sigla": "APRA",
+      "region_nombre": "Lambayeque",
+      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=JVQ"
+    },
+    {
+      "nombre": "Francis",
+      "apellido_paterno": "Allison",
+      "apellido_materno": "Oyague",
+      "partido_sigla": "RP",
+      "region_nombre": "Arequipa",
+      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=FA"
+    },
+    {
+      "nombre": "Alejandro",
+      "apellido_paterno": "Cavero",
+      "apellido_materno": "Alva",
+      "partido_sigla": "AP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=AC"
+    },
+    {
+      "nombre": "Paul",
+      "apellido_paterno": "Gutiérrez",
+      "apellido_materno": "Ticse",
+      "partido_sigla": "VP",
       "region_nombre": "Cusco",
-      "foto_url": "https://i.imgur.com/diputado2.png"
+      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=PG"
+    },
+    {
+      "nombre": "María",
+      "apellido_paterno": "Agüero",
+      "apellido_materno": "Gutiérrez",
+      "partido_sigla": "FP",
+      "region_nombre": "La Libertad",
+      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=MA"
+    },
+    {
+      "nombre": "Segundo",
+      "apellido_paterno": "Quiroz",
+      "apellido_materno": "Barboza",
+      "partido_sigla": "APP",
+      "region_nombre": "Piura",
+      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=SQ"
+    },
+    {
+      "nombre": "Elías",
+      "apellido_paterno": "Ávalos",
+      "apellido_materno": "Vizcarra",
+      "partido_sigla": "SP",
+      "region_nombre": "Moquegua",
+      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=EA"
+    },
+    {
+      "nombre": "Gladys",
+      "apellido_paterno": "Echaiz",
+      "apellido_materno": "Ramos",
+      "partido_sigla": "RP",
+      "region_nombre": "Puno",
+      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=GE"
+    },
+    {
+      "nombre": "Pedro",
+      "apellido_paterno": "Martínez",
+      "apellido_materno": "Talavera",
+      "partido_sigla": "APRA",
+      "region_nombre": "Áncash",
+      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=PM"
+    },
+    {
+      "nombre": "Alfredo",
+      "apellido_paterno": "Azurín",
+      "apellido_materno": "Loayza",
+      "partido_sigla": "AP",
+      "region_nombre": "Ica",
+      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=AA"
+    },
+    {
+      "nombre": "Ruth",
+      "apellido_paterno": "Luque",
+      "apellido_materno": "Ibarra",
+      "partido_sigla": "NP",
+      "region_nombre": "Ayacucho",
+      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=RL"
+    },
+    {
+      "nombre": "Américo",
+      "apellido_paterno": "Gonza",
+      "apellido_materno": "Castillo",
+      "partido_sigla": "FP",
+      "region_nombre": "Cajamarca",
+      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=AG"
+    },
+    {
+      "nombre": "Flor",
+      "apellido_paterno": "Pablo",
+      "apellido_materno": "Medina",
+      "partido_sigla": "PPT",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/228B22/FFFFFF/png?text=FP"
+    },
+    {
+      "nombre": "Jorge",
+      "apellido_paterno": "Montoya",
+      "apellido_materno": "Manrique",
+      "partido_sigla": "RP",
+      "region_nombre": "San Martín",
+      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=JM"
+    },
+    {
+      "nombre": "Diana",
+      "apellido_paterno": "Gonzales",
+      "apellido_materno": "Delgado",
+      "partido_sigla": "APP",
+      "region_nombre": "Loreto",
+      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=DG"
+    },
+    {
+      "nombre": "Raúl",
+      "apellido_paterno": "Doroteo",
+      "apellido_materno": "Carbajal",
+      "partido_sigla": "PPC",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/32CD32/FFFFFF/png?text=RD"
+    },
+    {
+      "nombre": "Isabel",
+      "apellido_paterno": "Cortez",
+      "apellido_materno": "Aguirre",
+      "partido_sigla": "VP",
+      "region_nombre": "Huancavelica",
+      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=IC"
+    },
+    {
+      "nombre": "Héctor",
+      "apellido_paterno": "Ventura",
+      "apellido_materno": "Ángel",
+      "partido_sigla": "APRA",
+      "region_nombre": "Huánuco",
+      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=HV"
+    },
+    {
+      "nombre": "Kira",
+      "apellido_paterno": "Alcarraz",
+      "apellido_materno": "Serna",
+      "partido_sigla": "NP",
+      "region_nombre": "Tacna",
+      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=KA"
+    },
+    {
+      "nombre": "Adriana",
+      "apellido_paterno": "Tudela",
+      "apellido_materno": "Gutiérrez",
+      "partido_sigla": "AP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=AT"
+    },
+    {
+      "nombre": "Wilson",
+      "apellido_paterno": "Quispe",
+      "apellido_materno": "Mamani",
+      "partido_sigla": "NP",
+      "region_nombre": "Puno",
+      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=WQ"
+    },
+    {
+      "nombre": "José",
+      "apellido_paterno": "Jerí",
+      "apellido_materno": "Oré",
+      "partido_sigla": "FP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=JJ"
+    },
+    {
+      "nombre": "Nilza",
+      "apellido_paterno": "Chacón",
+      "apellido_materno": "Trujillo",
+      "partido_sigla": "APP",
+      "region_nombre": "Amazonas",
+      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=NC"
+    },
+    {
+      "nombre": "Kelly",
+      "apellido_paterno": "Portalatino",
+      "apellido_materno": "Ávalos",
+      "partido_sigla": "VP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=KP"
     }
   ],
 
   "antecedentes": [
     {
-      "candidato_nombre": "Juan Carlos",
-      "candidato_apellido_paterno": "Pérez",
-      "candidato_apellido_materno": "García",
+      "candidato_nombre": "Rafael",
+      "candidato_apellido_paterno": "López",
+      "candidato_apellido_materno": "Aliaga",
       "tipo": "propuesta",
-      "titulo": "Reforma educativa integral",
-      "descripcion": "Propone aumentar el presupuesto educativo al 6% del PBI, priorizando infraestructura en zonas rurales y capacitación docente continua.",
-      "fecha": "2024-01-15",
-      "fuente_url": "https://ejemplo.com/propuesta1"
+      "titulo": "Plan de transporte masivo para Lima Metropolitana",
+      "descripcion": "Propuesta integral de sistema de metros y trenes eléctricos interconectados en Lima y Callao, con el objetivo de reducir el congestionamiento vehicular. El proyecto contempla la construcción de 6 líneas de metro y expansión del tren eléctrico, con inversión estimada de US$ 10,000 millones en 10 años. Incluye modernización de corredores complementarios y sistema integrado de pago.",
+      "fecha": "2024-03-15",
+      "fuente_url": "https://ejemplo.com/propuesta-transporte-rla"
     },
     {
-      "candidato_nombre": "Juan Carlos",
-      "candidato_apellido_paterno": "Pérez",
-      "candidato_apellido_materno": "García",
+      "candidato_nombre": "Rafael",
+      "candidato_apellido_paterno": "López",
+      "candidato_apellido_materno": "Aliaga",
       "tipo": "denuncia",
-      "titulo": "Investigación fiscal por presunta corrupción",
-      "descripcion": "En 2022 se abrió investigación preliminar por irregularidades en contrataciones durante su gestión como alcalde.",
-      "fecha": "2022-05-20",
-      "fuente_url": "https://ejemplo.com/denuncia1"
+      "titulo": "Investigación fiscal por presunto financiamiento irregular",
+      "descripcion": "Fiscalía anticorrupción investiga presuntas irregularidades en el financiamiento de su campaña municipal 2022. Se analiza el origen de aportes superiores a S/ 800,000 no declarados adecuadamente ante la ONPE. La investigación está en etapa preliminar.",
+      "fecha": "2023-08-20",
+      "fuente_url": "https://ejemplo.com/denuncia-financiamiento-rla"
     },
     {
-      "candidato_nombre": "María Elena",
-      "candidato_apellido_paterno": "Rodríguez",
-      "candidato_apellido_materno": "López",
+      "candidato_nombre": "Keiko",
+      "candidato_apellido_paterno": "Fujimori",
+      "candidato_apellido_materno": "Higuchi",
+      "tipo": "denuncia",
+      "titulo": "Caso Cocteles archivado por el Tribunal Constitucional",
+      "descripcion": "En octubre 2025, el Tribunal Constitucional archivó definitivamente el caso Cocteles, investigación que se extendió por más de 10 años. El TC determinó que se vulneró el principio de legalidad pues los hechos imputados (financiamiento de campañas 2011-2016) no constituían delito de lavado de activos en esas fechas. El fiscal José Domingo Pérez había solicitado 30 años de prisión por organización criminal, lavado de activos y obstrucción a la justicia.",
+      "fecha": "2025-10-20",
+      "fuente_url": "https://ejemplo.com/caso-cocteles-archivo"
+    },
+    {
+      "candidato_nombre": "Keiko",
+      "candidato_apellido_paterno": "Fujimori",
+      "candidato_apellido_materno": "Higuchi",
+      "tipo": "propuesta",
+      "titulo": "Reforma integral del sistema de pensiones",
+      "descripcion": "Propone crear un sistema de pensiones mixto que combine elementos del ONP y AFP, permitiendo a trabajadores mayor flexibilidad de elección. Incluye aumento gradual de la pensión mínima a S/ 1,200, eliminación de trabas para retiro del 100% de fondos AFP al jubilarse, y creación de un fondo de garantía estatal para pensiones dignas.",
+      "fecha": "2024-05-12",
+      "fuente_url": "https://ejemplo.com/propuesta-pensiones-kf"
+    },
+    {
+      "candidato_nombre": "César",
+      "candidato_apellido_paterno": "Acuña",
+      "candidato_apellido_materno": "Peralta",
+      "tipo": "denuncia",
+      "titulo": "Comprobación de plagio académico en tesis doctoral",
+      "descripcion": "En 2016, la Universidad Nacional Mayor de San Marcos y posteriormente otras instituciones académicas comprobaron irregularidades y plagio en diversos trabajos académicos presentados por Acuña, incluyendo su tesis doctoral. La SUNEDU inició investigaciones sobre las credenciales académicas del político y empresario educativo.",
+      "fecha": "2016-02-18",
+      "fuente_url": "https://ejemplo.com/plagio-academico-ca"
+    },
+    {
+      "candidato_nombre": "César",
+      "candidato_apellido_paterno": "Acuña",
+      "candidato_apellido_materno": "Peralta",
       "tipo": "proyecto",
-      "titulo": "Ley de promoción de energías renovables",
-      "descripcion": "Presentó proyecto de ley para incentivar inversión en energía solar y eólica con beneficios tributarios a empresas.",
-      "fecha": "2023-08-10",
-      "fuente_url": "https://ejemplo.com/proyecto1"
+      "titulo": "Programa Beca 18 regional en La Libertad",
+      "descripcion": "Como gobernador regional de La Libertad (2019-2022), implementó programa de becas integrales que benefició a más de 5,000 estudiantes de bajos recursos económicos. El programa cubrió matrícula, pensión, alimentación y materiales. Propone replicar el modelo a nivel nacional con presupuesto de S/ 500 millones anuales y meta de 50,000 becarios.",
+      "fecha": "2023-06-20",
+      "fuente_url": "https://ejemplo.com/programa-becas-ca"
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Álvarez",
+      "candidato_apellido_materno": "Aguilar",
+      "tipo": "propuesta",
+      "titulo": "Plan nacional de seguridad ciudadana y modernización policial",
+      "descripcion": "Propuesta integral que contempla incremento de 50,000 efectivos policiales, modernización tecnológica de todas las comisarías del país, implementación de centros de monitoreo con inteligencia artificial en ciudades principales, y reforma de la carrera policial con mejores salarios. Inversión estimada de S/ 8,000 millones. Incluye coordinación con municipios para vigilancia comunitaria y programas de prevención del delito.",
+      "fecha": "2024-07-08",
+      "fuente_url": "https://ejemplo.com/seguridad-ca"
+    },
+    {
+      "candidato_nombre": "Vicente",
+      "candidato_apellido_paterno": "Alanoca",
+      "candidato_apellido_materno": "Apaza",
+      "tipo": "proyecto",
+      "titulo": "Ley de promoción y desarrollo de la agricultura familiar campesina",
+      "descripcion": "Proyecto de ley para fortalecer la agricultura familiar mediante créditos agrarios con tasas preferenciales del 3% anual, asistencia técnica gratuita, seguro agrario subsidiado y mercados de garantía donde el Estado compra producción a precios justos. Busca beneficiar a más de 2 millones de familias rurales y reducir la pobreza en zonas andinas y amazónicas.",
+      "fecha": "2023-11-15",
+      "fuente_url": "https://ejemplo.com/agricultura-familiar-va"
+    },
+    {
+      "candidato_nombre": "Hernán",
+      "candidato_apellido_paterno": "Garrido",
+      "candidato_apellido_materno": "Lecca",
+      "tipo": "proyecto",
+      "titulo": "Reforma del sistema de salud pública y telemedicina rural",
+      "descripcion": "Como exministro de Salud durante gobierno aprista, impulsó ampliación de hospitales regionales y programa piloto de telemedicina. Propone aumentar presupuesto de salud al 5.5% del PBI, construir 50 hospitales en zonas rurales, implementar red nacional de telemedicina, y mejorar salarios de médicos y enfermeras. Meta: cobertura universal de salud en 5 años.",
+      "fecha": "2024-02-28",
+      "fuente_url": "https://ejemplo.com/reforma-salud-hgl"
+    },
+    {
+      "candidato_nombre": "Yonhy",
+      "candidato_apellido_paterno": "Lescano",
+      "candidato_apellido_materno": "Ancieta",
+      "tipo": "propuesta",
+      "titulo": "Plan de descentralización económica y polos de desarrollo regional",
+      "descripcion": "Propuesta de descentralización real mediante creación de 8 polos de desarrollo estratégicos en regiones, con incentivos tributarios por 10 años para empresas que inviertan fuera de Lima. Incluye fondo de S/ 10,000 millones para infraestructura vial, energética y digital en regiones. Transferencia efectiva de recursos y competencias a gobiernos regionales.",
+      "fecha": "2024-06-10",
+      "fuente_url": "https://ejemplo.com/reactivacion-yl"
+    },
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Chiabra",
+      "candidato_apellido_materno": "León",
+      "tipo": "proyecto",
+      "titulo": "Modernización de Fuerzas Armadas y carrera militar",
+      "descripcion": "Como excomandante general del Ejército Peruano (2018-2019), impulsó modernización de formación castrense y renovación de equipamiento. Propone reforma integral: mejoras salariales del 40% para personal militar y policial, capacitación continua en derechos humanos, modernización del equipamiento con inversión de S/ 15,000 millones en 5 años, y fortalecimiento del control fronterizo.",
+      "fecha": "2023-09-18",
+      "fuente_url": "https://ejemplo.com/reforma-militar-rc"
+    },
+    {
+      "candidato_nombre": "Guillermo",
+      "candidato_apellido_paterno": "Bermejo",
+      "candidato_apellido_materno": "Rojas",
+      "tipo": "denuncia",
+      "titulo": "Investigación fiscal por presuntos vínculos con narcotráfico",
+      "descripcion": "Fiscalía especializada investiga presuntos nexos con organizaciones criminales del VRAEM dedicadas al narcotráfico. Se analiza el origen del financiamiento de sus actividades políticas y reuniones documentadas con personas vinculadas al tráfico ilícito de drogas. La investigación incluye análisis de comunicaciones y movimientos bancarios. Está en etapa de investigación preparatoria.",
+      "fecha": "2022-07-14",
+      "fuente_url": "https://ejemplo.com/narcotrafico-gb"
+    },
+    {
+      "candidato_nombre": "Guillermo",
+      "candidato_apellido_paterno": "Bermejo",
+      "candidato_apellido_materno": "Rojas",
+      "tipo": "propuesta",
+      "titulo": "Convocatoria a Asamblea Constituyente Popular",
+      "descripcion": "Propone convocatoria a Asamblea Constituyente para redactar nueva Constitución que reemplace el modelo neoliberal vigente desde 1993. Plantea nacionalización de sectores estratégicos (minería, hidrocarburos, telecomunicaciones), garantía de derechos sociales plenos (salud, educación, vivienda gratuitas), reforma del sistema político y consulta popular vinculante para aprobar nueva carta magna.",
+      "fecha": "2024-01-25",
+      "fuente_url": "https://ejemplo.com/asamblea-constituyente-gb"
+    },
+    {
+      "candidato_nombre": "Mario",
+      "candidato_apellido_paterno": "Vizcarra",
+      "candidato_apellido_materno": "Zea",
+      "tipo": "denuncia",
+      "titulo": "Caso Vacunagate: vacunación irregular contra COVID-19",
+      "descripcion": "En 2021, se reveló que siendo presidente recibió vacunas experimentales de Sinopharm de manera irregular junto a su esposa y hermano, fuera del protocolo oficial. El caso generó su inhabilitación por 10 años para ejercer función pública, sanción impuesta por el Congreso. Adicionalmente enfrenta investigaciones por presuntos actos de corrupción durante su gestión como gobernador de Moquegua y como presidente.",
+      "fecha": "2021-02-13",
+      "fuente_url": "https://ejemplo.com/vacunagate-mv"
+    },
+    {
+      "candidato_nombre": "Mario",
+      "candidato_apellido_paterno": "Vizcarra",
+      "candidato_apellido_materno": "Zea",
+      "tipo": "proyecto",
+      "titulo": "Lucha anticorrupción y reforma del sistema de justicia",
+      "descripcion": "Durante su presidencia (2018-2020) impulsó referéndum para reforma política que incluyó: no reelección inmediata de congresistas, bicameralidad, financiamiento privado de campañas y reforma del CNM. Aunque bicameralidad fue rechazada, las otras reformas se aprobaron. Apoyó activamente trabajo de fiscales anticorrupción en casos Lava Jato y otros escándalos que involucraron a expresidentes.",
+      "fecha": "2018-12-09",
+      "fuente_url": "https://ejemplo.com/reforma-politica-mv"
+    },
+    {
+      "candidato_nombre": "George",
+      "candidato_apellido_paterno": "Forsyth",
+      "candidato_apellido_materno": "Sommer",
+      "tipo": "proyecto",
+      "titulo": "Programa de modernización municipal en La Victoria",
+      "descripcion": "Como alcalde de La Victoria (2019-2022), implementó programa de modernización que incluyó digitalización de trámites municipales, instalación de cámaras de seguridad en puntos críticos, renovación de parques y espacios públicos, y programa de apoyo a comerciantes ambulantes. Propone replicar modelo en municipios de todo el país con inversión de S/ 2,000 millones.",
+      "fecha": "2021-08-15",
+      "fuente_url": "https://ejemplo.com/modernizacion-gf"
+    },
+    {
+      "candidato_nombre": "Hernando",
+      "candidato_apellido_paterno": "De Soto",
+      "candidato_apellido_materno": "Polar",
+      "tipo": "propuesta",
+      "titulo": "Formalización masiva y capitalismo popular",
+      "descripcion": "Propuesta basada en su reconocida investigación económica sobre economía informal. Plantea formalización de 3 millones de empresas informales mediante trámites digitales gratuitos y simplificados, titulación de propiedades para convertir activos muertos en capital productivo, eliminación de barreras burocráticas, y acceso a crédito formal para microempresarios. Inversión estimada: S/ 5,000 millones en 4 años.",
+      "fecha": "2024-04-18",
+      "fuente_url": "https://ejemplo.com/formalizacion-hds"
+    },
+    {
+      "candidato_nombre": "Waldemar",
+      "candidato_apellido_paterno": "Cerrón",
+      "candidato_apellido_materno": "Rojas",
+      "tipo": "denuncia",
+      "titulo": "Investigación por presunta organización criminal",
+      "descripcion": "Fiscalía investiga presunta organización criminal liderada por su hermano Vladimir Cerrón para desvío de fondos públicos durante gestión como gobernador de Junín. Waldemar es investigado como presunto integrante de la red. Se analiza su participación en licitaciones irregulares y contrataciones de personal. La investigación está en curso desde 2019.",
+      "fecha": "2019-11-22",
+      "fuente_url": "https://ejemplo.com/org-criminal-wc"
+    },
+    {
+      "candidato_nombre": "Martha",
+      "candidato_apellido_paterno": "Chávez",
+      "candidato_apellido_materno": "Cossío",
+      "tipo": "proyecto",
+      "titulo": "Ley de protección a la familia tradicional",
+      "descripcion": "Como congresista, ha impulsado diversos proyectos de ley orientados a proteger el modelo de familia tradicional, incluyendo iniciativas contra la ideología de género en colegios, fortalecimiento de valores cristianos en educación, y oposición a matrimonio igualitario y aborto. Sus propuestas han generado debate sobre derechos fundamentales y laicidad del Estado.",
+      "fecha": "2023-03-10",
+      "fuente_url": "https://ejemplo.com/familia-mc"
+    },
+    {
+      "candidato_nombre": "Patricia",
+      "candidato_apellido_paterno": "Chirinos",
+      "candidato_apellido_materno": "Venegas",
+      "tipo": "propuesta",
+      "titulo": "Ley de promoción del empleo juvenil",
+      "descripcion": "Propuesta de ley para promover empleo en jóvenes de 18 a 29 años mediante incentivos tributarios a empresas que contraten personal sin experiencia, programas de capacitación técnica gratuita en coordinación con empresas privadas, y creación de fondo de S/ 300 millones para emprendimientos juveniles con tasas preferenciales del 5% anual.",
+      "fecha": "2024-05-20",
+      "fuente_url": "https://ejemplo.com/empleo-juvenil-pc"
+    },
+    {
+      "candidato_nombre": "Adriana",
+      "candidato_apellido_paterno": "Tudela",
+      "candidato_apellido_materno": "Gutiérrez",
+      "tipo": "propuesta",
+      "titulo": "Agenda por la igualdad de género en el sector público",
+      "descripcion": "Propone implementar cuotas de género en alta dirección pública (mínimo 40% de cada sexo), protocolos obligatorios contra acoso sexual y laboral en todas las instituciones del Estado, salas de lactancia en entidades públicas, y sanciones severas a funcionarios que discriminen por razón de género. Incluye presupuesto de S/ 50 millones para capacitación en igualdad.",
+      "fecha": "2024-06-08",
+      "fuente_url": "https://ejemplo.com/igualdad-genero-at"
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Anderson",
+      "candidato_apellido_materno": "Ramírez",
+      "tipo": "proyecto",
+      "titulo": "Reforma del Congreso y ética parlamentaria",
+      "descripcion": "Como congresista ha impulsado reformas para transparencia parlamentaria: publicación obligatoria de asistencia, votaciones y declaraciones juradas de congresistas, fortalecimiento de la Comisión de Ética, reducción de inmunidad parlamentaria solo a opiniones en función, y eliminación de beneficios excesivos. Propone reducir número de congresistas de 130 a 100 en próxima legislatura.",
+      "fecha": "2023-07-12",
+      "fuente_url": "https://ejemplo.com/reforma-congreso-ca"
+    },
+    {
+      "candidato_nombre": "Kelly",
+      "candidato_apellido_paterno": "Portalatino",
+      "candidato_apellido_materno": "Ávalos",
+      "tipo": "propuesta",
+      "titulo": "Plan de vivienda social y techo para todos",
+      "descripcion": "Propuesta de construcción de 200,000 viviendas sociales en 5 años para familias de extrema pobreza y pobreza, con subsidio estatal del 100% para quintil más pobre y créditos Mivivienda con tasa 0% para sectores vulnerables. Incluye titulación masiva de asentamientos humanos consolidados y programas de mejoramiento de vivienda. Inversión: S/ 12,000 millones.",
+      "fecha": "2024-08-14",
+      "fuente_url": "https://ejemplo.com/vivienda-social-kp"
+    },
+    {
+      "candidato_nombre": "Alfonso",
+      "candidato_apellido_paterno": "López",
+      "candidato_apellido_materno": "Chau",
+      "tipo": "propuesta",
+      "titulo": "Estrategia nacional de transformación digital del Estado",
+      "descripcion": "Propone digitalización total de servicios públicos en 3 años: implementación de identidad digital única, expediente electrónico en todo el Poder Judicial, recetas médicas electrónicas, firma digital gratuita para todos los ciudadanos, y eliminación del 80% de trámites presenciales. Inversión en infraestructura de fibra óptica para zonas rurales. Presupuesto: S/ 4,000 millones.",
+      "fecha": "2024-09-05",
+      "fuente_url": "https://ejemplo.com/transformacion-digital-alc"
+    },
+    {
+      "candidato_nombre": "Marisol",
+      "candidato_apellido_paterno": "Pérez",
+      "candidato_apellido_materno": "Tello",
+      "tipo": "proyecto",
+      "titulo": "Reforma del sistema penitenciario y reinserción social",
+      "descripcion": "Como exministra de Justicia (2017-2018), impulsó proyectos para enfrentar hacinamiento carcelario y mejorar condiciones de reclusos. Propone construcción de 10 nuevos penales modernos, programas obligatorios de educación y capacitación técnica para internos, fortalecimiento de beneficios penitenciarios para presos primarios y no violentos, y centros de reinserción laboral. Inversión: S/ 6,000 millones.",
+      "fecha": "2024-03-22",
+      "fuente_url": "https://ejemplo.com/reforma-penitenciaria-mpt"
+    },
+    {
+      "candidato_nombre": "Ruth",
+      "candidato_apellido_paterno": "Buendía",
+      "candidato_apellido_materno": "Mestoquiari",
+      "tipo": "propuesta",
+      "titulo": "Ley de protección de pueblos indígenas y consulta previa",
+      "descripcion": "Líder indígena asháninka y activista ambiental, propone fortalecer mecanismos de consulta previa libre e informada para proyectos extractivos en territorios indígenas, titulación de tierras comunales pendientes (más de 1,500 comunidades sin título), protección de lenguas originarias mediante educación intercultural bilingüe obligatoria, y creación de fondo de desarrollo para comunidades amazónicas y andinas.",
+      "fecha": "2024-07-30",
+      "fuente_url": "https://ejemplo.com/pueblos-indigenas-rb"
     }
   ]
 }

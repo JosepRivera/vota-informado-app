@@ -273,7 +273,7 @@ class Command(BaseCommand):
             )
 
         # Resumen final
-        self.stdout.write(self.style.SUCCESS("\n✅ Datos cargados exitosamente!"))
+        self.stdout.write(self.style.SUCCESS("\n Datos cargados exitosamente!"))
         self.stdout.write("\nResumen:")
         self.stdout.write(f"  - Regiones: {Region.objects.count()}")
         self.stdout.write(f"  - Cargos: {Cargo.objects.count()}")
