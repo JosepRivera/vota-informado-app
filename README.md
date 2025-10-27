@@ -1,15 +1,11 @@
-# CandidatoInfo - Transparencia Electoral Ciudadana
+<h1 align="center">App Vota Informado</h1>
 
 <div align="center">
   
   <!-- Logo de la aplicación -->
-  <img src="./assets/logo.png" alt="CandidatoInfo Logo" width="200"/>
+  <img src="./assets/logo-vota-informado-2.png" alt="VotaInformado Logo" width="400"/>
   
   <p><strong>Información pública y transparente sobre candidatos políticos del Perú</strong></p>
-  
-  [![Versión](https://img.shields.io/badge/versión-1.0-blue.svg)](https://github.com/tu-usuario/candidatoinfo/releases)
-  [![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-purple.svg)](https://kotlinlang.org/)
-  [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-1.5+-green.svg)](https://developer.android.com/jetpack/compose)
 
 </div>
 
@@ -17,7 +13,7 @@
 
 ## 📋 Descripción del Proyecto
 
-**CandidatoInfo** es una aplicación móvil Android que centraliza información pública verificable sobre candidatos al Congreso y la Presidencia del Perú. Permite a los ciudadanos consultar datos oficiales y participar en simulaciones de votación para estimar tendencias electorales.
+**VotaInformado** es una aplicación móvil Android que centraliza información pública verificable sobre candidatos al Congreso y la Presidencia del Perú. Permite a los ciudadanos consultar datos oficiales y participar en simulaciones de votación para estimar tendencias electorales.
 
 ### Características Principales
 
