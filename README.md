@@ -159,7 +159,7 @@ El diseño de la aplicación fue desarrollado utilizando **Figma**, siguiendo lo
 
 1. **Clonar el repositorio:**
 ```bash
-git clone https://github.com/tu-usuario/candidatoinfo.git
+https://github.com/JosepRivera/vota-informado-app.git
 cd candidatoinfo
 ```
 
