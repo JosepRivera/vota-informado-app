@@ -1,6 +1,9 @@
 package com.rivera.votainformado.data.repository
 
+import com.rivera.votainformado.data.model.Region
 import com.rivera.votainformado.data.model.auth.AuthResponse
+import com.rivera.votainformado.data.model.auth.DniValidationRequest
+import com.rivera.votainformado.data.model.auth.DniValidationResponse
 import com.rivera.votainformado.data.model.auth.LoginRequest
 import com.rivera.votainformado.data.model.auth.RegisterRequest
 import com.rivera.votainformado.util.Resource
@@ -47,6 +50,31 @@ class AuthRepository {
                 Resource.Error(response.message() ?: "Error desconocido")
             }
         } catch (e: Exception){
+            Resource.Error("Error de conexión: ${e.message}")
+        }
+    }
+
+    suspend fun validateDni(dni: String): Resource<DniValidationResponse> {
+        return try {
+            val response = api.validateDni(DniValidationRequest(dni))  // Enviar como body
+            if (response.isSuccessful && response.body() != null) {
+                Resource.Success(response.body()!!)
+            } else {
+                Resource.Error(response.message() ?: "DNI no encontrado")
+            }
+        } catch (e: Exception) {
+            Resource.Error("Error de conexión: ${e.message}")
+        }
+    }
+    suspend fun getRegiones(): Resource<List<Region>> {
+        return try {
+            val response = api.getRegiones()
+            if (response.isSuccessful && response.body() != null) {
+                Resource.Success(response.body()!!)
+            } else {
+                Resource.Error(response.message() ?: "Error al cargar regiones")
+            }
+        } catch (e: Exception) {
             Resource.Error("Error de conexión: ${e.message}")
         }
     }

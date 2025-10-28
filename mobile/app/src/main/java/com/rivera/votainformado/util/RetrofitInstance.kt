@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitInstance {
 
     // URL base del backend (API REST)
-    private const val BASE_URL = "http://192.168.18.188:8080/api/"
+    private const val BASE_URL = "http://192.168.18.188:8000/api/"
 
     // by lazy -> Crea el objeto solo la primera vez que se usa y lo reutiliza después.
     val authApi: AuthApi by lazy {

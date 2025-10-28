@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.ViewModelProvider
+import com.rivera.votainformado.ui.components.ErrorMessage
+import com.rivera.votainformado.ui.components.SuccessMessage
 import com.rivera.votainformado.ui.theme.*
 import com.rivera.votainformado.util.TokenManager
 
@@ -141,7 +143,7 @@ fun LoginScreen(
                 OutlinedTextField(
                     value = password,
                     onValueChange = { password = it },
-                    label = { Text("Password") },
+                    label = { Text("Contraseña") },
                     leadingIcon = {
                         Icon(
                             imageVector = Icons.Default.Lock,
@@ -228,74 +230,6 @@ fun LoginScreen(
                     )
                 }
             }
-        }
-    }
-}
-
-/**
- * Composable para mostrar mensajes de error
- */
-@Composable
-private fun ErrorMessage(message: String) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = ErrorRed.copy(alpha = 0.1f)
-        ),
-        shape = RoundedCornerShape(8.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = Icons.Default.Error,
-                contentDescription = null,
-                tint = ErrorRed,
-                modifier = Modifier.size(20.dp)
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = message,
-                color = ErrorRed,
-                fontSize = 14.sp
-            )
-        }
-    }
-}
-
-/**
- * Composable para mostrar mensajes de éxito
- */
-@Composable
-private fun SuccessMessage(message: String) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = SuccessTeal.copy(alpha = 0.1f)
-        ),
-        shape = RoundedCornerShape(8.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = Icons.Default.CheckCircle,
-                contentDescription = null,
-                tint = SuccessTeal,
-                modifier = Modifier.size(20.dp)
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = message,
-                color = SuccessTeal,
-                fontSize = 14.sp
-            )
         }
     }
 }

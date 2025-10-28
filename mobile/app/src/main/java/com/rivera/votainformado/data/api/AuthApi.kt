@@ -1,11 +1,16 @@
 package com.rivera.votainformado.data.api
 
+import com.rivera.votainformado.data.model.Region
 import com.rivera.votainformado.data.model.auth.AuthResponse
+import com.rivera.votainformado.data.model.auth.DniValidationRequest
+import com.rivera.votainformado.data.model.auth.DniValidationResponse
 import com.rivera.votainformado.data.model.auth.LoginRequest
 import com.rivera.votainformado.data.model.auth.RegisterRequest
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 /** interface -> Define un contrato, declaramos que métodos existen pero no como se implementan.
 En esta caso define los endpoints pero sin implementarlos.*/
@@ -22,4 +27,12 @@ interface AuthApi {
     suspend fun register(
         @Body requestBody: RegisterRequest
     ): Response<AuthResponse>
+
+    @POST("usuarios/validar-dni/")
+    suspend fun validateDni(
+        @Body request: DniValidationRequest
+    ): Response<DniValidationResponse>
+
+    @GET("usuarios/regiones/")
+    suspend fun getRegiones(): Response<List<Region>>
 }
