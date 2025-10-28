@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from apps.candidatos.models import Partido, Candidato, Antecedente
-from apps.core.models import Region, Cargo
+from apps.core.models import Cargo
 
 
 class PartidoSerializer(serializers.ModelSerializer):

@@ -1,6 +1,6 @@
 from rest_framework import generics, filters
 from rest_framework.permissions import AllowAny
-from django.db.models import Count, Q
+from django.db.models import Count
 from apps.candidatos.models import Candidato, Partido
 from apps.candidatos.serializers import (
     CandidatoListSerializer,
@@ -30,6 +30,8 @@ class CandidatoListView(generics.ListAPIView):
     permission_classes = [AllowAny]  # Cualquiera puede ver candidatos
     filter_backends = [filters.SearchFilter]
     search_fields = ["nombre", "apellido_paterno", "apellido_materno"]
+    ordering_fields = ["nombre"]  # solo permitimos ordenar por nombre
+    ordering = ["nombre"]  # orden A–Z por defecto
 
     def get_queryset(self):
         """

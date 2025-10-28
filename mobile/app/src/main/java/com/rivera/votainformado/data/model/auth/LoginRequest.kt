@@ -1,4 +1,6 @@
 package com.rivera.votainformado.data.model.auth
 
-class LoginRequest {
-}
+data class LoginRequest (
+    val dni: String,
+    val password: String
+)

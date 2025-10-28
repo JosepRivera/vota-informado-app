@@ -3,7 +3,7 @@ package com.rivera.votainformado.data.model.auth
 import com.google.gson.annotations.SerializedName
 import com.rivera.votainformado.data.model.Region
 
-data class User(
+data class PerfilResponse(
     val id: Int,
     val dni: String,
     val nombre: String,
