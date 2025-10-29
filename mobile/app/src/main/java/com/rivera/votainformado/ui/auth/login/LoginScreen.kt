@@ -1,6 +1,5 @@
 package com.rivera.votainformado.ui.auth.login
 
-import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -19,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
@@ -27,14 +26,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.ViewModelProvider
 import com.rivera.votainformado.ui.components.ErrorMessage
 import com.rivera.votainformado.ui.components.SuccessMessage
-import com.rivera.votainformado.ui.theme.*
 import com.rivera.votainformado.util.TokenManager
 
-/**
- * Pantalla de inicio de sesión (Login) en Jetpack Compose.
- * Se encarga de mostrar los campos de email y contraseña,
- * manejar el estado del ViewModel y responder a los resultados del login.
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
@@ -55,16 +48,15 @@ fun LoginScreen(
     )
 
     val state by viewModel.loginState.collectAsState()
+    val colorScheme = MaterialTheme.colorScheme
 
     var dni by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
 
-    // Efecto para detectar cuando el login es exitoso
+    // Si login exitoso → navegar al home
     LaunchedEffect(state.successMessage) {
-        if (state.successMessage != null) {
-            onNavigateToHome()
-        }
+        if (state.successMessage != null) onNavigateToHome()
     }
 
     Scaffold(
@@ -74,14 +66,14 @@ fun LoginScreen(
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.Default.Close,
-                            contentDescription = "Close",
-                            tint = InstitutionalBlue
+                            contentDescription = "Cerrar",
+                            tint = colorScheme.primary
                         )
                     }
                 },
                 title = {},
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = NeutralLight
+                    containerColor = colorScheme.background
                 )
             )
         }
@@ -89,7 +81,7 @@ fun LoginScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(NeutralLight)
+                .background(colorScheme.background)
                 .padding(innerPadding)
         ) {
             Column(
@@ -100,93 +92,86 @@ fun LoginScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                // Título de la app
-                Text(
-                    text = "Vota Informado",
-                    fontSize = 40.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontFamily = FontFamily.Serif,
-                    color = InstitutionalBlue
-                )
-                Text(
-                    text = "Bienvenido de vuelta",
-                    fontSize = 16.sp,
-                    color = NeutralMedium,
-                    modifier = Modifier.padding(top = 4.dp, bottom = 32.dp)
-                )
+                // 🏛️ Encabezado institucional
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(bottom = 32.dp)
+                ) {
+                    Text(
+                        text = "VotaInformado",
+                        fontSize = 42.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontFamily = FontFamily.Serif,
+                        color = colorScheme.primary
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "Ingresa con tu DNI para continuar informándote sobre tus candidatos y ejercer un voto consciente.",
+                        fontSize = 14.sp,
+                        lineHeight = 18.sp,
+                        color = colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+                        modifier = Modifier.padding(horizontal = 12.dp),
+                        textAlign = TextAlign.Center
+                    )
+                }
 
-                // Campo de DNI
+                // 🧾 Campo DNI
                 OutlinedTextField(
                     value = dni,
-                    onValueChange = { dni = it },
+                    onValueChange = { if (it.length <= 8 && it.all { c -> c.isDigit() }) dni = it },
                     label = { Text("DNI") },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Default.AccountBox,
-                            contentDescription = null
-                        )
-                    },
-                    modifier = Modifier.fillMaxWidth(),
+                    leadingIcon = { Icon(Icons.Default.Badge, contentDescription = null) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp),
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = InstitutionalBlue,
-                        focusedLabelColor = InstitutionalBlue,
-                        focusedLeadingIconColor = InstitutionalBlue
+                        focusedBorderColor = colorScheme.primary,
+                        focusedLabelColor = colorScheme.primary,
+                        cursorColor = colorScheme.primary
                     ),
                     enabled = !state.isLoading
                 )
 
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Campo de Password
+                // 🔒 Campo Contraseña
                 OutlinedTextField(
                     value = password,
                     onValueChange = { password = it },
                     label = { Text("Contraseña") },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Default.Lock,
-                            contentDescription = null
-                        )
-                    },
+                    leadingIcon = { Icon(Icons.Default.Lock, contentDescription = null) },
                     trailingIcon = {
                         IconButton(onClick = { passwordVisible = !passwordVisible }) {
                             Icon(
-                                imageVector = if (passwordVisible) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+                                imageVector = if (passwordVisible)
+                                    Icons.Default.Visibility
+                                else
+                                    Icons.Default.VisibilityOff,
                                 contentDescription = if (passwordVisible) "Ocultar contraseña" else "Mostrar contraseña"
                             )
                         }
                     },
                     visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 24.dp),
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = InstitutionalBlue,
-                        focusedLabelColor = InstitutionalBlue,
-                        focusedLeadingIconColor = InstitutionalBlue
+                        focusedBorderColor = colorScheme.primary,
+                        focusedLabelColor = colorScheme.primary,
+                        cursorColor = colorScheme.primary
                     ),
                     enabled = !state.isLoading
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                // 📣 Mensajes de error/éxito
+                state.errorMessage?.let { ErrorMessage(it) }
+                state.successMessage?.let { SuccessMessage(it) }
 
-                // Mensajes de error
-                state.errorMessage?.let { error ->
-                    ErrorMessage(error)
-                    Spacer(modifier = Modifier.height(8.dp))
-                }
+                Spacer(modifier = Modifier.height(20.dp))
 
-                // Mensajes de éxito
-                state.successMessage?.let { success ->
-                    SuccessMessage(success)
-                    Spacer(modifier = Modifier.height(8.dp))
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Botón de Login
+                // 🔘 Botón principal
                 Button(
                     onClick = {
                         if (dni.isNotBlank() && password.isNotBlank()) {
@@ -197,14 +182,14 @@ fun LoginScreen(
                         .fillMaxWidth()
                         .height(56.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = InstitutionalBlue
+                        containerColor = colorScheme.primary
                     ),
                     shape = RoundedCornerShape(12.dp),
                     enabled = !state.isLoading && dni.isNotBlank() && password.isNotBlank()
                 ) {
                     if (state.isLoading) {
                         CircularProgressIndicator(
-                            color = NeutralWhite,
+                            color = colorScheme.onPrimary,
                             modifier = Modifier.size(24.dp)
                         )
                     } else {
@@ -212,36 +197,25 @@ fun LoginScreen(
                             text = "Iniciar Sesión",
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Bold,
-                            color = NeutralWhite
+                            color = colorScheme.onPrimary
                         )
                     }
                 }
 
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
+                // 🔗 Enlace a registro
                 TextButton(
                     onClick = onNavigateToRegister,
                     enabled = !state.isLoading
                 ) {
                     Text(
-                        text = "¿No tienes una cuenta? Regístrate aquí",
-                        color = InstitutionalBlue,
+                        text = "¿No tienes cuenta? Regístrate aquí",
+                        color = colorScheme.primary,
                         fontSize = 14.sp
                     )
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    VotaInformadoTheme {
-        LoginScreen(
-            onNavigateToHome = {},
-            onNavigateToRegister = {},
-            onBack = {}
-        )
     }
 }

@@ -56,7 +56,7 @@ class AuthRepository {
 
     suspend fun validateDni(dni: String): Resource<DniValidationResponse> {
         return try {
-            val response = api.validateDni(DniValidationRequest(dni))  // Enviar como body
+            val response = api.validateDni(DniValidationRequest(dni))
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {

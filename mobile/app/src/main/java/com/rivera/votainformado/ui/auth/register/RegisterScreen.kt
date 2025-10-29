@@ -51,10 +51,14 @@ fun RegisterScreen(
 
     var dni by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var confirmPassword by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
+    var confirmPasswordVisible by remember { mutableStateOf(false) }
     var selectedRegion by remember { mutableStateOf<Int?>(null) }
     var expanded by remember { mutableStateOf(false) }
     var showConfirmDialog by remember { mutableStateOf(false) }
+
+    val colorScheme = MaterialTheme.colorScheme
 
     // Navegar al home cuando el registro sea exitoso
     LaunchedEffect(state.successMessage) {
@@ -71,13 +75,13 @@ fun RegisterScreen(
                         Icon(
                             imageVector = Icons.Default.Close,
                             contentDescription = "Close",
-                            tint = InstitutionalBlue
+                            tint = colorScheme.primary
                         )
                     }
                 },
                 title = {},
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = NeutralLight
+                    containerColor = colorScheme.background
                 )
             )
         }
@@ -85,7 +89,7 @@ fun RegisterScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(NeutralLight)
+                .background(colorScheme.background)
                 .padding(innerPadding)
         ) {
             Column(
@@ -96,21 +100,30 @@ fun RegisterScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(
-                    text = "Fabulae",
-                    fontSize = 40.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontFamily = FontFamily.Serif,
-                    color = InstitutionalBlue
-                )
-                Text(
-                    text = "Create your account",
-                    fontSize = 16.sp,
-                    color = NeutralMedium,
-                    modifier = Modifier.padding(top = 4.dp, bottom = 32.dp)
-                )
+                // --- Encabezado Moderno ---
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(bottom = 32.dp)
+                ) {
+                    Text(
+                        text = "VotaInformado",
+                        fontSize = 42.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontFamily = FontFamily.Serif,
+                        color = colorScheme.primary
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "Tu voz cuenta. Accede a información verificada sobre candidatos y vota con conocimiento.",
+                        fontSize = 14.sp,
+                        lineHeight = 18.sp,
+                        color = colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+                        modifier = Modifier.padding(horizontal = 12.dp),
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                    )
+                }
 
-                // Campo DNI
+                // --- Campo DNI ---
                 OutlinedTextField(
                     value = dni,
                     onValueChange = {
@@ -124,21 +137,17 @@ fun RegisterScreen(
                         }
                     },
                     label = { Text("DNI") },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Default.Badge,
-                            contentDescription = null
-                        )
-                    },
+                    leadingIcon = { Icon(Icons.Default.Badge, null) },
                     trailingIcon = {
                         when {
                             state.isValidatingDni -> CircularProgressIndicator(
                                 modifier = Modifier.size(20.dp),
-                                strokeWidth = 2.dp
+                                strokeWidth = 2.dp,
+                                color = colorScheme.primary
                             )
                             state.dniValidated != null -> Icon(
-                                imageVector = Icons.Default.CheckCircle,
-                                contentDescription = "DNI válido",
+                                Icons.Default.CheckCircle,
+                                contentDescription = null,
                                 tint = SuccessTeal
                             )
                         }
@@ -147,28 +156,27 @@ fun RegisterScreen(
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = InstitutionalBlue,
-                        focusedLabelColor = InstitutionalBlue,
-                        focusedLeadingIconColor = InstitutionalBlue
+                        focusedBorderColor = colorScheme.primary,
+                        focusedLabelColor = colorScheme.primary
                     ),
                     enabled = !state.isLoading,
                     supportingText = {
                         Text(
                             text = "Ingresa tu DNI para verificar tus datos con RENIEC",
                             fontSize = 12.sp,
-                            color = NeutralMedium
+                            color = colorScheme.onSurfaceVariant
                         )
                     }
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Mostrar datos de RENIEC
+                // --- Datos RENIEC ---
                 state.dniValidated?.let { data ->
                     Card(
                         modifier = Modifier.fillMaxWidth(),
                         colors = CardDefaults.cardColors(
-                            containerColor = CivicGreenLight.copy(alpha = 0.1f)
+                            containerColor = colorScheme.secondaryContainer.copy(alpha = 0.3f)
                         ),
                         shape = RoundedCornerShape(12.dp)
                     ) {
@@ -181,27 +189,27 @@ fun RegisterScreen(
                                 text = "Datos encontrados:",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = NeutralDark
+                                color = colorScheme.onSurface
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = "${data.nombre} ${data.apellidoPaterno} ${data.apellidoMaterno}",
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.SemiBold,
-                                color = InstitutionalBlue
+                                color = colorScheme.primary
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 text = "DNI: ${data.dni}",
                                 fontSize = 14.sp,
-                                color = NeutralMedium
+                                color = colorScheme.onSurfaceVariant
                             )
                         }
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                 }
 
-                // Dropdown de Regiones
+                // --- Región ---
                 ExposedDropdownMenuBox(
                     expanded = expanded,
                     onExpandedChange = {
@@ -215,17 +223,13 @@ fun RegisterScreen(
                         onValueChange = {},
                         readOnly = true,
                         label = { Text("Región") },
-                        leadingIcon = {
-                            Icon(
-                                imageVector = Icons.Default.LocationOn,
-                                contentDescription = null
-                            )
-                        },
+                        leadingIcon = { Icon(Icons.Default.LocationOn, null) },
                         trailingIcon = {
                             if (state.isLoadingRegiones) {
                                 CircularProgressIndicator(
                                     modifier = Modifier.size(20.dp),
-                                    strokeWidth = 2.dp
+                                    strokeWidth = 2.dp,
+                                    color = colorScheme.primary
                                 )
                             } else {
                                 ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
@@ -235,9 +239,8 @@ fun RegisterScreen(
                             .fillMaxWidth()
                             .menuAnchor(),
                         colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = InstitutionalBlue,
-                            focusedLabelColor = InstitutionalBlue,
-                            focusedLeadingIconColor = InstitutionalBlue
+                            focusedBorderColor = colorScheme.primary,
+                            focusedLabelColor = colorScheme.primary
                         ),
                         enabled = state.dniValidated != null && !state.isLoading,
                         placeholder = { Text("Selecciona tu región") }
@@ -249,22 +252,13 @@ fun RegisterScreen(
                     ) {
                         state.regiones.forEach { region ->
                             DropdownMenuItem(
-                                text = {
-                                    Text(
-                                        text = region.nombreRegion,
-                                        color = NeutralDark
-                                    )
-                                },
+                                text = { Text(region.nombreRegion, color = colorScheme.onSurface) },
                                 onClick = {
                                     selectedRegion = region.id
                                     expanded = false
                                 },
                                 leadingIcon = {
-                                    Icon(
-                                        imageVector = Icons.Default.Place,
-                                        contentDescription = null,
-                                        tint = InstitutionalBlue
-                                    )
+                                    Icon(Icons.Default.Place, null, tint = colorScheme.primary)
                                 }
                             )
                         }
@@ -273,22 +267,17 @@ fun RegisterScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Campo Password
+                // --- Contraseña ---
                 OutlinedTextField(
                     value = password,
                     onValueChange = { password = it },
                     label = { Text("Contraseña") },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Default.Lock,
-                            contentDescription = null
-                        )
-                    },
+                    leadingIcon = { Icon(Icons.Default.Lock, null) },
                     trailingIcon = {
                         IconButton(onClick = { passwordVisible = !passwordVisible }) {
                             Icon(
                                 imageVector = if (passwordVisible) Icons.Default.Visibility else Icons.Default.VisibilityOff,
-                                contentDescription = if (passwordVisible) "Ocultar" else "Mostrar"
+                                contentDescription = null
                             )
                         }
                     },
@@ -297,74 +286,89 @@ fun RegisterScreen(
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = InstitutionalBlue,
-                        focusedLabelColor = InstitutionalBlue,
-                        focusedLeadingIconColor = InstitutionalBlue
+                        focusedBorderColor = colorScheme.primary,
+                        focusedLabelColor = colorScheme.primary
+                    ),
+                    enabled = state.dniValidated != null && !state.isLoading
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // --- Confirmar Contraseña ---
+                OutlinedTextField(
+                    value = confirmPassword,
+                    onValueChange = { confirmPassword = it },
+                    label = { Text("Confirmar contraseña") },
+                    leadingIcon = { Icon(Icons.Default.Lock, null) },
+                    trailingIcon = {
+                        IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
+                            Icon(
+                                imageVector = if (confirmPasswordVisible) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = colorScheme.primary,
+                        focusedLabelColor = colorScheme.primary
                     ),
                     enabled = state.dniValidated != null && !state.isLoading,
                     supportingText = {
-                        Text(
-                            text = "Mínimo 8 caracteres",
-                            fontSize = 12.sp,
-                            color = NeutralMedium
-                        )
+                        if (confirmPassword.isNotEmpty() && confirmPassword != password) {
+                            Text("Las contraseñas no coinciden", color = colorScheme.error, fontSize = 12.sp)
+                        }
                     }
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Mensajes
-                state.errorMessage?.let { error ->
-                    ErrorMessage(error)
-                    Spacer(modifier = Modifier.height(8.dp))
-                }
-
-                state.successMessage?.let { success ->
-                    SuccessMessage(success)
-                    Spacer(modifier = Modifier.height(8.dp))
-                }
+                // --- Mensajes ---
+                state.errorMessage?.let { ErrorMessage(it) }
+                state.successMessage?.let { SuccessMessage(it) }
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Botón de Registro
+                // --- Botón ---
                 Button(
                     onClick = { showConfirmDialog = true },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(56.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = InstitutionalBlue
+                        containerColor = colorScheme.primary
                     ),
                     shape = RoundedCornerShape(12.dp),
                     enabled = !state.isLoading &&
                             state.dniValidated != null &&
                             selectedRegion != null &&
-                            password.length >= 8
+                            password.length >= 8 &&
+                            password == confirmPassword
                 ) {
                     if (state.isLoading) {
                         CircularProgressIndicator(
-                            color = NeutralWhite,
+                            color = colorScheme.onPrimary,
                             modifier = Modifier.size(24.dp)
                         )
                     } else {
                         Text(
-                            text = "Registrarse",
+                            "Registrarse",
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Bold,
-                            color = NeutralWhite
+                            color = colorScheme.onPrimary
                         )
                     }
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                TextButton(
-                    onClick = onNavigateToLogin,
-                    enabled = !state.isLoading
-                ) {
+                TextButton(onClick = onNavigateToLogin, enabled = !state.isLoading) {
                     Text(
                         text = "¿Ya tienes una cuenta? Inicia sesión",
-                        color = InstitutionalBlue,
+                        color = colorScheme.primary,
                         fontSize = 14.sp
                     )
                 }
@@ -372,25 +376,20 @@ fun RegisterScreen(
         }
     }
 
-    // Diálogo de confirmación
+    // --- Diálogo de confirmación ---
     if (showConfirmDialog) {
         state.dniValidated?.let { data ->
             AlertDialog(
                 onDismissRequest = { showConfirmDialog = false },
+                containerColor = colorScheme.surface,
                 title = {
-                    Text(
-                        text = "Confirma tus datos",
-                        fontWeight = FontWeight.Bold
-                    )
+                    Text("Confirma tus datos", fontWeight = FontWeight.Bold, color = colorScheme.onSurface)
                 },
                 text = {
                     Column {
-                        Text("¿Estos son tus datos correctos?")
+                        Text("¿Estos son tus datos correctos?", color = colorScheme.onSurfaceVariant)
                         Spacer(modifier = Modifier.height(12.dp))
-                        Text(
-                            text = "Nombre: ${data.nombre} ${data.apellidoPaterno} ${data.apellidoMaterno}",
-                            fontWeight = FontWeight.SemiBold
-                        )
+                        Text("Nombre: ${data.nombre} ${data.apellidoPaterno} ${data.apellidoMaterno}", fontWeight = FontWeight.SemiBold)
                         Text("DNI: ${data.dni}")
                         Text("Región: ${state.regiones.find { it.id == selectedRegion }?.nombreRegion}")
                     }
@@ -403,16 +402,14 @@ fun RegisterScreen(
                                 viewModel.register(dni, regionId.toString(), password)
                             }
                         },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = InstitutionalBlue
-                        )
+                        colors = ButtonDefaults.buttonColors(containerColor = colorScheme.primary)
                     ) {
-                        Text("Sí, registrar", color = NeutralWhite)
+                        Text("Sí, registrar", color = colorScheme.onPrimary)
                     }
                 },
                 dismissButton = {
                     TextButton(onClick = { showConfirmDialog = false }) {
-                        Text("Cancelar", color = InstitutionalBlue)
+                        Text("Cancelar", color = colorScheme.primary)
                     }
                 }
             )
