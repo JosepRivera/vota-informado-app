@@ -41,14 +41,6 @@ Facilita el acceso ciudadano a información electoral verificable para la toma d
 
 </div>
 
-### GIF de Funcionalidades
-
-<div align="center">
-  
-  <img src="./assets/demo.gif" alt="Demo de la aplicación" width="300"/>
-
-</div>
-
 ---
 
 ## 🎨 Diseño y Prototipo
@@ -115,30 +107,6 @@ El diseño de la aplicación fue desarrollado utilizando **Figma**, siguiendo lo
 - ✅ Documentación técnica de implementación
 - ✅ Capturas de pantalla de funcionalidades principales
 - ✅ Release v1.0 etiquetado en GitHub
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
-### Frontend Móvil
-- **Kotlin** - Lenguaje de programación principal
-- **Jetpack Compose** - Framework UI moderno y declarativo
-- **Material Design 3** - Sistema de diseño
-- **Navigation Compose** - Navegación entre pantallas
-- **ViewModel** - Gestión de estado UI
-- **Retrofit** - Cliente HTTP para consumo de APIs
-- **Coil** - Carga y caché de imágenes
-
-### Backend y Base de Datos
-- **Django REST Framework** - API REST para servicios backend
-- **PostgreSQL** - Base de datos relacional
-- **API RENIEC** - Validación de identidad ciudadana
-
-### Herramientas de Desarrollo
-- **Android Studio** - IDE principal
-- **Visual Studio Code** - Editor ligero de código
-- **Figma** - Diseño y prototipado
-- **Git/GitHub** - Control de versiones
 
 ---
 

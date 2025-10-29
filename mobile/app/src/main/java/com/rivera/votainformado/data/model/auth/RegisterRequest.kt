@@ -1,4 +1,10 @@
 package com.rivera.votainformado.data.model.auth
 
-class RegisterRequest {
-}
+import com.google.gson.annotations.SerializedName
+
+data class RegisterRequest (
+    val dni: String,
+    @SerializedName("region_id")
+    val regionId: String,
+    val password: String
+)
