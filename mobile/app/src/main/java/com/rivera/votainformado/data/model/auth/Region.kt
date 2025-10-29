@@ -1,4 +1,4 @@
-package com.rivera.votainformado.data.model
+package com.rivera.votainformado.data.model.auth
 
 import com.google.gson.annotations.SerializedName
 

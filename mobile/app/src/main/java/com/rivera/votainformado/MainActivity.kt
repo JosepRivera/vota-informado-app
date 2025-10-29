@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.rivera.votainformado.ui.navigation.NavGraph
 import com.rivera.votainformado.ui.theme.VotaInformadoTheme
@@ -14,10 +15,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VotaInformadoTheme {
-                // Aquí recordamos el controlador de navegación
-                val navController = rememberNavController()
+                val splashScreen = installSplashScreen()
 
-                // Y llamamos a nuestro NavGraph principal
+                val navController = rememberNavController()
                 NavGraph(navController = navController)
             }
         }

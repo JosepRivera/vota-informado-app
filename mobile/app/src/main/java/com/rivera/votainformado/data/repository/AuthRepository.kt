@@ -1,56 +1,59 @@
 package com.rivera.votainformado.data.repository
 
-import com.rivera.votainformado.data.model.Region
-import com.rivera.votainformado.data.model.auth.AuthResponse
-import com.rivera.votainformado.data.model.auth.DniValidationRequest
-import com.rivera.votainformado.data.model.auth.DniValidationResponse
-import com.rivera.votainformado.data.model.auth.LoginRequest
-import com.rivera.votainformado.data.model.auth.RegisterRequest
+import com.rivera.votainformado.data.model.auth.Region
+import com.rivera.votainformado.data.model.auth.*
 import com.rivera.votainformado.util.Resource
 import com.rivera.votainformado.util.RetrofitInstance
+import org.json.JSONObject
 
 class AuthRepository {
-    /**
-     * Instancia del API de autenticación usando Retrofit.
-     */
+
     private val api = RetrofitInstance.authApi
-    /**
-     * Función para iniciar sesión.
-     * @param dni dni del usuario
-     * @param password contraseña del usuario
-     * @return Resource<LoginResponse> que puede ser Success o Error
-     */
-    suspend fun login(dni: String, password: String) : Resource<AuthResponse> {
+
+    // --- Función auxiliar para leer errores JSON de forma segura ---
+    private fun parseErrorMessage(errorBody: String?, fallback: String): String {
         return try {
-            /**
-             * Llamada al endpoint de login enviando los datos en un LoginRequest
-             */
-            val response = api.login(LoginRequest(dni, password))
-
-            // Verifica si la respuesta fue exitosa y contiene datos
-            if (response.isSuccessful && response.body() != null) {
-                Resource.Success(response.body()!!)
-            } else {
-                Resource.Error(response.message() ?: "Error desconocido")
+            val json = JSONObject(errorBody ?: "{}")
+            val msg = json.optString("error").ifBlank {
+                json.optString("message").ifBlank { fallback }
             }
-
-        } catch (e: Exception){
-            // Captura errores de conexión u otros fallos en la llamada HTTP
-            Resource.Error("Error de conexión: ${e.message}")
+            msg
+        } catch (_: Exception) {
+            fallback
         }
     }
 
-    suspend fun register(dni: String, regionId: String , password: String) : Resource<AuthResponse> {
+    suspend fun login(dni: String, password: String): Resource<AuthResponse> {
         return try {
-            val response = api.register(RegisterRequest(dni, regionId, password))
-
+            val response = api.login(LoginRequest(dni, password))
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
-                Resource.Error(response.message() ?: "Error desconocido")
+                val errorMessage = parseErrorMessage(
+                    response.errorBody()?.string(),
+                    "Credenciales inválidas o usuario no encontrado"
+                )
+                Resource.Error(errorMessage)
             }
-        } catch (e: Exception){
-            Resource.Error("Error de conexión: ${e.message}")
+        } catch (e: Exception) {
+            Resource.Error("Error de conexión. Inténtalo nuevamente.")
+        }
+    }
+
+    suspend fun register(dni: String, regionId: String, password: String): Resource<AuthResponse> {
+        return try {
+            val response = api.register(RegisterRequest(dni, regionId, password))
+            if (response.isSuccessful && response.body() != null) {
+                Resource.Success(response.body()!!)
+            } else {
+                val errorMessage = parseErrorMessage(
+                    response.errorBody()?.string(),
+                    "No se pudo completar el registro"
+                )
+                Resource.Error(errorMessage)
+            }
+        } catch (e: Exception) {
+            Resource.Error("Error de conexión. Inténtalo nuevamente.")
         }
     }
 
@@ -60,22 +63,31 @@ class AuthRepository {
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
-                Resource.Error(response.message() ?: "DNI no encontrado")
+                val errorMessage = parseErrorMessage(
+                    response.errorBody()?.string(),
+                    "DNI no encontrado o inválido"
+                )
+                Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión: ${e.message}")
+            Resource.Error("Error de conexión. Inténtalo nuevamente.")
         }
     }
+
     suspend fun getRegiones(): Resource<List<Region>> {
         return try {
             val response = api.getRegiones()
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
-                Resource.Error(response.message() ?: "Error al cargar regiones")
+                val errorMessage = parseErrorMessage(
+                    response.errorBody()?.string(),
+                    "No se pudieron cargar las regiones"
+                )
+                Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión: ${e.message}")
+            Resource.Error("Error de conexión. Inténtalo nuevamente.")
         }
     }
 }

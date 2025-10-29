@@ -1,6 +1,6 @@
 package com.rivera.votainformado.ui.auth.register
 
-import com.rivera.votainformado.data.model.Region
+import com.rivera.votainformado.data.model.auth.Region
 import com.rivera.votainformado.data.model.auth.DniValidationResponse
 
 data class RegisterState(

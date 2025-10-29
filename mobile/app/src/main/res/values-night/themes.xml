@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.Theme.VotaInformado" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="Base.Theme.VotaInformado" parent="android:Theme.Material.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
@@ -9,6 +9,6 @@
 
     <!-- Splash sin logo, solo color -->
     <style name="Theme.App.Starting" parent="Theme.VotaInformado">
-        <item name="android:windowBackground">#F8F9FA</item>
+        <item name="android:windowBackground">#0A1929</item>
     </style>
 </resources>

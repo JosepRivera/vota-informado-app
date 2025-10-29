@@ -82,4 +82,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     // Material Icons extendidas
     implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.material3)
 }

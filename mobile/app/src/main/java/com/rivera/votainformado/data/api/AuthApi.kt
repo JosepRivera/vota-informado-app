@@ -1,6 +1,6 @@
 package com.rivera.votainformado.data.api
 
-import com.rivera.votainformado.data.model.Region
+import com.rivera.votainformado.data.model.auth.Region
 import com.rivera.votainformado.data.model.auth.AuthResponse
 import com.rivera.votainformado.data.model.auth.DniValidationRequest
 import com.rivera.votainformado.data.model.auth.DniValidationResponse

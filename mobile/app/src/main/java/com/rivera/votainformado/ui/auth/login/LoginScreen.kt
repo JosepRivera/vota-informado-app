@@ -54,7 +54,6 @@ fun LoginScreen(
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
 
-    // Si login exitoso → navegar al home
     LaunchedEffect(state.successMessage) {
         if (state.successMessage != null) onNavigateToHome()
     }
@@ -115,7 +114,6 @@ fun LoginScreen(
                     )
                 }
 
-                // 🧾 Campo DNI
                 OutlinedTextField(
                     value = dni,
                     onValueChange = { if (it.length <= 8 && it.all { c -> c.isDigit() }) dni = it },
@@ -134,7 +132,6 @@ fun LoginScreen(
                     enabled = !state.isLoading
                 )
 
-                // 🔒 Campo Contraseña
                 OutlinedTextField(
                     value = password,
                     onValueChange = { password = it },
@@ -165,13 +162,11 @@ fun LoginScreen(
                     enabled = !state.isLoading
                 )
 
-                // 📣 Mensajes de error/éxito
                 state.errorMessage?.let { ErrorMessage(it) }
                 state.successMessage?.let { SuccessMessage(it) }
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // 🔘 Botón principal
                 Button(
                     onClick = {
                         if (dni.isNotBlank() && password.isNotBlank()) {
@@ -204,7 +199,6 @@ fun LoginScreen(
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // 🔗 Enlace a registro
                 TextButton(
                     onClick = onNavigateToRegister,
                     enabled = !state.isLoading
