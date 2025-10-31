@@ -88,6 +88,7 @@
       "apellido_paterno": "López",
       "apellido_materno": "Aliaga",
       "partido_sigla": "RP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=RLA"
     },
     {
@@ -95,6 +96,7 @@
       "apellido_paterno": "Fujimori",
       "apellido_materno": "Higuchi",
       "partido_sigla": "FP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=KF"
     },
     {
@@ -102,6 +104,7 @@
       "apellido_paterno": "Acuña",
       "apellido_materno": "Peralta",
       "partido_sigla": "APP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=CA"
     },
     {
@@ -109,6 +112,7 @@
       "apellido_paterno": "Álvarez",
       "apellido_materno": "Aguilar",
       "partido_sigla": "PPT",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/228B22/FFFFFF/png?text=CAA"
     },
     {
@@ -116,6 +120,7 @@
       "apellido_paterno": "Alanoca",
       "apellido_materno": "Apaza",
       "partido_sigla": "NP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=VA"
     },
     {
@@ -123,6 +128,7 @@
       "apellido_paterno": "Garrido",
       "apellido_materno": "Lecca",
       "partido_sigla": "APRA",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=HGL"
     },
     {
@@ -130,6 +136,7 @@
       "apellido_paterno": "Lescano",
       "apellido_materno": "Ancieta",
       "partido_sigla": "ACCPOP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=YL"
     },
     {
@@ -137,6 +144,7 @@
       "apellido_paterno": "Forsyth",
       "apellido_materno": "Sommer",
       "partido_sigla": "SP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=GF"
     },
     {
@@ -144,6 +152,7 @@
       "apellido_paterno": "Chiabra",
       "apellido_materno": "León",
       "partido_sigla": "PPC",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/32CD32/FFFFFF/png?text=RC"
     },
     {
@@ -151,6 +160,7 @@
       "apellido_paterno": "López",
       "apellido_materno": "Chau",
       "partido_sigla": "AN",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/1E90FF/FFFFFF/png?text=ALC"
     },
     {
@@ -158,6 +168,7 @@
       "apellido_paterno": "Molinelli",
       "apellido_materno": "Alfaro",
       "partido_sigla": "FM",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF1493/FFFFFF/png?text=FMA"
     },
     {
@@ -165,6 +176,7 @@
       "apellido_paterno": "De Soto",
       "apellido_materno": "Polar",
       "partido_sigla": "PRO",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/8B4513/FFFFFF/png?text=HDS"
     },
     {
@@ -172,6 +184,7 @@
       "apellido_paterno": "Pérez",
       "apellido_materno": "Tello",
       "partido_sigla": "PLG",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/20B2AA/FFFFFF/png?text=MPT"
     }
   ],
@@ -182,6 +195,7 @@
       "apellido_paterno": "Bermejo",
       "apellido_materno": "Rojas",
       "partido_sigla": "VP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=GB"
     },
     {
@@ -189,6 +203,7 @@
       "apellido_paterno": "Vizcarra",
       "apellido_materno": "Zea",
       "partido_sigla": "PP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/4169E1/FFFFFF/png?text=MV"
     },
     {
@@ -196,6 +211,7 @@
       "apellido_paterno": "Chávez",
       "apellido_materno": "Cossío",
       "partido_sigla": "FP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=MC"
     },
     {
@@ -203,6 +219,7 @@
       "apellido_paterno": "Del Castillo",
       "apellido_materno": "Gálvez",
       "partido_sigla": "APRA",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=JDC"
     },
     {
@@ -210,6 +227,7 @@
       "apellido_paterno": "Chirinos",
       "apellido_materno": "Venegas",
       "partido_sigla": "AP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=PC"
     },
     {
@@ -217,6 +235,7 @@
       "apellido_paterno": "Luna",
       "apellido_materno": "Morales",
       "partido_sigla": "SP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=JLM"
     },
     {
@@ -224,6 +243,7 @@
       "apellido_paterno": "Camones",
       "apellido_materno": "Soriano",
       "partido_sigla": "APP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=LC"
     },
     {
@@ -231,6 +251,7 @@
       "apellido_paterno": "Yarrow",
       "apellido_materno": "Lumbreras",
       "partido_sigla": "RP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=NY"
     },
     {
@@ -238,6 +259,7 @@
       "apellido_paterno": "Paredes",
       "apellido_materno": "Piqué",
       "partido_sigla": "VP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=SP"
     },
     {
@@ -245,6 +267,7 @@
       "apellido_paterno": "Bazán",
       "apellido_materno": "Calderón",
       "partido_sigla": "ACCPOP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=DBC"
     },
     {
@@ -252,6 +275,7 @@
       "apellido_paterno": "Yoshiyama",
       "apellido_materno": "Tanaka",
       "partido_sigla": "FP",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=JY"
     },
     {
@@ -259,6 +283,7 @@
       "apellido_paterno": "Buendía",
       "apellido_materno": "Mestoquiari",
       "partido_sigla": "AN",
+      "region_nombre": "Perú",
       "foto_url": "https://placehold.co/400x400/1E90FF/FFFFFF/png?text=RB"
     }
   ],

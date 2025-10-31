@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.rivera.votainformado.ui.HomeScreen
+import com.rivera.votainformado.ui.home.HomeScreen
 import com.rivera.votainformado.ui.auth.login.LoginScreen
 import com.rivera.votainformado.ui.auth.register.RegisterScreen
 import com.rivera.votainformado.ui.splash.SplashScreen
