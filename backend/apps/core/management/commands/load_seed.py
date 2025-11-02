@@ -74,6 +74,8 @@ class Command(BaseCommand):
             "Tacna",
             "Tumbes",
             "Ucayali",
+            # Región nacional para cargos de alcance país
+            "Perú",
         ]
 
         regiones = {}
@@ -112,6 +114,8 @@ class Command(BaseCommand):
         candidatos_dict = {}
 
         for cand_data in data.get("candidatos_presidente", []):
+            region_nombre = cand_data.get("region_nombre")
+            region = regiones.get(region_nombre) if region_nombre else None
             candidato, created = Candidato.objects.get_or_create(
                 nombre=cand_data["nombre"],
                 apellido_paterno=cand_data["apellido_paterno"],
@@ -120,8 +124,14 @@ class Command(BaseCommand):
                 defaults={
                     "partido": partidos[cand_data["partido_sigla"]],
                     "foto_url": cand_data.get("foto_url"),
+                    "region": region,
                 },
             )
+
+            # Si ya existía y no tenía región, actualizarla
+            if not created and region and getattr(candidato, "region", None) is None:
+                candidato.region = region
+                candidato.save(update_fields=["region"])
 
             key = f"{cand_data['nombre']}|{cand_data['apellido_paterno']}|{cand_data['apellido_materno']}"
             candidatos_dict[key] = candidato
@@ -135,6 +145,8 @@ class Command(BaseCommand):
         # 5. Crear Candidatos Senadores
         self.stdout.write("\nCreando senadores...")
         for cand_data in data.get("candidatos_senador", []):
+            region_nombre = cand_data.get("region_nombre")
+            region = regiones.get(region_nombre) if region_nombre else None
             candidato, created = Candidato.objects.get_or_create(
                 nombre=cand_data["nombre"],
                 apellido_paterno=cand_data["apellido_paterno"],
@@ -143,8 +155,13 @@ class Command(BaseCommand):
                 defaults={
                     "partido": partidos[cand_data["partido_sigla"]],
                     "foto_url": cand_data.get("foto_url"),
+                    "region": region,
                 },
             )
+
+            if not created and region and getattr(candidato, "region", None) is None:
+                candidato.region = region
+                candidato.save(update_fields=["region"])
 
             key = f"{cand_data['nombre']}|{cand_data['apellido_paterno']}|{cand_data['apellido_materno']}"
             candidatos_dict[key] = candidato

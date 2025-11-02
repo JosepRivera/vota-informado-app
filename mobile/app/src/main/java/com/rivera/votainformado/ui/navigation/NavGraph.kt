@@ -6,11 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.rivera.votainformado.ui.HomeScreen
+import com.rivera.votainformado.ui.home.HomeScreen
 import com.rivera.votainformado.ui.auth.login.LoginScreen
 import com.rivera.votainformado.ui.auth.register.RegisterScreen
 import com.rivera.votainformado.ui.splash.SplashScreen
 import com.rivera.votainformado.ui.welcome.WelcomeScreen
+import com.rivera.votainformado.ui.candidatos.CandidatoDetailScreen
+import com.rivera.votainformado.ui.perfil.PerfilScreen
+import com.rivera.votainformado.ui.votar.VotarScreen
+import com.rivera.votainformado.ui.resultados.ResultadosScreen
+import com.rivera.votainformado.ui.comparar.CompararScreen
 
 // Animaciones Scale + Fade
 private fun scaleEnter() = scaleIn(
@@ -94,7 +99,64 @@ fun NavGraph(navController: NavHostController) {
         }
 
         composable(Screen.Home.route) {
-            HomeScreen()
+            HomeScreen(
+                onProfileClick = {
+                    navController.navigate(Screen.Perfil.route)
+                },
+                onNavigate = { route ->
+                    when (route) {
+                        "home" -> navController.navigate(Screen.Home.route) {
+                            popUpTo(Screen.Home.route) { inclusive = true }
+                        }
+                        "resultados" -> navController.navigate(Screen.Resultados.route)
+                        "votar" -> navController.navigate(Screen.Votar.route)
+                        "comparar" -> navController.navigate(Screen.Comparar.route)
+                    }
+                },
+                onNavigateToDetail = { id ->
+                    navController.navigate(Screen.CandidatoDetail.createRoute(id))
+                }
+            )
+        }
+        
+        composable(
+            route = Screen.CandidatoDetail.route
+        ) { backStackEntry ->
+            val candidateId = backStackEntry.arguments?.getString("id")?.toIntOrNull() ?: 0
+            CandidatoDetailScreen(
+                candidateId = candidateId,
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.Perfil.route) {
+            PerfilScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToDetail = { id ->
+                    navController.navigate(Screen.CandidatoDetail.createRoute(id))
+                }
+            )
+        }
+
+        composable(Screen.Votar.route) {
+            VotarScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.Resultados.route) {
+            ResultadosScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.Comparar.route) {
+            CompararScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToDetail = { id ->
+                    navController.navigate(Screen.CandidatoDetail.createRoute(id))
+                }
+            )
         }
     }
 }

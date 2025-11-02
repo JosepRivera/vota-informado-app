@@ -66,9 +66,12 @@ class CandidatoListSerializer(serializers.ModelSerializer):
         return obj.get_full_name()
 
     def get_region(self, obj):
-        # Solo mostrar región si es Diputado
+        # Si tiene región explícita, devolverla
         if obj.region:
             return {"id": obj.region.id, "nombre_region": obj.region.nombre_region}
+        # Para Presidente y Senador devolver región nacional por consistencia con el cliente
+        if obj.cargo and obj.cargo.nombre_cargo in ["Presidente", "Senador"]:
+            return {"id": 0, "nombre_region": "Perú"}
         return None
 
 
@@ -115,6 +118,8 @@ class CandidatoDetailSerializer(serializers.ModelSerializer):
     def get_region(self, obj):
         if obj.region:
             return {"id": obj.region.id, "nombre_region": obj.region.nombre_region}
+        if obj.cargo and obj.cargo.nombre_cargo in ["Presidente", "Senador"]:
+            return {"id": 0, "nombre_region": "Perú"}
         return None
 
     def get_denuncias(self, obj):

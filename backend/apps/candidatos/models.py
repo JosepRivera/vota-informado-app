@@ -27,8 +27,8 @@ class Partido(TimeStampedModel):
 class Candidato(TimeStampedModel):
     """
     Candidatos que postulan a los diferentes cargos.
-    - Si es Presidente o Senador: region = NULL
-    - Si es Diputado: region = región específica
+    - Si es Diputado: region = región específica (obligatoria)
+    - Presidente y Senador pueden opcionalmente tener región (por ejemplo "Perú")
     """
 
     nombre = models.CharField(max_length=100, verbose_name="Nombre(s)")
@@ -54,7 +54,7 @@ class Candidato(TimeStampedModel):
         blank=True,
         verbose_name="Región (solo para Diputados)",
     )
-    foto_url = models.URLField(
+    foto_url = models.URLField(max_length=700,
         blank=True, null=True, verbose_name="URL de foto del candidato"
     )
     activo = models.BooleanField(default=True, verbose_name="Activo")  # Soft delete
@@ -92,12 +92,11 @@ class Candidato(TimeStampedModel):
 
     def save(self, *args, **kwargs):
         """
-        Validación: Solo los Diputados pueden tener región.
-        Presidente y Senador deben tener region=NULL.
+        Validación:
+        - Diputado debe tener región obligatoriamente.
+        - Presidente y Senador: región opcional (se respeta si viene informada).
         """
-        if self.cargo.nombre_cargo in ["Presidente", "Senador"]:
-            self.region = None
-        elif self.cargo.nombre_cargo == "Diputado" and not self.region:
+        if self.cargo.nombre_cargo == "Diputado" and not self.region:
             raise ValueError("Los Diputados deben tener una región asignada")
         super().save(*args, **kwargs)
 

@@ -88,91 +88,104 @@
       "apellido_paterno": "López",
       "apellido_materno": "Aliaga",
       "partido_sigla": "RP",
-      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=RLA"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Rafael_L%C3%B3pez_Aliaga_2024.jpg/330px-Rafael_L%C3%B3pez_Aliaga_2024.jpg"
     },
     {
       "nombre": "Keiko",
       "apellido_paterno": "Fujimori",
       "apellido_materno": "Higuchi",
       "partido_sigla": "FP",
-      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=KF"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Keiko_Fujimori_2.jpg/330px-Keiko_Fujimori_2.jpg"
     },
     {
       "nombre": "César",
       "apellido_paterno": "Acuña",
       "apellido_materno": "Peralta",
       "partido_sigla": "APP",
-      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=CA"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/C%C3%A9sar_Acu%C3%B1a_Peralta.jpg/330px-C%C3%A9sar_Acu%C3%B1a_Peralta.jpg"
     },
     {
       "nombre": "Carlos",
       "apellido_paterno": "Álvarez",
       "apellido_materno": "Aguilar",
       "partido_sigla": "PPT",
-      "foto_url": "https://placehold.co/400x400/228B22/FFFFFF/png?text=CAA"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Cesar_Alvares_Corte_Suprema.jpg/330px-Cesar_Alvares_Corte_Suprema.jpg"
     },
     {
       "nombre": "Vicente",
       "apellido_paterno": "Alanoca",
       "apellido_materno": "Apaza",
       "partido_sigla": "NP",
-      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=VA"
+      "region_nombre": "Perú",
+      "foto_url": "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/502490325_681139958244255_81863856871858946_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WbHbSO7JH10Q7kNvwGhQCsl&_nc_oc=AdkpxwVr_nkFXvMlRkV_DvPynm8SZ91E9aDn65kMRZXP3fEFU1V09-vx3aqww6AOSNg&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=uEPf1lDd7OLaY4awb5ALHA&oh=00_AfhieCJEvoS79IrWhMGnRx8DOGFBwL6wL0zlU-n1ISN1eA&oe=690C8BCD"
     },
     {
       "nombre": "Hernán",
       "apellido_paterno": "Garrido",
       "apellido_materno": "Lecca",
       "partido_sigla": "APRA",
-      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=HGL"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Hern%C3%A1n_Garrido_Lecca.jpg/330px-Hern%C3%A1n_Garrido_Lecca.jpg"
     },
     {
       "nombre": "Yonhy",
       "apellido_paterno": "Lescano",
       "apellido_materno": "Ancieta",
       "partido_sigla": "ACCPOP",
-      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=YL"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Yonhy_Lescano.jpg/330px-Yonhy_Lescano.jpg"
     },
     {
       "nombre": "George",
       "apellido_paterno": "Forsyth",
       "apellido_materno": "Sommer",
       "partido_sigla": "SP",
-      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=GF"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/George_Forsyth%2C_alcalde_de_La_Victoria.jpg/330px-George_Forsyth%2C_alcalde_de_La_Victoria.jpg"
     },
     {
       "nombre": "Roberto",
       "apellido_paterno": "Chiabra",
       "apellido_materno": "León",
       "partido_sigla": "PPC",
-      "foto_url": "https://placehold.co/400x400/32CD32/FFFFFF/png?text=RC"
+      "region_nombre": "Perú",
+      "foto_url": "https://www.unidadypaz.org.pe/wp-content/uploads/2023/02/chiabra-227x300.jpg"
     },
     {
       "nombre": "Alfonso",
       "apellido_paterno": "López",
       "apellido_materno": "Chau",
       "partido_sigla": "AN",
-      "foto_url": "https://placehold.co/400x400/1E90FF/FFFFFF/png?text=ALC"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Alfonso_L%C3%B3pez-Chau.jpg/330px-Alfonso_L%C3%B3pez-Chau.jpg"
     },
     {
       "nombre": "Fiorella",
       "apellido_paterno": "Molinelli",
       "apellido_materno": "Alfaro",
       "partido_sigla": "FM",
-      "foto_url": "https://placehold.co/400x400/FF1493/FFFFFF/png?text=FMA"
+      "region_nombre": "Perú",
+      "foto_url": "https://scontent.flim33-1.fna.fbcdn.net/v/t39.30808-6/493675338_691588483384534_497575491123847441_n.jpg?stp=dst-jpg_s565x565_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=9_HjvnuV5DEQ7kNvwEY2I4K&_nc_oc=Adk-lu1JAfsnpXKXQ8pUFVpGvd3Lkq7Lyojpf7r4lv0P9ijdOK-vFl_94gEKY8Mzniw&_nc_zt=23&_nc_ht=scontent.flim33-1.fna&_nc_gid=ecOZ1xgZMpnDdd0H5IOXFQ&oh=00_AfjgH5HNycZEK-yYnakDl1fqAAMyUP7WYX4UE1FkbgzEmw&oe=690C8B54"
     },
     {
       "nombre": "Hernando",
       "apellido_paterno": "De Soto",
       "apellido_materno": "Polar",
       "partido_sigla": "PRO",
-      "foto_url": "https://placehold.co/400x400/8B4513/FFFFFF/png?text=HDS"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Hernando_de_Soto_president.jpg/330px-Hernando_de_Soto_president.jpg"
     },
     {
       "nombre": "Marisol",
       "apellido_paterno": "Pérez",
       "apellido_materno": "Tello",
       "partido_sigla": "PLG",
-      "foto_url": "https://placehold.co/400x400/20B2AA/FFFFFF/png?text=MPT"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/MarisolP%C3%A9rezTello.jpg/330px-MarisolP%C3%A9rezTello.jpg"
     }
   ],
 
@@ -182,84 +195,96 @@
       "apellido_paterno": "Bermejo",
       "apellido_materno": "Rojas",
       "partido_sigla": "VP",
-      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=GB"
+      "region_nombre": "Perú",
+      "foto_url": "https://img.lpderecho.pe/wp-content/uploads/2021/05/Guillermo-Bermejo-LP.png"
     },
     {
       "nombre": "Mario",
       "apellido_paterno": "Vizcarra",
       "apellido_materno": "Zea",
       "partido_sigla": "PP",
-      "foto_url": "https://placehold.co/400x400/4169E1/FFFFFF/png?text=MV"
+      "region_nombre": "Perú",
+      "foto_url": "https://altavoz.pe/wp-content/uploads/2025/08/mario-1024x560.jpg"
     },
     {
       "nombre": "Martha",
       "apellido_paterno": "Chávez",
       "apellido_materno": "Cossío",
       "partido_sigla": "FP",
-      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=MC"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Martha_Ch%C3%A1vez_2011.jpg/330px-Martha_Ch%C3%A1vez_2011.jpg"
     },
     {
       "nombre": "Jorge",
       "apellido_paterno": "Del Castillo",
       "apellido_materno": "Gálvez",
       "partido_sigla": "APRA",
-      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=JDC"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Jorge_del_Castillo.jpg/330px-Jorge_del_Castillo.jpg"
     },
     {
       "nombre": "Patricia",
       "apellido_paterno": "Chirinos",
       "apellido_materno": "Venegas",
       "partido_sigla": "AP",
-      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=PC"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Patricia_Chirinos_en_2024.jpg/330px-Patricia_Chirinos_en_2024.jpg"
     },
     {
       "nombre": "José",
       "apellido_paterno": "Luna",
       "apellido_materno": "Morales",
       "partido_sigla": "SP",
-      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=JLM"
+      "region_nombre": "Perú",
+      "foto_url": "https://elcomercio.pe/resizer/un3w78Ijt29NqPRr1BBjrPeIzT0=/1200x690/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/BNIOJL5SCRDZZHWEWJGLZWBUYQ.png"
     },
     {
       "nombre": "Lady",
       "apellido_paterno": "Camones",
       "apellido_materno": "Soriano",
       "partido_sigla": "APP",
-      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=LC"
+      "region_nombre": "Perú",
+      "foto_url": "https://pbs.twimg.com/profile_images/1613328222350983168/yHu2rDN9_400x400.jpg"
     },
     {
       "nombre": "Norma",
       "apellido_paterno": "Yarrow",
       "apellido_materno": "Lumbreras",
       "partido_sigla": "RP",
-      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=NY"
+      "region_nombre": "Perú",
+      "foto_url": "https://api.infocongresistasperu.pe/uploads/images/image-1692975069514-norma-martina-yarrow-lumbreras.jpg"
     },
     {
       "nombre": "Susel",
       "apellido_paterno": "Paredes",
       "apellido_materno": "Piqué",
       "partido_sigla": "VP",
-      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=SP"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/POLITICOS_EN_LA_MARCHA_DEL_ORGULLO.jpg/330px-POLITICOS_EN_LA_MARCHA_DEL_ORGULLO.jpg"
     },
     {
       "nombre": "Diego",
       "apellido_paterno": "Bazán",
       "apellido_materno": "Calderón",
       "partido_sigla": "ACCPOP",
-      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=DBC"
+      "region_nombre": "Perú",
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Diego_Baz%C3%A1n_Calder%C3%B3n.jpg/330px-Diego_Baz%C3%A1n_Calder%C3%B3n.jpg"
     },
     {
       "nombre": "Jaime",
       "apellido_paterno": "Yoshiyama",
       "apellido_materno": "Tanaka",
       "partido_sigla": "FP",
-      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=JY"
+      "region_nombre": "Perú",
+      "foto_url": "https://gestion.pe/resizer/zSwwoF5y1-Jp45ISb4hLTAs_aJ4=/482x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/U4ECWTGBQREGPGXWBJNYSUA2NU.jpg"
     },
     {
       "nombre": "Ruth",
       "apellido_paterno": "Buendía",
       "apellido_materno": "Mestoquiari",
       "partido_sigla": "AN",
-      "foto_url": "https://placehold.co/400x400/1E90FF/FFFFFF/png?text=RB"
+      "region_nombre": "Perú",
+      "foto_url": "https://files.pucp.education/puntoedu/wp-content/uploads/2024/08/01150415/abridora-ruth-buendia-jorge-cerdan-1920x1080-1-1024x576.jpg"
     }
   ],
 
@@ -270,7 +295,7 @@
       "apellido_materno": "Jon",
       "partido_sigla": "RP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=MCJ"
+      "foto_url": "https://img.lpderecho.pe/wp-content/uploads/2024/03/banner-Maria-Cordero-LPDerecho-1068x561.jpg"
     },
     {
       "nombre": "Luis",
@@ -278,7 +303,7 @@
       "apellido_materno": "Farías",
       "partido_sigla": "FP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=LVF"
+      "foto_url": "https://vacr.pe/wp-content/uploads/2022/01/Luis_valdez_perfil_1.jpeg"
     },
     {
       "nombre": "Eduardo",
@@ -286,7 +311,7 @@
       "apellido_materno": "Cavides",
       "partido_sigla": "APP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=ES"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Eduardo_Salhuana.jpg/330px-Eduardo_Salhuana.jpg"
     },
     {
       "nombre": "Rosángela",
@@ -294,7 +319,7 @@
       "apellido_materno": "Reyes",
       "partido_sigla": "RP",
       "region_nombre": "Callao",
-      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=RB"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/RosangellaBarbaran.png/330px-RosangellaBarbaran.png"
     },
     {
       "nombre": "Carlos",
@@ -302,7 +327,7 @@
       "apellido_materno": "Ramírez",
       "partido_sigla": "SP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=CAR"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Anderson.png/330px-Anderson.png"
     },
     {
       "nombre": "Waldemar",
@@ -310,7 +335,7 @@
       "apellido_materno": "Rojas",
       "partido_sigla": "NP",
       "region_nombre": "Junín",
-      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=WC"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Waldemar_Cerr%C3%B3n.jpg/330px-Waldemar_Cerr%C3%B3n.jpg"
     },
     {
       "nombre": "Javier",
@@ -318,7 +343,7 @@
       "apellido_materno": "Quesquén",
       "partido_sigla": "APRA",
       "region_nombre": "Lambayeque",
-      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=JVQ"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Javier_Vel%C3%A1squez_Quesqu%C3%A9n_%28cropped%29.jpg/330px-Javier_Vel%C3%A1squez_Quesqu%C3%A9n_%28cropped%29.jpg"
     },
     {
       "nombre": "Francis",
@@ -326,7 +351,7 @@
       "apellido_materno": "Oyague",
       "partido_sigla": "RP",
       "region_nombre": "Arequipa",
-      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=FA"
+      "foto_url": "https://caretas.pe/wp-content/uploads/2025/01/001058303W-1170x780.jpg"
     },
     {
       "nombre": "Alejandro",
@@ -334,7 +359,7 @@
       "apellido_materno": "Alva",
       "partido_sigla": "AP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=AC"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Alejandro_Cavero.jpg/330px-Alejandro_Cavero.jpg"
     },
     {
       "nombre": "Paul",
@@ -342,7 +367,7 @@
       "apellido_materno": "Ticse",
       "partido_sigla": "VP",
       "region_nombre": "Cusco",
-      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=PG"
+      "foto_url": "https://caretas.pe/wp-content/uploads/2024/09/gustavo_gutierrez_ticse-1170x780.jpg"
     },
     {
       "nombre": "María",
@@ -350,7 +375,7 @@
       "apellido_materno": "Gutiérrez",
       "partido_sigla": "FP",
       "region_nombre": "La Libertad",
-      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=MA"
+      "foto_url": "https://fpp.org.pe/wp-content/uploads/2024/08/IPmX436Y1nh5Zh23FGEuQz6YSO5ESvujvibv5bAK.jpg"
     },
     {
       "nombre": "Segundo",
@@ -358,7 +383,7 @@
       "apellido_materno": "Barboza",
       "partido_sigla": "APP",
       "region_nombre": "Piura",
-      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=SQ"
+      "foto_url": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2023/08/17/000986203W.webp"
     },
     {
       "nombre": "Elías",
@@ -366,7 +391,7 @@
       "apellido_materno": "Vizcarra",
       "partido_sigla": "SP",
       "region_nombre": "Moquegua",
-      "foto_url": "https://placehold.co/400x400/FF8C00/FFFFFF/png?text=EA"
+      "foto_url": "https://elcomercio.pe/resizer/v2/CTVAHJEX5VGCJGXX3N5M7CFIPU.jpg?auth=335d18fafe6aa69b068a14e5b176cdd81894db6e7ed41fa3198508a58b11e10a&width=1200&height=800&quality=75&smart=true"
     },
     {
       "nombre": "Gladys",
@@ -374,7 +399,7 @@
       "apellido_materno": "Ramos",
       "partido_sigla": "RP",
       "region_nombre": "Puno",
-      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=GE"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Gladys_Echa%C3%ADz.jpg/330px-Gladys_Echa%C3%ADz.jpg"
     },
     {
       "nombre": "Pedro",
@@ -382,7 +407,7 @@
       "apellido_materno": "Talavera",
       "partido_sigla": "APRA",
       "region_nombre": "Áncash",
-      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=PM"
+      "foto_url": "https://comunicaciones.congreso.gob.pe/wpuploads/2023/10/edwin-martinez-2-10-23.jpeg"
     },
     {
       "nombre": "Alfredo",
@@ -390,7 +415,7 @@
       "apellido_materno": "Loayza",
       "partido_sigla": "AP",
       "region_nombre": "Ica",
-      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=AA"
+      "foto_url": "https://comunicaciones.congreso.gob.pe/wpuploads/2025/08/whatsapp-image-2025-08-12-at-183003-scaled.jpeg"
     },
     {
       "nombre": "Ruth",
@@ -398,7 +423,7 @@
       "apellido_materno": "Ibarra",
       "partido_sigla": "NP",
       "region_nombre": "Ayacucho",
-      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=RL"
+      "foto_url": "https://comunicaciones.congreso.gob.pe/wpuploads/2023/08/whatsapp-image-2023-08-09-at-13-13-17.jpeg"
     },
     {
       "nombre": "Américo",
@@ -406,7 +431,7 @@
       "apellido_materno": "Castillo",
       "partido_sigla": "FP",
       "region_nombre": "Cajamarca",
-      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=AG"
+      "foto_url": "https://elcomercio.pe/resizer/woX95Fj7rzEL9SqFVdwB8bGkeec=/1200x675/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/MI3FQN42XVEXVC3VK53W3STPNM.webp"
     },
     {
       "nombre": "Flor",
@@ -414,7 +439,7 @@
       "apellido_materno": "Medina",
       "partido_sigla": "PPT",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/228B22/FFFFFF/png?text=FP"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Congresista_Flor_Pablo_Medina.jpg/330px-Congresista_Flor_Pablo_Medina.jpg"
     },
     {
       "nombre": "Jorge",
@@ -422,7 +447,7 @@
       "apellido_materno": "Manrique",
       "partido_sigla": "RP",
       "region_nombre": "San Martín",
-      "foto_url": "https://placehold.co/400x400/0066CC/FFFFFF/png?text=JM"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Jorge_Montoya_Manrique.jpg/330px-Jorge_Montoya_Manrique.jpg"
     },
     {
       "nombre": "Diana",
@@ -430,7 +455,7 @@
       "apellido_materno": "Delgado",
       "partido_sigla": "APP",
       "region_nombre": "Loreto",
-      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=DG"
+      "foto_url": "https://comunicaciones.congreso.gob.pe/wpuploads/2022/11/05_011_20221011-scaled.jpg"
     },
     {
       "nombre": "Raúl",
@@ -438,7 +463,7 @@
       "apellido_materno": "Carbajal",
       "partido_sigla": "PPC",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/32CD32/FFFFFF/png?text=RD"
+      "foto_url": "https://diariocorreo.pe/resizer/v2/UFKOEWL3ZZCDTFWYSUBFGUCAO4.jpg?auth=1b73b875dcd1b6c31236be2a2d555ff28df6df4aaf762f6cc554d3d366ebd1d6&width=1200&height=773&quality=75&smart=true"
     },
     {
       "nombre": "Isabel",
@@ -446,7 +471,7 @@
       "apellido_materno": "Aguirre",
       "partido_sigla": "VP",
       "region_nombre": "Huancavelica",
-      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=IC"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Ceremonia_de_condecoraci%C3%B3n_de_la_Orden_del_Trabajo_2023_1-54_screenshot_%28cropped%29.png/330px-Ceremonia_de_condecoraci%C3%B3n_de_la_Orden_del_Trabajo_2023_1-54_screenshot_%28cropped%29.png"
     },
     {
       "nombre": "Héctor",
@@ -454,7 +479,7 @@
       "apellido_materno": "Ángel",
       "partido_sigla": "APRA",
       "region_nombre": "Huánuco",
-      "foto_url": "https://placehold.co/400x400/CD0000/FFFFFF/png?text=HV"
+      "foto_url": "https://comunicaciones.congreso.gob.pe/wpuploads/2022/02/hectorventura20220215-1-scaled.jpg"
     },
     {
       "nombre": "Kira",
@@ -462,7 +487,7 @@
       "apellido_materno": "Serna",
       "partido_sigla": "NP",
       "region_nombre": "Tacna",
-      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=KA"
+      "foto_url": "https://scontent.flim33-1.fna.fbcdn.net/v/t39.30808-6/557746391_1255613583272640_2981047439851969583_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=QbeMNp3Q6IQQ7kNvwEthULA&_nc_oc=AdlAiSEWdlGNK93jC5ruVozlyM9FCR_JKlrp2n7fs9zzhFMsq30FAhsOPlu9R8ubgp8&_nc_zt=23&_nc_ht=scontent.flim33-1.fna&_nc_gid=TBNPUk9oA4Kz1hMvAaacfw&oh=00_AfjFpxBPo-EML7ws2Qy62H3uxcr_V5SEGqKuvLEfKVbsqQ&oe=690C9042"
     },
     {
       "nombre": "Adriana",
@@ -470,7 +495,7 @@
       "apellido_materno": "Gutiérrez",
       "partido_sigla": "AP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/00CED1/FFFFFF/png?text=AT"
+      "foto_url": "https://pbs.twimg.com/profile_images/1590772318409822232/wbEhZHfY_400x400.jpg"
     },
     {
       "nombre": "Wilson",
@@ -478,7 +503,7 @@
       "apellido_materno": "Mamani",
       "partido_sigla": "NP",
       "region_nombre": "Puno",
-      "foto_url": "https://placehold.co/400x400/9932CC/FFFFFF/png?text=WQ"
+      "foto_url": "https://pbs.twimg.com/profile_images/1460824890383257602/Gzx4NKMx_400x400.jpg"
     },
     {
       "nombre": "José",
@@ -486,7 +511,7 @@
       "apellido_materno": "Oré",
       "partido_sigla": "FP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/FF6600/FFFFFF/png?text=JJ"
+      "foto_url": "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/555356634_1240359771465401_2083354601606232185_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_Ot2TGl8LosQ7kNvwFvxnIZ&_nc_oc=Adnda0Ltmt2xzM7VPT3Fs00L-mTic3HIhlcInq1PRYqWziUMJkagYRNF4jAc0lwSNOQ&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=iWLarTodPrwV8DXm-qxXTQ&oh=00_Afh_A6315rtzjE8mxbbgXFbfUfsQIk6BUZ56Be0yryqn1A&oe=690C97DD"
     },
     {
       "nombre": "Nilza",
@@ -494,7 +519,7 @@
       "apellido_materno": "Trujillo",
       "partido_sigla": "APP",
       "region_nombre": "Amazonas",
-      "foto_url": "https://placehold.co/400x400/DC143C/FFFFFF/png?text=NC"
+      "foto_url": "https://pbs.twimg.com/profile_images/1422977870880808963/jiEsAWv9_400x400.jpg"
     },
     {
       "nombre": "Kelly",
@@ -502,7 +527,7 @@
       "apellido_materno": "Ávalos",
       "partido_sigla": "VP",
       "region_nombre": "Lima",
-      "foto_url": "https://placehold.co/400x400/FF0000/FFFFFF/png?text=KP"
+      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ministra_Portalatino_1.1_%28cropped%29.jpg/330px-Ministra_Portalatino_1.1_%28cropped%29.jpg"
     }
   ],
 
