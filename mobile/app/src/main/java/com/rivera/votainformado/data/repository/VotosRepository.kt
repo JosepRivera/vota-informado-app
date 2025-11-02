@@ -1,16 +1,15 @@
 package com.rivera.votainformado.data.repository
 
-import com.rivera.votainformado.data.model.core.Region
-import com.rivera.votainformado.data.model.auth.*
+import com.rivera.votainformado.data.model.votos.*
 import com.rivera.votainformado.util.Resource
 import com.rivera.votainformado.util.RetrofitInstance
 import org.json.JSONObject
 
-class AuthRepository {
+class VotosRepository {
 
-    private val api = RetrofitInstance.authApi
+    private val api = RetrofitInstance.votosApi
 
-    // --- Función auxiliar para leer errores JSON de forma segura ---
+    // Función auxiliar para leer errores JSON de forma segura
     private fun parseErrorMessage(errorBody: String?, fallback: String): String {
         return try {
             val json = JSONObject(errorBody ?: "{}")
@@ -23,15 +22,19 @@ class AuthRepository {
         }
     }
 
-    suspend fun login(dni: String, password: String): Resource<AuthResponse> {
+    /**
+     * Emite un voto para un candidato
+     * Requiere autenticación (JWT token)
+     */
+    suspend fun votar(candidatoId: Int): Resource<VotoResponse> {
         return try {
-            val response = api.login(LoginRequest(dni, password))
+            val response = api.votar(VotoRequest(candidatoId))
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
-                    "Credenciales inválidas o usuario no encontrado"
+                    "No se pudo registrar el voto"
                 )
                 Resource.Error(errorMessage)
             }
@@ -40,15 +43,19 @@ class AuthRepository {
         }
     }
 
-    suspend fun register(dni: String, regionId: String, password: String): Resource<AuthResponse> {
+    /**
+     * Obtiene todos los votos que ha emitido el usuario autenticado
+     * Requiere autenticación (JWT token)
+     */
+    suspend fun getMisVotos(): Resource<List<Voto>> {
         return try {
-            val response = api.register(RegisterRequest(dni, regionId, password))
+            val response = api.getMisVotos()
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
-                    "No se pudo completar el registro"
+                    "Error al cargar tus votos"
                 )
                 Resource.Error(errorMessage)
             }
@@ -57,15 +64,19 @@ class AuthRepository {
         }
     }
 
-    suspend fun validateDni(dni: String): Resource<DniValidationResponse> {
+    /**
+     * Verifica si el usuario ya votó por un cargo específico
+     * Requiere autenticación (JWT token)
+     */
+    suspend fun puedeVotar(cargoNombre: String): Resource<PuedeVotarResponse> {
         return try {
-            val response = api.validateDni(DniValidationRequest(dni))
+            val response = api.puedeVotar(cargoNombre)
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
-                    "DNI no encontrado o inválido"
+                    "Error al verificar si puedes votar"
                 )
                 Resource.Error(errorMessage)
             }
@@ -74,15 +85,22 @@ class AuthRepository {
         }
     }
 
-    suspend fun getRegiones(): Resource<List<Region>> {
+    /**
+     * Obtiene resultados generales de las elecciones
+     * No requiere autenticación
+     */
+    suspend fun getResultados(
+        cargo: String? = null,
+        region: Int? = null
+    ): Resource<List<ResultadoGeneral>> {
         return try {
-            val response = api.getRegiones()
+            val response = api.getResultados(cargo, region)
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
-                    "No se pudieron cargar las regiones"
+                    "Error al cargar resultados"
                 )
                 Resource.Error(errorMessage)
             }
@@ -91,15 +109,21 @@ class AuthRepository {
         }
     }
 
-    suspend fun getPerfil(): Resource<PerfilResponse> {
+    /**
+     * Obtiene resultados agrupados por partido político
+     * No requiere autenticación
+     */
+    suspend fun getResultadosPorPartido(
+        cargo: String? = null
+    ): Resource<List<ResultadoPorPartido>> {
         return try {
-            val response = api.getPerfil()
+            val response = api.getResultadosPorPartido(cargo)
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
-                    "No se pudo cargar el perfil"
+                    "Error al cargar resultados por partido"
                 )
                 Resource.Error(errorMessage)
             }
@@ -108,15 +132,19 @@ class AuthRepository {
         }
     }
 
-    suspend fun refreshToken(refreshToken: String): Resource<Tokens> {
+    /**
+     * Obtiene estadísticas generales del sistema
+     * No requiere autenticación
+     */
+    suspend fun getEstadisticas(): Resource<Estadisticas> {
         return try {
-            val response = api.refreshToken(TokenRefreshRequest(refreshToken))
+            val response = api.getEstadisticas()
             if (response.isSuccessful && response.body() != null) {
                 Resource.Success(response.body()!!)
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
-                    "No se pudo renovar el token"
+                    "Error al cargar estadísticas"
                 )
                 Resource.Error(errorMessage)
             }
@@ -125,3 +153,4 @@ class AuthRepository {
         }
     }
 }
+

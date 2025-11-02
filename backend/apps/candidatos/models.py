@@ -54,7 +54,7 @@ class Candidato(TimeStampedModel):
         blank=True,
         verbose_name="Región (solo para Diputados)",
     )
-    foto_url = models.URLField(
+    foto_url = models.URLField(max_length=700,
         blank=True, null=True, verbose_name="URL de foto del candidato"
     )
     activo = models.BooleanField(default=True, verbose_name="Activo")  # Soft delete

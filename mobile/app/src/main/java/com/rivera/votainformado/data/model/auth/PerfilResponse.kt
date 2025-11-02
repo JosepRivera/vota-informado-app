@@ -1,7 +1,7 @@
 package com.rivera.votainformado.data.model.auth
 
 import com.google.gson.annotations.SerializedName
-import com.rivera.votainformado.data.model.auth.Region
+import com.rivera.votainformado.data.model.core.Region
 
 data class PerfilResponse(
     val id: Int,

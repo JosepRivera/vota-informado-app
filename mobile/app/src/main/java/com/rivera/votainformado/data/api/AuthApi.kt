@@ -1,11 +1,14 @@
 package com.rivera.votainformado.data.api
 
-import com.rivera.votainformado.data.model.auth.Region
+import com.rivera.votainformado.data.model.core.Region
 import com.rivera.votainformado.data.model.auth.AuthResponse
 import com.rivera.votainformado.data.model.auth.DniValidationRequest
 import com.rivera.votainformado.data.model.auth.DniValidationResponse
 import com.rivera.votainformado.data.model.auth.LoginRequest
 import com.rivera.votainformado.data.model.auth.RegisterRequest
+import com.rivera.votainformado.data.model.auth.PerfilResponse
+import com.rivera.votainformado.data.model.auth.TokenRefreshRequest
+import com.rivera.votainformado.data.model.auth.Tokens
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -35,4 +38,12 @@ interface AuthApi {
 
     @GET("usuarios/regiones/")
     suspend fun getRegiones(): Response<List<Region>>
+    
+    @GET("usuarios/perfil/")
+    suspend fun getPerfil(): Response<PerfilResponse>
+    
+    @POST("usuarios/token/refresh/")
+    suspend fun refreshToken(
+        @Body request: TokenRefreshRequest
+    ): Response<Tokens>
 }

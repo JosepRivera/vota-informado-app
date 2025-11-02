@@ -19,30 +19,30 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             state.value = state.value.copy(isLoading = true, errorMessage = null)
             try {
-                val firstResponse = RetrofitInstance.candidatosApi.getCandidatos(page = 1)
-                if (firstResponse.isSuccessful) {
-                    val firstPage = firstResponse.body()
-                    val firstResults = firstPage?.results ?: emptyList<CandidatoItem>()
+                var allCandidatos = emptyList<CandidatoItem>()
+                var currentPage = 1
+                var hasNextPage = true
 
-                    // Intentamos cargar una segunda página si existe
-                    val combined = if (firstPage?.next != null) {
-                        val secondResponse = RetrofitInstance.candidatosApi.getCandidatos(page = 2)
-                        val secondResults = if (secondResponse.isSuccessful) {
-                            secondResponse.body()?.results ?: emptyList()
-                        } else emptyList()
-                        firstResults + secondResults
-                    } else firstResults
+                // Cargar todas las páginas disponibles
+                while (hasNextPage) {
+                    val response = RetrofitInstance.candidatosApi.getCandidatos(page = currentPage)
+                    if (response.isSuccessful) {
+                        val page = response.body()
+                        val pageResults = page?.results ?: emptyList<CandidatoItem>()
+                        allCandidatos = allCandidatos + pageResults
 
-                    state.value = state.value.copy(
-                        candidatos = combined,
-                        isLoading = false
-                    )
-                } else {
-                    state.value = state.value.copy(
-                        errorMessage = "Error ${firstResponse.code()} al cargar candidatos",
-                        isLoading = false
-                    )
+                        // Verificar si hay más páginas
+                        hasNextPage = page?.next != null
+                        currentPage++
+                    } else {
+                        hasNextPage = false
+                    }
                 }
+
+                state.value = state.value.copy(
+                    candidatos = allCandidatos,
+                    isLoading = false
+                )
             } catch (e: Exception) {
                 state.value = state.value.copy(
                     errorMessage = e.message ?: "Error de red",
