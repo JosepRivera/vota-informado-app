@@ -27,11 +27,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 import com.rivera.votainformado.R
 import com.rivera.votainformado.ui.theme.*
+import com.rivera.votainformado.ui.navigation.BottomNavigationBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CompararScreen(
-    onBack: () -> Unit = {},
+    onNavigate: (String) -> Unit = {},
     onNavigateToDetail: (Int) -> Unit = {}
 ) {
     val isDarkMode = isSystemInDarkTheme()
@@ -53,15 +54,6 @@ fun CompararScreen(
                         )
                     )
                 },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Volver",
-                            tint = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
-                        )
-                    }
-                },
                 actions = {
                     if (state.candidato1 != null || state.candidato2 != null) {
                         IconButton(onClick = { viewModel.limpiarComparacion() }) {
@@ -76,6 +68,12 @@ fun CompararScreen(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface
                 )
+            )
+        },
+        bottomBar = {
+            BottomNavigationBar(
+                currentRoute = "comparar",
+                onNavigate = onNavigate
             )
         }
     ) { innerPadding ->

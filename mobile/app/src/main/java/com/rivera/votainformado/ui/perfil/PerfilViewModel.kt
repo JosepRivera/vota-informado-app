@@ -1,16 +1,18 @@
 package com.rivera.votainformado.ui.perfil
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rivera.votainformado.data.repository.AuthRepository
 import com.rivera.votainformado.data.repository.VotosRepository
 import com.rivera.votainformado.util.Resource
+import com.rivera.votainformado.util.TokenManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class PerfilViewModel : ViewModel() {
+class PerfilViewModel(private val tokenManager: TokenManager? = null) : ViewModel() {
 
     private val authRepository = AuthRepository()
     private val votosRepository = VotosRepository()
@@ -69,6 +71,11 @@ class PerfilViewModel : ViewModel() {
     fun refrescar() {
         loadPerfil()
         loadMisVotos()
+    }
+
+    fun logout(context: Context) {
+        val manager = tokenManager ?: TokenManager(context)
+        manager.clearTokens()
     }
 }
 

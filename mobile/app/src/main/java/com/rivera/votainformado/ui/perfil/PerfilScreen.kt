@@ -2,8 +2,8 @@ package com.rivera.votainformado.ui.perfil
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,26 +16,40 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.rivera.votainformado.R
 import com.rivera.votainformado.ui.theme.*
+import com.rivera.votainformado.util.TokenManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PerfilScreen(
     onBack: () -> Unit = {},
-    onNavigateToDetail: (Int) -> Unit = {}
+    onNavigateToDetail: (Int) -> Unit = {},
+    onLogout: () -> Unit = {},
+    onNavigateToWelcome: () -> Unit = {}
 ) {
-    val isDarkMode = isSystemInDarkTheme()
-    val viewModel: PerfilViewModel = viewModel()
+    val context = LocalContext.current
+    val tokenManager = remember { TokenManager(context) }
+
+    val viewModel: PerfilViewModel = viewModel(
+        factory = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                @Suppress("UNCHECKED_CAST")
+                return PerfilViewModel(tokenManager) as T
+            }
+        }
+    )
     val state by viewModel.perfilState.collectAsState()
 
     Scaffold(
@@ -46,7 +60,7 @@ fun PerfilScreen(
                         text = "Mi Perfil",
                         style = MaterialTheme.typography.titleLarge.copy(
                             fontWeight = FontWeight.Bold,
-                            color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                            color = InstitutionalBlue
                         )
                     )
                 },
@@ -55,7 +69,7 @@ fun PerfilScreen(
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
                             contentDescription = "Volver",
-                            tint = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                            tint = InstitutionalBlue
                         )
                     }
                 },
@@ -65,7 +79,208 @@ fun PerfilScreen(
             )
         }
     ) { innerPadding ->
+        val esInvitado = tokenManager.getAccessToken() == null
+
         when {
+            esInvitado -> {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                        .background(MaterialTheme.colorScheme.background),
+                    contentPadding = PaddingValues(20.dp),
+                    verticalArrangement = Arrangement.spacedBy(24.dp)
+                ) {
+                    item {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(20.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = NeutralWhite
+                            ),
+                            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(24.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.spacedBy(16.dp)
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(120.dp)
+                                        .clip(CircleShape)
+                                        .background(ErrorRed.copy(alpha = 0.1f))
+                                        .border(
+                                            width = 3.dp,
+                                            color = ErrorRed.copy(alpha = 0.3f),
+                                            shape = CircleShape
+                                        ),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.AccountCircle,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(80.dp),
+                                        tint = ErrorRed
+                                    )
+                                }
+
+                                Spacer(modifier = Modifier.height(4.dp))
+
+                                Text(
+                                    text = "Modo Invitado",
+                                    style = MaterialTheme.typography.headlineSmall.copy(
+                                        fontWeight = FontWeight.Bold
+                                    ),
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                            }
+                        }
+                    }
+
+                    item {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(16.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = ErrorRed.copy(alpha = 0.1f)
+                            )
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(20.dp),
+                                verticalArrangement = Arrangement.spacedBy(12.dp)
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Info,
+                                        contentDescription = null,
+                                        tint = ErrorRed,
+                                        modifier = Modifier.size(28.dp)
+                                    )
+                                    Text(
+                                        text = "Estás navegando como invitado",
+                                        style = MaterialTheme.typography.titleMedium.copy(
+                                            fontWeight = FontWeight.Bold
+                                        ),
+                                        color = ErrorRed
+                                    )
+                                }
+
+                                Text(
+                                    text = "Como invitado puedes explorar la información de los candidatos, pero no podrás emitir votos. Para votar, necesitas registrarte e iniciar sesión.",
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = ErrorRed.copy(alpha = 0.8f)
+                                )
+                            }
+                        }
+                    }
+
+                    item {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(16.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = NeutralLight
+                            )
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(20.dp),
+                                verticalArrangement = Arrangement.spacedBy(12.dp)
+                            ) {
+                                Text(
+                                    text = "¿Qué puedes hacer?",
+                                    style = MaterialTheme.typography.titleMedium.copy(
+                                        fontWeight = FontWeight.Bold
+                                    ),
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+
+                                InfoRowText(
+                                    icon = Icons.Default.Search,
+                                    text = "Ver información de candidatos"
+                                )
+                                InfoRowText(
+                                    icon = Icons.Default.Compare,
+                                    text = "Comparar candidatos"
+                                )
+                                InfoRowText(
+                                    icon = Icons.Default.Leaderboard,
+                                    text = "Ver resultados de la votación"
+                                )
+                            }
+                        }
+                    }
+
+                    item {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(16.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = NeutralLight
+                            )
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(20.dp),
+                                verticalArrangement = Arrangement.spacedBy(12.dp)
+                            ) {
+                                Text(
+                                    text = "Para votar necesitas:",
+                                    style = MaterialTheme.typography.titleMedium.copy(
+                                        fontWeight = FontWeight.Bold
+                                    ),
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+
+                                InfoRowText(
+                                    icon = Icons.Default.AccountCircle,
+                                    text = "Registrarte con tu DNI"
+                                )
+                                InfoRowText(
+                                    icon = Icons.Default.Lock,
+                                    text = "Iniciar sesión"
+                                )
+                                InfoRowText(
+                                    icon = Icons.Default.HowToVote,
+                                    text = "Emitir tu voto"
+                                )
+                            }
+                        }
+                    }
+
+                    item {
+                        Button(
+                            onClick = onNavigateToWelcome,
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = InstitutionalBlue
+                            )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Login,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text("Registrarse o Iniciar Sesión")
+                        }
+                    }
+
+                    item {
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
+                }
+            }
             state.isLoading && state.perfil == null -> {
                 Box(
                     modifier = Modifier
@@ -78,13 +293,13 @@ fun PerfilScreen(
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         CircularProgressIndicator(
-                            color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue,
+                            color = InstitutionalBlue,
                             modifier = Modifier.size(48.dp)
                         )
                         Text(
                             text = "Cargando perfil...",
                             style = MaterialTheme.typography.bodyMedium,
-                            color = if (isDarkMode) NeutralGray else NeutralMedium
+                            color = NeutralMedium
                         )
                     }
                 }
@@ -115,7 +330,7 @@ fun PerfilScreen(
                         Button(
                             onClick = { viewModel.loadPerfil() },
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                                containerColor = InstitutionalBlue
                             )
                         ) {
                             Text("Reintentar")
@@ -132,30 +347,64 @@ fun PerfilScreen(
                     contentPadding = PaddingValues(20.dp),
                     verticalArrangement = Arrangement.spacedBy(24.dp)
                 ) {
-                    // Información del usuario
                     item {
-                        PerfilHeaderCard(
-                            perfil = state.perfil,
-                            isDarkMode = isDarkMode
-                        )
+                        PerfilHeaderCard(perfil = state.perfil)
                     }
 
-                    // Estadísticas rápidas
+                    if (state.perfil?.rol?.equals("invitado", ignoreCase = true) == true && !state.isLoading) {
+                        item {
+                            Card(
+                                modifier = Modifier.fillMaxWidth(),
+                                shape = RoundedCornerShape(16.dp),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = ErrorRed.copy(alpha = 0.1f)
+                                )
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Info,
+                                        contentDescription = null,
+                                        tint = ErrorRed,
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text(
+                                            text = "Modo Invitado",
+                                            style = MaterialTheme.typography.titleMedium.copy(
+                                                fontWeight = FontWeight.Bold
+                                            ),
+                                            color = ErrorRed
+                                        )
+                                        Text(
+                                            text = "Estás navegando como invitado. Regístrate para poder votar.",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = ErrorRed.copy(alpha = 0.8f)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     item {
                         EstadisticasRapidas(
                             totalVotos = state.misVotos.size,
-                            isLoading = state.isLoadingVotos,
-                            isDarkMode = isDarkMode
+                            isLoading = state.isLoadingVotos
                         )
                     }
 
-                    // Mis votos
                     item {
                         Text(
                             text = "Mis Votos",
                             style = MaterialTheme.typography.titleLarge.copy(
                                 fontWeight = FontWeight.Bold,
-                                color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                                color = InstitutionalBlue
                             ),
                             modifier = Modifier.padding(top = 8.dp, bottom = 8.dp)
                         )
@@ -170,7 +419,7 @@ fun PerfilScreen(
                                 contentAlignment = Alignment.Center
                             ) {
                                 CircularProgressIndicator(
-                                    color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue,
+                                    color = InstitutionalBlue,
                                     modifier = Modifier.size(32.dp)
                                 )
                             }
@@ -180,28 +429,25 @@ fun PerfilScreen(
                             EmptyStateCard(
                                 icon = Icons.Default.HowToVote,
                                 title = "Aún no has votado",
-                                description = "Participa en la votación para ver tus votos aquí",
-                                isDarkMode = isDarkMode
+                                description = "Participa en la votación para ver tus votos aquí"
                             )
                         }
                     } else {
                         items(state.misVotos) { voto ->
                             VotoCard(
                                 voto = voto,
-                                isDarkMode = isDarkMode,
                                 onClick = { onNavigateToDetail(voto.candidato.id) },
                                 modifier = Modifier.fillMaxWidth()
                             )
                         }
                     }
 
-                    // Botón de refrescar
                     item {
                         OutlinedButton(
                             onClick = { viewModel.refrescar() },
                             modifier = Modifier.fillMaxWidth(),
                             colors = ButtonDefaults.outlinedButtonColors(
-                                contentColor = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                                contentColor = InstitutionalBlue
                             )
                         ) {
                             Icon(
@@ -214,7 +460,27 @@ fun PerfilScreen(
                         }
                     }
 
-                    // Espaciado final
+                    item {
+                        Button(
+                            onClick = {
+                                viewModel.logout(context)
+                                onLogout()
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = ErrorRed
+                            )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.ExitToApp,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text("Cerrar Sesión")
+                        }
+                    }
+
                     item {
                         Spacer(modifier = Modifier.height(16.dp))
                     }
@@ -226,14 +492,13 @@ fun PerfilScreen(
 
 @Composable
 fun PerfilHeaderCard(
-    perfil: com.rivera.votainformado.data.model.auth.PerfilResponse?,
-    isDarkMode: Boolean
+    perfil: com.rivera.votainformado.data.model.auth.PerfilResponse?
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
+            containerColor = NeutralWhite
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
@@ -244,28 +509,28 @@ fun PerfilHeaderCard(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Avatar
             Box(
                 modifier = Modifier
-                    .size(100.dp)
+                    .size(120.dp)
                     .clip(CircleShape)
-                    .background(
-                        if (isDarkMode) InstitutionalBlueDark else InstitutionalBlue.copy(alpha = 0.1f)
-                    )
-                    .shadow(8.dp, CircleShape),
+                    .background(InstitutionalBlue.copy(alpha = 0.1f))
+                    .border(
+                        width = 3.dp,
+                        color = InstitutionalBlue.copy(alpha = 0.3f),
+                        shape = CircleShape
+                    ),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,
                     contentDescription = null,
                     modifier = Modifier.size(80.dp),
-                    tint = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                    tint = InstitutionalBlue
                 )
             }
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            // Nombre completo
             Text(
                 text = perfil?.nombreCompleto ?: "Usuario",
                 style = MaterialTheme.typography.headlineSmall.copy(
@@ -274,7 +539,6 @@ fun PerfilHeaderCard(
                 color = MaterialTheme.colorScheme.onSurface
             )
 
-            // Información adicional
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -282,20 +546,17 @@ fun PerfilHeaderCard(
                 InfoRow(
                     icon = Icons.Default.Badge,
                     label = "DNI",
-                    value = perfil?.dni ?: "-",
-                    isDarkMode = isDarkMode
+                    value = perfil?.dni ?: "-"
                 )
                 InfoRow(
                     icon = Icons.Default.LocationOn,
                     label = "Región",
-                    value = perfil?.region?.let { regionToString(it) } ?: "-",
-                    isDarkMode = isDarkMode
+                    value = perfil?.region?.let { regionToString(it) } ?: "-"
                 )
                 InfoRow(
                     icon = Icons.Default.CalendarToday,
                     label = "Registrado",
-                    value = perfil?.createdAt?.let { formatDate(it) } ?: "-",
-                    isDarkMode = isDarkMode
+                    value = perfil?.createdAt?.let { formatDate(it) } ?: "-"
                 )
             }
         }
@@ -306,8 +567,7 @@ fun PerfilHeaderCard(
 fun InfoRow(
     icon: ImageVector,
     label: String,
-    value: String,
-    isDarkMode: Boolean
+    value: String
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -318,13 +578,13 @@ fun InfoRow(
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(20.dp),
-            tint = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+            tint = InstitutionalBlue
         )
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = label,
                 style = MaterialTheme.typography.bodySmall,
-                color = if (isDarkMode) NeutralGray else NeutralMedium
+                color = NeutralMedium
             )
             Text(
                 text = value,
@@ -340,14 +600,13 @@ fun InfoRow(
 @Composable
 fun EstadisticasRapidas(
     totalVotos: Int,
-    isLoading: Boolean,
-    isDarkMode: Boolean
+    isLoading: Boolean
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurf else InstitutionalBlue.copy(alpha = 0.1f)
+            containerColor = InstitutionalBlue.copy(alpha = 0.1f)
         )
     ) {
         Row(
@@ -360,8 +619,7 @@ fun EstadisticasRapidas(
             StatItem(
                 icon = Icons.Default.HowToVote,
                 label = "Votos Emitidos",
-                value = if (isLoading) "..." else totalVotos.toString(),
-                isDarkMode = isDarkMode
+                value = if (isLoading) "..." else totalVotos.toString()
             )
         }
     }
@@ -371,8 +629,7 @@ fun EstadisticasRapidas(
 fun StatItem(
     icon: ImageVector,
     label: String,
-    value: String,
-    isDarkMode: Boolean
+    value: String
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -382,19 +639,19 @@ fun StatItem(
             imageVector = icon,
             contentDescription = null,
             modifier = Modifier.size(32.dp),
-            tint = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+            tint = InstitutionalBlue
         )
         Text(
             text = value,
             style = MaterialTheme.typography.headlineMedium.copy(
                 fontWeight = FontWeight.Bold
             ),
-            color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+            color = InstitutionalBlue
         )
         Text(
             text = label,
             style = MaterialTheme.typography.bodySmall,
-            color = if (isDarkMode) NeutralGray else NeutralMedium
+            color = NeutralMedium
         )
     }
 }
@@ -402,7 +659,6 @@ fun StatItem(
 @Composable
 fun VotoCard(
     voto: com.rivera.votainformado.data.model.votos.Voto,
-    isDarkMode: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -412,23 +668,22 @@ fun VotoCard(
             .clickable { onClick() },
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
+            containerColor = NeutralWhite
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Foto del candidato
             Box(
                 modifier = Modifier
                     .size(64.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(if (isDarkMode) DarkSurf else NeutralLight)
+                    .background(NeutralLight)
             ) {
                 Image(
                     painter = rememberAsyncImagePainter(
@@ -455,7 +710,7 @@ fun VotoCard(
                 Text(
                     text = voto.candidato.partido.nombrePartido,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                    color = InstitutionalBlue
                 )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -465,12 +720,12 @@ fun VotoCard(
                         imageVector = Icons.Default.Work,
                         contentDescription = null,
                         modifier = Modifier.size(14.dp),
-                        tint = if (isDarkMode) NeutralGray else NeutralMedium
+                        tint = NeutralMedium
                     )
                     Text(
                         text = voto.cargo.nombreCargo,
                         style = MaterialTheme.typography.bodySmall,
-                        color = if (isDarkMode) NeutralGray else NeutralMedium
+                        color = NeutralMedium
                     )
                 }
             }
@@ -478,7 +733,7 @@ fun VotoCard(
             Icon(
                 imageVector = Icons.Default.ChevronRight,
                 contentDescription = null,
-                tint = if (isDarkMode) NeutralGray else NeutralMedium,
+                tint = NeutralMedium,
                 modifier = Modifier.size(24.dp)
             )
         }
@@ -489,14 +744,13 @@ fun VotoCard(
 fun EmptyStateCard(
     icon: ImageVector,
     title: String,
-    description: String,
-    isDarkMode: Boolean
+    description: String
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralLight
+            containerColor = NeutralLight
         )
     ) {
         Column(
@@ -510,7 +764,7 @@ fun EmptyStateCard(
                 imageVector = icon,
                 contentDescription = null,
                 modifier = Modifier.size(64.dp),
-                tint = if (isDarkMode) NeutralGray else NeutralMedium
+                tint = NeutralMedium
             )
             Text(
                 text = title,
@@ -522,7 +776,7 @@ fun EmptyStateCard(
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodyMedium,
-                color = if (isDarkMode) NeutralGray else NeutralMedium
+                color = NeutralMedium
             )
         }
     }
@@ -534,7 +788,6 @@ fun regionToString(region: com.rivera.votainformado.data.model.core.Region): Str
 
 fun formatDate(dateString: String): String {
     return try {
-        // Formato simple: "2024-01-15" -> "15/01/2024"
         val parts = dateString.split("T")[0].split("-")
         if (parts.size == 3) {
             "${parts[2]}/${parts[1]}/${parts[0]}"
@@ -543,5 +796,29 @@ fun formatDate(dateString: String): String {
         }
     } catch (e: Exception) {
         dateString
+    }
+}
+
+@Composable
+fun InfoRowText(
+    icon: ImageVector,
+    text: String
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            modifier = Modifier.size(20.dp),
+            tint = InstitutionalBlue
+        )
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface
+        )
     }
 }

@@ -50,7 +50,6 @@ class Candidato(TimeStampedModel):
         Region,
         on_delete=models.PROTECT,
         related_name="candidatos",
-        null=True,  # NULL si es Presidente o Senador
         blank=True,
         verbose_name="Región (solo para Diputados)",
     )
