@@ -1,5 +1,10 @@
 package com.rivera.votainformado.ui.comparar
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -25,6 +30,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.rivera.votainformado.R
 import com.rivera.votainformado.ui.theme.*
 import com.rivera.votainformado.ui.navigation.BottomNavigationBar
@@ -77,14 +84,22 @@ fun CompararScreen(
             )
         }
     ) { innerPadding ->
-        LazyColumn(
+        val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
+        
+        SwipeRefresh(
+            state = swipeRefreshState,
+            onRefresh = { viewModel.cargarListaCandidatos() },
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .background(MaterialTheme.colorScheme.background),
-            contentPadding = PaddingValues(20.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background),
+                contentPadding = PaddingValues(20.dp),
+                verticalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
             // Selectores de candidatos
             item {
                 Row(
@@ -113,19 +128,34 @@ fun CompararScreen(
                 }
             }
 
-            // Comparación
+            // Comparación con animación
             if (state.candidato1 != null && state.candidato2 != null) {
                 item {
-                    ComparacionHeader(
-                        candidato1 = state.candidato1!!,
-                        candidato2 = state.candidato2!!,
-                        isDarkMode = isDarkMode,
-                        onNavigateToDetail = onNavigateToDetail
-                    )
+                    AnimatedVisibility(
+                        visible = true,
+                        enter = fadeIn() + scaleIn(),
+                        exit = fadeOut() + scaleOut()
+                    ) {
+                        ComparacionHeader(
+                            candidato1 = state.candidato1!!,
+                            candidato2 = state.candidato2!!,
+                            isDarkMode = isDarkMode,
+                            onNavigateToDetail = onNavigateToDetail
+                        )
+                    }
                 }
 
                 item {
                     ComparacionBasica(
+                        candidato1 = state.candidato1!!,
+                        candidato2 = state.candidato2!!,
+                        isDarkMode = isDarkMode
+                    )
+                }
+
+                // Indicador visual de mejor/peor
+                item {
+                    ComparacionMetricas(
                         candidato1 = state.candidato1!!,
                         candidato2 = state.candidato2!!,
                         isDarkMode = isDarkMode
@@ -137,7 +167,8 @@ fun CompararScreen(
                         titulo = "Denuncias",
                         antecedentes1 = state.candidato1!!.denuncias ?: emptyList(),
                         antecedentes2 = state.candidato2!!.denuncias ?: emptyList(),
-                        isDarkMode = isDarkMode
+                        isDarkMode = isDarkMode,
+                        isNegative = true // Denuncias son negativas
                     )
                 }
 
@@ -146,7 +177,8 @@ fun CompararScreen(
                         titulo = "Proyectos de Ley",
                         antecedentes1 = state.candidato1!!.proyectos ?: emptyList(),
                         antecedentes2 = state.candidato2!!.proyectos ?: emptyList(),
-                        isDarkMode = isDarkMode
+                        isDarkMode = isDarkMode,
+                        isNegative = false // Proyectos son positivos
                     )
                 }
 
@@ -155,7 +187,8 @@ fun CompararScreen(
                         titulo = "Propuestas",
                         antecedentes1 = state.candidato1!!.propuestas ?: emptyList(),
                         antecedentes2 = state.candidato2!!.propuestas ?: emptyList(),
-                        isDarkMode = isDarkMode
+                        isDarkMode = isDarkMode,
+                        isNegative = false // Propuestas son positivas
                     )
                 }
             } else {
@@ -164,9 +197,10 @@ fun CompararScreen(
                 }
             }
 
-            // Espaciado final
-            item {
-                Spacer(modifier = Modifier.height(16.dp))
+                // Espaciado final
+                item {
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
             }
         }
     }
@@ -374,6 +408,188 @@ fun CandidatoHeaderCard(
 }
 
 @Composable
+fun ComparacionMetricas(
+    candidato1: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
+    candidato2: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
+    isDarkMode: Boolean
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
+        )
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Text(
+                text = "Resumen Comparativo",
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontWeight = FontWeight.Bold,
+                    color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                )
+            )
+
+            // Comparación de votos si están disponibles
+            if (candidato1.totalVotos != null && candidato2.totalVotos != null) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "${candidato1.totalVotos}",
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = if (candidato1.totalVotos > candidato2.totalVotos) 
+                                    CivicGreen else MaterialTheme.colorScheme.onSurface
+                            )
+                        )
+                        Text(
+                            text = "votos",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (isDarkMode) NeutralGray else NeutralMedium
+                        )
+                        if (candidato1.totalVotos > candidato2.totalVotos) {
+                            Icon(
+                                imageVector = Icons.Default.TrendingUp,
+                                contentDescription = "Líder",
+                                tint = CivicGreen,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                    }
+                    
+                    Icon(
+                        imageVector = Icons.Default.CompareArrows,
+                        contentDescription = null,
+                        modifier = Modifier.size(32.dp),
+                        tint = if (isDarkMode) NeutralGray else NeutralMedium
+                    )
+                    
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "${candidato2.totalVotos}",
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = if (candidato2.totalVotos > candidato1.totalVotos) 
+                                    CivicGreen else MaterialTheme.colorScheme.onSurface
+                            )
+                        )
+                        Text(
+                            text = "votos",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (isDarkMode) NeutralGray else NeutralMedium
+                        )
+                        if (candidato2.totalVotos > candidato1.totalVotos) {
+                            Icon(
+                                imageVector = Icons.Default.TrendingUp,
+                                contentDescription = "Líder",
+                                tint = CivicGreen,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                    }
+                }
+            }
+            
+            // Comparación de antecedentes
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                MetricaResumen(
+                    label = "Denuncias",
+                    valor1 = candidato1.denuncias?.size ?: 0,
+                    valor2 = candidato2.denuncias?.size ?: 0,
+                    isNegative = true,
+                    isDarkMode = isDarkMode
+                )
+                MetricaResumen(
+                    label = "Proyectos",
+                    valor1 = candidato1.proyectos?.size ?: 0,
+                    valor2 = candidato2.proyectos?.size ?: 0,
+                    isNegative = false,
+                    isDarkMode = isDarkMode
+                )
+                MetricaResumen(
+                    label = "Propuestas",
+                    valor1 = candidato1.propuestas?.size ?: 0,
+                    valor2 = candidato2.propuestas?.size ?: 0,
+                    isNegative = false,
+                    isDarkMode = isDarkMode
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun MetricaResumen(
+    label: String,
+    valor1: Int,
+    valor2: Int,
+    isNegative: Boolean,
+    isDarkMode: Boolean
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodySmall,
+            color = if (isDarkMode) NeutralGray else NeutralMedium
+        )
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "$valor1",
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontWeight = FontWeight.Bold
+                ),
+                color = when {
+                    isNegative && valor1 < valor2 -> CivicGreen
+                    !isNegative && valor1 > valor2 -> CivicGreen
+                    valor1 != valor2 -> ErrorRed
+                    else -> MaterialTheme.colorScheme.onSurface
+                }
+            )
+            Text(
+                text = "-",
+                style = MaterialTheme.typography.bodySmall,
+                color = if (isDarkMode) NeutralGray else NeutralMedium
+            )
+            Text(
+                text = "$valor2",
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontWeight = FontWeight.Bold
+                ),
+                color = when {
+                    isNegative && valor2 < valor1 -> CivicGreen
+                    !isNegative && valor2 > valor1 -> CivicGreen
+                    valor1 != valor2 -> ErrorRed
+                    else -> MaterialTheme.colorScheme.onSurface
+                }
+            )
+        }
+    }
+}
+
+@Composable
 fun ComparacionBasica(
     candidato1: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
     candidato2: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
@@ -467,7 +683,8 @@ fun ComparacionAntecedentes(
     titulo: String,
     antecedentes1: List<com.rivera.votainformado.data.model.candidatos.Antecedente>,
     antecedentes2: List<com.rivera.votainformado.data.model.candidatos.Antecedente>,
-    isDarkMode: Boolean
+    isDarkMode: Boolean,
+    isNegative: Boolean = false // Denuncias son negativas, proyectos/propuestas son positivas
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -484,7 +701,8 @@ fun ComparacionAntecedentes(
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = titulo,
@@ -493,24 +711,81 @@ fun ComparacionAntecedentes(
                         color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
                     )
                 )
-                Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                    Text(
-                        text = "${antecedentes1.size}",
-                        style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.Bold
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Candidato 1
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "${antecedentes1.size}",
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = when {
+                                    isNegative && antecedentes1.size < antecedentes2.size -> CivicGreen
+                                    !isNegative && antecedentes1.size > antecedentes2.size -> CivicGreen
+                                    antecedentes1.size != antecedentes2.size -> ErrorRed
+                                    else -> MaterialTheme.colorScheme.onSurface
+                                }
+                            )
                         )
-                    )
+                        if (antecedentes1.size != antecedentes2.size) {
+                            Icon(
+                                imageVector = if (
+                                    (isNegative && antecedentes1.size < antecedentes2.size) ||
+                                    (!isNegative && antecedentes1.size > antecedentes2.size)
+                                ) Icons.Default.CheckCircle else Icons.Default.Warning,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp),
+                                tint = if (
+                                    (isNegative && antecedentes1.size < antecedentes2.size) ||
+                                    (!isNegative && antecedentes1.size > antecedentes2.size)
+                                ) CivicGreen else ErrorRed
+                            )
+                        }
+                    }
+                    
                     Text(
                         text = "vs",
                         style = MaterialTheme.typography.bodySmall,
                         color = if (isDarkMode) NeutralGray else NeutralMedium
                     )
-                    Text(
-                        text = "${antecedentes2.size}",
-                        style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.Bold
+                    
+                    // Candidato 2
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "${antecedentes2.size}",
+                            style = MaterialTheme.typography.titleMedium.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = when {
+                                    isNegative && antecedentes2.size < antecedentes1.size -> CivicGreen
+                                    !isNegative && antecedentes2.size > antecedentes1.size -> CivicGreen
+                                    antecedentes1.size != antecedentes2.size -> ErrorRed
+                                    else -> MaterialTheme.colorScheme.onSurface
+                                }
+                            )
                         )
-                    )
+                        if (antecedentes1.size != antecedentes2.size) {
+                            Icon(
+                                imageVector = if (
+                                    (isNegative && antecedentes2.size < antecedentes1.size) ||
+                                    (!isNegative && antecedentes2.size > antecedentes1.size)
+                                ) Icons.Default.CheckCircle else Icons.Default.Warning,
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp),
+                                tint = if (
+                                    (isNegative && antecedentes2.size < antecedentes1.size) ||
+                                    (!isNegative && antecedentes2.size > antecedentes1.size)
+                                ) CivicGreen else ErrorRed
+                            )
+                        }
+                    }
                 }
             }
 

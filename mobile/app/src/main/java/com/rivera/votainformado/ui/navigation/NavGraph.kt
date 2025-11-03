@@ -168,6 +168,11 @@ fun NavGraph(navController: NavHostController) {
                             popUpTo(Screen.Votar.route) { inclusive = true }
                         }
                     }
+                },
+                onNavigateToWelcome = {
+                    navController.navigate(Screen.Welcome.route) {
+                        popUpTo(0) { inclusive = true }
+                    }
                 }
             )
         }

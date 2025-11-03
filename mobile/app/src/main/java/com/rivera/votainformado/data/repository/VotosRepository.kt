@@ -29,8 +29,14 @@ class VotosRepository {
     suspend fun votar(candidatoId: Int): Resource<VotoResponse> {
         return try {
             val response = api.votar(VotoRequest(candidatoId))
-            if (response.isSuccessful && response.body() != null) {
-                Resource.Success(response.body()!!)
+            if (response.isSuccessful) {
+                val body = response.body()
+                if (body != null) {
+                    Resource.Success(body)
+                } else {
+                    // Backend devuelve 201 pero sin body (raro, pero manejarlo)
+                    Resource.Error("Respuesta vacía del servidor")
+                }
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
@@ -39,7 +45,7 @@ class VotosRepository {
                 Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión. Inténtalo nuevamente.")
+            Resource.Error("Error de conexión: ${e.localizedMessage ?: "Inténtalo nuevamente"}")
         }
     }
 
@@ -50,8 +56,9 @@ class VotosRepository {
     suspend fun getMisVotos(): Resource<List<Voto>> {
         return try {
             val response = api.getMisVotos()
-            if (response.isSuccessful && response.body() != null) {
-                Resource.Success(response.body()!!)
+            if (response.isSuccessful) {
+                // Backend siempre devuelve array, aunque sea vacío
+                Resource.Success(response.body() ?: emptyList())
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
@@ -60,7 +67,7 @@ class VotosRepository {
                 Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión. Inténtalo nuevamente.")
+            Resource.Error("Error de conexión: ${e.localizedMessage ?: "Inténtalo nuevamente"}")
         }
     }
 
@@ -71,8 +78,13 @@ class VotosRepository {
     suspend fun puedeVotar(cargoNombre: String): Resource<PuedeVotarResponse> {
         return try {
             val response = api.puedeVotar(cargoNombre)
-            if (response.isSuccessful && response.body() != null) {
-                Resource.Success(response.body()!!)
+            if (response.isSuccessful) {
+                val body = response.body()
+                if (body != null) {
+                    Resource.Success(body)
+                } else {
+                    Resource.Error("Respuesta vacía del servidor")
+                }
             } else {
                 val errorMessage = parseErrorMessage(
                     response.errorBody()?.string(),
@@ -81,7 +93,7 @@ class VotosRepository {
                 Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión. Inténtalo nuevamente.")
+            Resource.Error("Error de conexión: ${e.localizedMessage ?: "Inténtalo nuevamente"}")
         }
     }
 
@@ -105,7 +117,7 @@ class VotosRepository {
                 Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión. Inténtalo nuevamente.")
+            Resource.Error("Error de conexión: ${e.localizedMessage ?: "Inténtalo nuevamente"}")
         }
     }
 
@@ -128,7 +140,7 @@ class VotosRepository {
                 Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión. Inténtalo nuevamente.")
+            Resource.Error("Error de conexión: ${e.localizedMessage ?: "Inténtalo nuevamente"}")
         }
     }
 
@@ -149,7 +161,7 @@ class VotosRepository {
                 Resource.Error(errorMessage)
             }
         } catch (e: Exception) {
-            Resource.Error("Error de conexión. Inténtalo nuevamente.")
+            Resource.Error("Error de conexión: ${e.localizedMessage ?: "Inténtalo nuevamente"}")
         }
     }
 }

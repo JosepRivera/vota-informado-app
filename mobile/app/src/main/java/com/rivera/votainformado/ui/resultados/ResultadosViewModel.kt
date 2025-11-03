@@ -52,7 +52,9 @@ class ResultadosViewModel : ViewModel() {
         viewModelScope.launch {
             _resultadosState.value = _resultadosState.value.copy(
                 isLoading = true,
-                mostrarPorPartido = true
+                mostrarPorPartido = true,
+                errorMessage = null,
+                cargoFiltro = cargo
             )
 
             when (val result = repository.getResultadosPorPartido(cargo)) {

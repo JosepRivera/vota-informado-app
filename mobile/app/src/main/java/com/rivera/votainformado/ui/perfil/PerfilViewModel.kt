@@ -1,6 +1,7 @@
 package com.rivera.votainformado.ui.perfil
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rivera.votainformado.data.repository.AuthRepository
@@ -49,17 +50,22 @@ class PerfilViewModel(private val tokenManager: TokenManager? = null) : ViewMode
 
     fun loadMisVotos() {
         viewModelScope.launch {
+            Log.d("PerfilViewModel", "Iniciando carga de votos...")
             _perfilState.value = _perfilState.value.copy(isLoadingVotos = true)
 
             when (val result = votosRepository.getMisVotos()) {
                 is Resource.Success -> {
+                    val votos = result.data ?: emptyList()
+                    Log.d("PerfilViewModel", "Votos cargados exitosamente: ${votos.size} votos")
                     _perfilState.value = _perfilState.value.copy(
-                        misVotos = result.data ?: emptyList(),
+                        misVotos = votos,
                         isLoadingVotos = false
                     )
                 }
                 is Resource.Error -> {
+                    Log.e("PerfilViewModel", "Error al cargar votos: ${result.message}")
                     _perfilState.value = _perfilState.value.copy(
+                        misVotos = emptyList(), // Asegurar lista vacía en caso de error
                         isLoadingVotos = false
                     )
                 }

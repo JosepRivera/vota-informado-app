@@ -2,6 +2,7 @@ package com.rivera.votainformado.ui.votar
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.rivera.votainformado.data.repository.AuthRepository
 import com.rivera.votainformado.data.repository.CandidatosRepository
 import com.rivera.votainformado.data.repository.VotosRepository
 import com.rivera.votainformado.util.Resource
@@ -14,13 +15,32 @@ class VotarViewModel : ViewModel() {
 
     private val candidatosRepository = CandidatosRepository()
     private val votosRepository = VotosRepository()
+    private val authRepository = AuthRepository()
 
     private val _votarState = MutableStateFlow(VotarState())
     val votarState: StateFlow<VotarState> = _votarState.asStateFlow()
 
     init {
         loadCandidatos()
-        verificarEstadoVotos()
+        viewModelScope.launch {
+            verificarEstadoVotos()
+        }
+        loadPerfil()
+    }
+
+    fun loadPerfil() {
+        viewModelScope.launch {
+            when (val result = authRepository.getPerfil()) {
+                is Resource.Success -> {
+                    _votarState.value = _votarState.value.copy(perfil = result.data)
+                }
+                else -> {}
+            }
+        }
+    }
+
+    fun setSearchQuery(query: String) {
+        _votarState.value = _votarState.value.copy(searchQuery = query)
     }
 
     fun loadCandidatos() {
@@ -71,51 +91,50 @@ class VotarViewModel : ViewModel() {
         }
     }
 
-    fun verificarEstadoVotos() {
-        viewModelScope.launch {
-            // Verificar si puede votar por cada cargo
-            when (val result = votosRepository.puedeVotar("Presidente")) {
-                is Resource.Success -> {
-                    result.data?.let {
-                        _votarState.value = _votarState.value.copy(
-                            puedeVotarPresidente = it.puedeVotar,
-                            yaVotoPresidente = it.yaVoto
-                        )
-                    }
+    suspend fun verificarEstadoVotos() {
+        // Verificar si puede votar por cada cargo
+        when (val result = votosRepository.puedeVotar("Presidente")) {
+            is Resource.Success -> {
+                result.data?.let {
+                    _votarState.value = _votarState.value.copy(
+                        puedeVotarPresidente = it.puedeVotar,
+                        yaVotoPresidente = it.yaVoto
+                    )
                 }
-                else -> {}
             }
+            else -> {}
+        }
 
-            when (val result = votosRepository.puedeVotar("Senador")) {
-                is Resource.Success -> {
-                    result.data?.let {
-                        _votarState.value = _votarState.value.copy(
-                            puedeVotarSenador = it.puedeVotar,
-                            yaVotoSenador = it.yaVoto
-                        )
-                    }
+        when (val result = votosRepository.puedeVotar("Senador")) {
+            is Resource.Success -> {
+                result.data?.let {
+                    _votarState.value = _votarState.value.copy(
+                        puedeVotarSenador = it.puedeVotar,
+                        yaVotoSenador = it.yaVoto
+                    )
                 }
-                else -> {}
             }
+            else -> {}
+        }
 
-            when (val result = votosRepository.puedeVotar("Diputado")) {
-                is Resource.Success -> {
-                    result.data?.let {
-                        _votarState.value = _votarState.value.copy(
-                            puedeVotarDiputado = it.puedeVotar,
-                            yaVotoDiputado = it.yaVoto
-                        )
-                    }
+        when (val result = votosRepository.puedeVotar("Diputado")) {
+            is Resource.Success -> {
+                result.data?.let {
+                    _votarState.value = _votarState.value.copy(
+                        puedeVotarDiputado = it.puedeVotar,
+                        yaVotoDiputado = it.yaVoto
+                    )
                 }
-                else -> {}
             }
+            else -> {}
         }
     }
 
     fun seleccionarCandidato(candidato: com.rivera.votainformado.data.model.candidatos.CandidatoItem) {
         _votarState.value = _votarState.value.copy(
             candidatoSeleccionado = candidato,
-            mostrarConfirmacion = true
+            mostrarConfirmacion = true,
+            errorMessage = null // Limpiar cualquier error previo
         )
     }
 
@@ -123,25 +142,47 @@ class VotarViewModel : ViewModel() {
         viewModelScope.launch {
             val candidato = _votarState.value.candidatoSeleccionado ?: return@launch
 
-            _votarState.value = _votarState.value.copy(isLoading = true, errorMessage = null)
+            // Limpiar TODOS los mensajes antes de iniciar
+            _votarState.value = _votarState.value.copy(
+                isLoading = true, 
+                errorMessage = null,
+                successMessage = null
+            )
 
             when (val result = votosRepository.votar(candidato.id)) {
                 is Resource.Success -> {
+                    // Pequeña pausa para que el backend procese
+                    kotlinx.coroutines.delay(500)
+                    
+                    // Actualizar estado de votos PRIMERO y ESPERAR
+                    verificarEstadoVotos()
+                    
+                    // Pequeña pausa para asegurar que el estado se actualizó
+                    kotlinx.coroutines.delay(300)
+                    
+                    // Luego mostrar mensaje de éxito SIN errores
                     _votarState.value = _votarState.value.copy(
                         successMessage = result.data?.message ?: "Voto registrado exitosamente",
                         mostrarConfirmacion = false,
                         candidatoSeleccionado = null,
-                        isLoading = false
+                        isLoading = false,
+                        errorMessage = null // GARANTIZAR que no hay error
                     )
-                    // Actualizar estado de votos
-                    verificarEstadoVotos()
                 }
                 is Resource.Error -> {
                     _votarState.value = _votarState.value.copy(
                         errorMessage = result.message,
                         mostrarConfirmacion = false,
-                        isLoading = false
+                        isLoading = false,
+                        successMessage = null
                     )
+                    // Auto-limpiar error después de 5 segundos
+                    viewModelScope.launch {
+                        kotlinx.coroutines.delay(5000)
+                        if (_votarState.value.errorMessage == result.message) {
+                            _votarState.value = _votarState.value.copy(errorMessage = null)
+                        }
+                    }
                 }
                 is Resource.Loading -> {}
             }
@@ -161,6 +202,10 @@ class VotarViewModel : ViewModel() {
 
     fun limpiarMensajeExito() {
         _votarState.value = _votarState.value.copy(successMessage = null)
+    }
+    
+    fun limpiarError() {
+        _votarState.value = _votarState.value.copy(errorMessage = null)
     }
 }
 

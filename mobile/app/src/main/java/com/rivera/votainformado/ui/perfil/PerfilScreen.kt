@@ -27,6 +27,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModel
 import coil.compose.rememberAsyncImagePainter
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.rivera.votainformado.R
 import com.rivera.votainformado.ui.theme.*
 import com.rivera.votainformado.util.TokenManager
@@ -80,6 +82,7 @@ fun PerfilScreen(
         }
     ) { innerPadding ->
         val esInvitado = tokenManager.getAccessToken() == null
+        val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading && state.perfil != null)
 
         when {
             esInvitado -> {
@@ -339,14 +342,20 @@ fun PerfilScreen(
                 }
             }
             else -> {
-                LazyColumn(
+                SwipeRefresh(
+                    state = swipeRefreshState,
+                    onRefresh = { viewModel.refrescar() },
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding)
-                        .background(MaterialTheme.colorScheme.background),
-                    contentPadding = PaddingValues(20.dp),
-                    verticalArrangement = Arrangement.spacedBy(24.dp)
                 ) {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(MaterialTheme.colorScheme.background),
+                        contentPadding = PaddingValues(20.dp),
+                        verticalArrangement = Arrangement.spacedBy(24.dp)
+                    ) {
                     item {
                         PerfilHeaderCard(perfil = state.perfil)
                     }
@@ -424,7 +433,10 @@ fun PerfilScreen(
                                 )
                             }
                         }
-                    } else if (state.misVotos.isEmpty()) {
+                    }
+                    
+                    // SIEMPRE mostrar la lista de votos
+                    if (state.misVotos.isEmpty() && !state.isLoadingVotos) {
                         item {
                             EmptyStateCard(
                                 icon = Icons.Default.HowToVote,
@@ -432,14 +444,15 @@ fun PerfilScreen(
                                 description = "Participa en la votación para ver tus votos aquí"
                             )
                         }
-                    } else {
-                        items(state.misVotos) { voto ->
-                            VotoCard(
-                                voto = voto,
-                                onClick = { onNavigateToDetail(voto.candidato.id) },
-                                modifier = Modifier.fillMaxWidth()
-                            )
-                        }
+                    }
+                    
+                    // Mostrar votos si existen
+                    items(state.misVotos) { voto ->
+                        VotoCard(
+                            voto = voto,
+                            onClick = { onNavigateToDetail(voto.candidato.id) },
+                            modifier = Modifier.fillMaxWidth()
+                        )
                     }
 
                     item {
@@ -481,8 +494,9 @@ fun PerfilScreen(
                         }
                     }
 
-                    item {
-                        Spacer(modifier = Modifier.height(16.dp))
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                        }
                     }
                 }
             }

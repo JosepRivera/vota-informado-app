@@ -2,6 +2,7 @@ package com.rivera.votainformado.ui.votar
 
 import com.rivera.votainformado.data.model.candidatos.CandidatoItem
 import com.rivera.votainformado.data.model.core.Cargo
+import com.rivera.votainformado.data.model.auth.PerfilResponse
 
 data class VotarState(
     val isLoading: Boolean = false,
@@ -18,6 +19,8 @@ data class VotarState(
     val puedeVotarDiputado: Boolean = true,
     val yaVotoPresidente: Boolean = false,
     val yaVotoSenador: Boolean = false,
-    val yaVotoDiputado: Boolean = false
+    val yaVotoDiputado: Boolean = false,
+    val perfil: PerfilResponse? = null,
+    val searchQuery: String = ""
 )
 
