@@ -105,12 +105,18 @@ fun NavGraph(navController: NavHostController) {
                 },
                 onNavigate = { route ->
                     when (route) {
-                        "home" -> navController.navigate(Screen.Home.route) {
+                        "home" -> {
+                            // Ya estamos en home, no hacer nada
+                        }
+                        "resultados" -> navController.navigate(Screen.Resultados.route) {
                             popUpTo(Screen.Home.route) { inclusive = true }
                         }
-                        "resultados" -> navController.navigate(Screen.Resultados.route)
-                        "votar" -> navController.navigate(Screen.Votar.route)
-                        "comparar" -> navController.navigate(Screen.Comparar.route)
+                        "votar" -> navController.navigate(Screen.Votar.route) {
+                            popUpTo(Screen.Home.route) { inclusive = true }
+                        }
+                        "comparar" -> navController.navigate(Screen.Comparar.route) {
+                            popUpTo(Screen.Home.route) { inclusive = true }
+                        }
                     }
                 },
                 onNavigateToDetail = { id ->
@@ -134,25 +140,71 @@ fun NavGraph(navController: NavHostController) {
                 onBack = { navController.popBackStack() },
                 onNavigateToDetail = { id ->
                     navController.navigate(Screen.CandidatoDetail.createRoute(id))
+                },
+                onLogout = {
+                    navController.navigate(Screen.Welcome.route) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                },
+                onNavigateToWelcome = {
+                    navController.navigate(Screen.Welcome.route) {
+                        popUpTo(0) { inclusive = true }
+                    }
                 }
             )
         }
 
         composable(Screen.Votar.route) {
             VotarScreen(
-                onBack = { navController.popBackStack() }
+                onNavigate = { route ->
+                    when (route) {
+                        "home" -> navController.navigate(Screen.Home.route) {
+                            popUpTo(Screen.Votar.route) { inclusive = true }
+                        }
+                        "resultados" -> navController.navigate(Screen.Resultados.route) {
+                            popUpTo(Screen.Votar.route) { inclusive = true }
+                        }
+                        "comparar" -> navController.navigate(Screen.Comparar.route) {
+                            popUpTo(Screen.Votar.route) { inclusive = true }
+                        }
+                    }
+                }
             )
         }
 
         composable(Screen.Resultados.route) {
             ResultadosScreen(
-                onBack = { navController.popBackStack() }
+                onNavigate = { route ->
+                    when (route) {
+                        "home" -> navController.navigate(Screen.Home.route) {
+                            popUpTo(Screen.Resultados.route) { inclusive = true }
+                        }
+                        "votar" -> navController.navigate(Screen.Votar.route) {
+                            popUpTo(Screen.Resultados.route) { inclusive = true }
+                        }
+                        "comparar" -> navController.navigate(Screen.Comparar.route) {
+                            popUpTo(Screen.Resultados.route) { inclusive = true }
+                        }
+                    }
+                }
             )
         }
 
         composable(Screen.Comparar.route) {
             CompararScreen(
-                onBack = { navController.popBackStack() },
+                onNavigate = { route ->
+                    when (route) {
+                        "home" -> navController.navigate(Screen.Home.route) {
+                            popUpTo(Screen.Comparar.route) { inclusive = true }
+                        }
+                        "resultados" -> navController.navigate(Screen.Resultados.route) {
+                            popUpTo(Screen.Comparar.route) { inclusive = true }
+                        }
+                        "votar" -> navController.navigate(Screen.Votar.route) {
+                            popUpTo(Screen.Comparar.route) { inclusive = true }
+                        }
+                    }
+                },
                 onNavigateToDetail = { id ->
                     navController.navigate(Screen.CandidatoDetail.createRoute(id))
                 }

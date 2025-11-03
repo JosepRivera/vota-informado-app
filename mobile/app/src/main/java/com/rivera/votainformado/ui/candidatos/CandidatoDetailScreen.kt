@@ -173,7 +173,7 @@ fun CandidatoDetailContent(
                     Spacer(modifier = Modifier.height(4.dp))
                     
                     Text(
-                        text = regionToText(candidato.region),
+                        text = regionToText(candidato.region!!),
                         style = MaterialTheme.typography.bodyLarge,
                         color = if (isDarkMode) NeutralGray else NeutralMedium
                     )
@@ -407,24 +407,16 @@ fun AntecedenteCard(
     }
 }
 
-fun regionToText(region: JsonElement?): String {
-    if (region == null || region.isJsonNull) return "-"
+fun regionToText(region: JsonElement): String {
     return when (region) {
-        is JsonPrimitive -> if (region.isString) region.asString else "-"
+        is JsonPrimitive -> if (region.isString) region.asString else ""
         is JsonObject -> {
-            val candidates = listOf("nombre", "nombre_region", "name", "region")
-            for (key in candidates) {
-                if (region.has(key) && region.get(key).isJsonPrimitive) {
-                    val prim = region.get(key).asJsonPrimitive
-                    if (prim.isString) return prim.asString
-                }
-            }
-            if (region.has("id") && region.get("id").isJsonPrimitive) {
-                return "Región #" + region.get("id").asInt
-            }
-            "-"
+            val keys = listOf("nombre_region", "nombre", "name", "region")
+            keys.firstOrNull { region.has(it) && region.get(it).isJsonPrimitive && region.get(it).asJsonPrimitive.isString }
+                ?.let { region.get(it).asJsonPrimitive.asString }
+                ?: ""
         }
-        else -> "-"
+        else -> ""
     }
 }
 
