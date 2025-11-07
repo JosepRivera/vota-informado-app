@@ -31,11 +31,23 @@ data class VotoRequest(
 )
 
 /**
+ * Detalle del voto en la respuesta
+ */
+data class VotoDetalle(
+    val id: Int,
+    val candidato: CandidatoItem,
+    @SerializedName("cargo")
+    val cargo: String,
+    @SerializedName("created_at")
+    val createdAt: String
+)
+
+/**
  * Response después de emitir un voto
  */
 data class VotoResponse(
     val message: String,
-    val voto: Voto
+    val voto: VotoDetalle
 )
 
 /**

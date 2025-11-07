@@ -142,9 +142,8 @@ class VotarViewModel : ViewModel() {
         viewModelScope.launch {
             val candidato = _votarState.value.candidatoSeleccionado ?: return@launch
 
-            // Limpiar TODOS los mensajes antes de iniciar
             _votarState.value = _votarState.value.copy(
-                isLoading = true, 
+                isLoading = true,
                 errorMessage = null,
                 successMessage = null
             )
@@ -152,15 +151,15 @@ class VotarViewModel : ViewModel() {
             when (val result = votosRepository.votar(candidato.id)) {
                 is Resource.Success -> {
                     // Pequeña pausa para que el backend procese
-                    kotlinx.coroutines.delay(500)
-                    
+                    kotlinx.coroutines.delay(800)
+
                     // Actualizar estado de votos PRIMERO y ESPERAR
                     verificarEstadoVotos()
-                    
+
                     // Pequeña pausa para asegurar que el estado se actualizó
-                    kotlinx.coroutines.delay(300)
-                    
-                    // Luego mostrar mensaje de éxito SIN errores
+                    kotlinx.coroutines.delay(500)
+                    launch { loadCandidatos() }
+                    kotlinx.coroutines.delay(800)
                     _votarState.value = _votarState.value.copy(
                         successMessage = result.data?.message ?: "Voto registrado exitosamente",
                         mostrarConfirmacion = false,
@@ -176,13 +175,6 @@ class VotarViewModel : ViewModel() {
                         isLoading = false,
                         successMessage = null
                     )
-                    // Auto-limpiar error después de 5 segundos
-                    viewModelScope.launch {
-                        kotlinx.coroutines.delay(5000)
-                        if (_votarState.value.errorMessage == result.message) {
-                            _votarState.value = _votarState.value.copy(errorMessage = null)
-                        }
-                    }
                 }
                 is Resource.Loading -> {}
             }
