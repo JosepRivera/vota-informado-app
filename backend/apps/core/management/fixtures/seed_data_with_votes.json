@@ -471,7 +471,7 @@
       "apellido_materno": "Aguirre",
       "partido_sigla": "VP",
       "region_nombre": "Huancavelica",
-      "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Ceremonia_de_condecoraci%C3%B3n_de_la_Orden_del_Trabajo_2023_1-54_screenshot_%28cropped%29.png/330px-Ceremonia_de_condecoraci%C3%B3n_de_la_Orden_del_Trabajo_2023_1-54_screenshot_%28cropped%29.png"
+      "foto_url": "https://placehold.co/330x330/9932CC/FFFFFF/png?text=IC"
     },
     {
       "nombre": "Héctor",
@@ -487,7 +487,7 @@
       "apellido_materno": "Serna",
       "partido_sigla": "NP",
       "region_nombre": "Tacna",
-      "foto_url": "https://scontent.flim33-1.fna.fbcdn.net/v/t39.30808-6/557746391_1255613583272640_2981047439851969583_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=QbeMNp3Q6IQQ7kNvwEthULA&_nc_oc=AdlAiSEWdlGNK93jC5ruVozlyM9FCR_JKlrp2n7fs9zzhFMsq30FAhsOPlu9R8ubgp8&_nc_zt=23&_nc_ht=scontent.flim33-1.fna&_nc_gid=TBNPUk9oA4Kz1hMvAaacfw&oh=00_AfjFpxBPo-EML7ws2Qy62H3uxcr_V5SEGqKuvLEfKVbsqQ&oe=690C9042"
+      "foto_url": "https://placehold.co/330x330/9932CC/FFFFFF/png?text=KA"
     },
     {
       "nombre": "Adriana",
@@ -511,7 +511,7 @@
       "apellido_materno": "Oré",
       "partido_sigla": "FP",
       "region_nombre": "Lima",
-      "foto_url": "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/555356634_1240359771465401_2083354601606232185_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_Ot2TGl8LosQ7kNvwFvxnIZ&_nc_oc=Adnda0Ltmt2xzM7VPT3Fs00L-mTic3HIhlcInq1PRYqWziUMJkagYRNF4jAc0lwSNOQ&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=iWLarTodPrwV8DXm-qxXTQ&oh=00_Afh_A6315rtzjE8mxbbgXFbfUfsQIk6BUZ56Be0yryqn1A&oe=690C97DD"
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=JJ"
     },
     {
       "nombre": "Nilza",
@@ -528,6 +528,302 @@
       "partido_sigla": "VP",
       "region_nombre": "Lima",
       "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ministra_Portalatino_1.1_%28cropped%29.jpg/330px-Ministra_Portalatino_1.1_%28cropped%29.jpg"
+    },
+    {
+      "nombre": "Roberto",
+      "apellido_paterno": "Sánchez",
+      "apellido_materno": "Palomino",
+      "partido_sigla": "FP",
+      "region_nombre": "Madre de Dios",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=RS"
+    },
+    {
+      "nombre": "Carmen",
+      "apellido_paterno": "Omonte",
+      "apellido_materno": "Durand",
+      "partido_sigla": "APP",
+      "region_nombre": "Madre de Dios",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=CO"
+    },
+    {
+      "nombre": "Miguel",
+      "apellido_paterno": "Granda",
+      "apellido_materno": "Olaechea",
+      "partido_sigla": "RP",
+      "region_nombre": "Apurímac",
+      "foto_url": "https://placehold.co/330x330/0066CC/FFFFFF/png?text=MG"
+    },
+    {
+      "nombre": "Yeni",
+      "apellido_paterno": "Vilcatoma",
+      "apellido_materno": "Perez",
+      "partido_sigla": "FP",
+      "region_nombre": "Apurímac",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=YV"
+    },
+    {
+      "nombre": "Modesto",
+      "apellido_paterno": "Figueroa",
+      "apellido_materno": "Minaya",
+      "partido_sigla": "NP",
+      "region_nombre": "Apurímac",
+      "foto_url": "https://placehold.co/330x330/9932CC/FFFFFF/png?text=MF"
+    },
+    {
+      "nombre": "Clayton",
+      "apellido_paterno": "Galván",
+      "apellido_materno": "Vento",
+      "partido_sigla": "RP",
+      "region_nombre": "Pasco",
+      "foto_url": "https://placehold.co/330x330/0066CC/FFFFFF/png?text=CG"
+    },
+    {
+      "nombre": "Roy",
+      "apellido_paterno": "Ventura",
+      "apellido_materno": "Valdes",
+      "partido_sigla": "APP",
+      "region_nombre": "Pasco",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=RV"
+    },
+    {
+      "nombre": "Gerardo",
+      "apellido_paterno": "Espinoza",
+      "apellido_materno": "Lozano",
+      "partido_sigla": "APRA",
+      "region_nombre": "Pasco",
+      "foto_url": "https://placehold.co/330x330/CD0000/FFFFFF/png?text=GE"
+    },
+    {
+      "nombre": "Bienvenido",
+      "apellido_paterno": "Ramírez",
+      "apellido_materno": "Paredes",
+      "partido_sigla": "FP",
+      "region_nombre": "Tumbes",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=BR"
+    },
+    {
+      "nombre": "Juan",
+      "apellido_paterno": "Yuyes",
+      "apellido_materno": "Saavedra",
+      "partido_sigla": "APP",
+      "region_nombre": "Tumbes",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=JY"
+    },
+    {
+      "nombre": "Glider",
+      "apellido_paterno": "Ushñahua",
+      "apellido_materno": "Huasanga",
+      "partido_sigla": "VP",
+      "region_nombre": "Ucayali",
+      "foto_url": "https://placehold.co/330x330/FF0000/FFFFFF/png?text=GU"
+    },
+    {
+      "nombre": "Carlos",
+      "apellido_paterno": "Tubino",
+      "apellido_materno": "Arias",
+      "partido_sigla": "FP",
+      "region_nombre": "Ucayali",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=CT"
+    },
+    {
+      "nombre": "Eduardo",
+      "apellido_paterno": "Salhuana",
+      "apellido_materno": "Cavides",
+      "partido_sigla": "NP",
+      "region_nombre": "Ucayali",
+      "foto_url": "https://placehold.co/330x330/9932CC/FFFFFF/png?text=ES"
+    },
+    {
+      "nombre": "Roberto",
+      "apellido_paterno": "Kamiche",
+      "apellido_materno": "Morante",
+      "partido_sigla": "APP",
+      "region_nombre": "Amazonas",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=RK"
+    },
+    {
+      "nombre": "Elva",
+      "apellido_paterno": "Julón",
+      "apellido_materno": "Irigoin",
+      "partido_sigla": "APRA",
+      "region_nombre": "Áncash",
+      "foto_url": "https://placehold.co/330x330/CD0000/FFFFFF/png?text=EJ"
+    },
+    {
+      "nombre": "Hernando",
+      "apellido_paterno": "Guerra",
+      "apellido_materno": "García",
+      "partido_sigla": "FP",
+      "region_nombre": "Arequipa",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=HG"
+    },
+    {
+      "nombre": "Juana",
+      "apellido_paterno": "Ancalla",
+      "apellido_materno": "Condori",
+      "partido_sigla": "NP",
+      "region_nombre": "Ayacucho",
+      "foto_url": "https://placehold.co/330x330/9932CC/FFFFFF/png?text=JA"
+    },
+    {
+      "nombre": "Mesías",
+      "apellido_paterno": "Guevara",
+      "apellido_materno": "Amasifuen",
+      "partido_sigla": "APP",
+      "region_nombre": "Cajamarca",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=MG"
+    },
+    {
+      "nombre": "Eduardo",
+      "apellido_paterno": "Castillo",
+      "apellido_materno": "Rivas",
+      "partido_sigla": "FP",
+      "region_nombre": "Callao",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=EC"
+    },
+    {
+      "nombre": "Fernando",
+      "apellido_paterno": "Herrera",
+      "apellido_materno": "Mamani",
+      "partido_sigla": "APRA",
+      "region_nombre": "Cusco",
+      "foto_url": "https://placehold.co/330x330/CD0000/FFFFFF/png?text=FH"
+    },
+    {
+      "nombre": "Grimaldo",
+      "apellido_paterno": "Vásquez",
+      "apellido_materno": "Tan",
+      "partido_sigla": "RP",
+      "region_nombre": "Huancavelica",
+      "foto_url": "https://placehold.co/330x330/0066CC/FFFFFF/png?text=GV"
+    },
+    {
+      "nombre": "Martha",
+      "apellido_paterno": "Moyano",
+      "apellido_materno": "Delgado",
+      "partido_sigla": "FP",
+      "region_nombre": "Huánuco",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=MM"
+    },
+    {
+      "nombre": "María",
+      "apellido_paterno": "Céspedes",
+      "apellido_materno": "Cárdenas",
+      "partido_sigla": "RP",
+      "region_nombre": "Ica",
+      "foto_url": "https://placehold.co/330x330/0066CC/FFFFFF/png?text=MC"
+    },
+    {
+      "nombre": "Lucinda",
+      "apellido_paterno": "Vásquez",
+      "apellido_materno": "Vela",
+      "partido_sigla": "FP",
+      "region_nombre": "Junín",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=LV"
+    },
+    {
+      "nombre": "Carlos",
+      "apellido_paterno": "Zeballos",
+      "apellido_materno": "Madariaga",
+      "partido_sigla": "APP",
+      "region_nombre": "La Libertad",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=CZ"
+    },
+    {
+      "nombre": "Omar",
+      "apellido_paterno": "Chehade",
+      "apellido_materno": "Moya",
+      "partido_sigla": "RP",
+      "region_nombre": "Lambayeque",
+      "foto_url": "https://placehold.co/330x330/0066CC/FFFFFF/png?text=OC"
+    },
+    {
+      "nombre": "Cecilia",
+      "apellido_paterno": "García",
+      "apellido_materno": "Quispe",
+      "partido_sigla": "NP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/330x330/9932CC/FFFFFF/png?text=CG"
+    },
+    {
+      "nombre": "Alberto",
+      "apellido_paterno": "de Belaunde",
+      "apellido_materno": "de Cárdenas",
+      "partido_sigla": "ACCPOP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/330x330/CD0000/FFFFFF/png?text=AB"
+    },
+    {
+      "nombre": "Hernán",
+      "apellido_paterno": "Condori",
+      "apellido_materno": "Machaca",
+      "partido_sigla": "APP",
+      "region_nombre": "Loreto",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=HC"
+    },
+    {
+      "nombre": "Janet",
+      "apellido_paterno": "Sánchez",
+      "apellido_materno": "Alva",
+      "partido_sigla": "RP",
+      "region_nombre": "Moquegua",
+      "foto_url": "https://placehold.co/330x330/0066CC/FFFFFF/png?text=JS"
+    },
+    {
+      "nombre": "Edgar",
+      "apellido_paterno": "Alarcón",
+      "apellido_materno": "Tejada",
+      "partido_sigla": "APP",
+      "region_nombre": "Piura",
+      "foto_url": "https://placehold.co/330x330/DC143C/FFFFFF/png?text=EA"
+    },
+    {
+      "nombre": "Flavio",
+      "apellido_paterno": "Cruz",
+      "apellido_materno": "Mamani",
+      "partido_sigla": "APRA",
+      "region_nombre": "Puno",
+      "foto_url": "https://placehold.co/330x330/CD0000/FFFFFF/png?text=FC"
+    },
+    {
+      "nombre": "Segundo",
+      "apellido_paterno": "Tapia",
+      "apellido_materno": "Bardales",
+      "partido_sigla": "FP",
+      "region_nombre": "San Martín",
+      "foto_url": "https://placehold.co/330x330/FF6600/FFFFFF/png?text=ST"
+    },
+    {
+      "nombre": "Paúl",
+      "apellido_paterno": "García",
+      "apellido_materno": "Oviedo",
+      "partido_sigla": "RP",
+      "region_nombre": "Tacna",
+      "foto_url": "https://placehold.co/330x330/0066CC/FFFFFF/png?text=PG"
+    },
+    {
+      "nombre": "Rosío",
+      "apellido_paterno": "Sasieta",
+      "apellido_materno": "Morales",
+      "partido_sigla": "ACCPOP",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/330x330/CD0000/FFFFFF/png?text=RS"
+    },
+    {
+      "nombre": "Sigrid",
+      "apellido_paterno": "Bazán",
+      "apellido_materno": "Narro",
+      "partido_sigla": "PLG",
+      "region_nombre": "Lima",
+      "foto_url": "https://placehold.co/330x330/20B2AA/FFFFFF/png?text=SB"
+    },
+    {
+      "nombre": "Wilmar",
+      "apellido_paterno": "Elera",
+      "apellido_materno": "García",
+      "partido_sigla": "SP",
+      "region_nombre": "Piura",
+      "foto_url": "https://placehold.co/330x330/FF8C00/FFFFFF/png?text=WE"
     }
   ],
 
@@ -791,339 +1087,1651 @@
       "descripcion": "Líder indígena asháninka y activista ambiental, propone fortalecer mecanismos de consulta previa libre e informada para proyectos extractivos en territorios indígenas, titulación de tierras comunales pendientes (más de 1,500 comunidades sin título), protección de lenguas originarias mediante educación intercultural bilingüe obligatoria, y creación de fondo de desarrollo para comunidades amazónicas y andinas.",
       "fecha": "2024-07-30",
       "fuente_url": "https://ejemplo.com/pueblos-indigenas-rb"
-    }
-  ],
-
-  "votos_simulados": [
-    {
-      "candidato_nombre": "Rafael",
-      "candidato_apellido_paterno": "López",
-      "candidato_apellido_materno": "Aliaga",
-      "cantidad": 2800
-    },
-    {
-      "candidato_nombre": "Keiko",
-      "candidato_apellido_paterno": "Fujimori",
-      "candidato_apellido_materno": "Higuchi",
-      "cantidad": 2200
-    },
-    {
-      "candidato_nombre": "César",
-      "candidato_apellido_paterno": "Acuña",
-      "candidato_apellido_materno": "Peralta",
-      "cantidad": 1800
-    },
-    {
-      "candidato_nombre": "Carlos",
-      "candidato_apellido_paterno": "Álvarez",
-      "candidato_apellido_materno": "Aguilar",
-      "cantidad": 1500
-    },
-    {
-      "candidato_nombre": "Vicente",
-      "candidato_apellido_paterno": "Alanoca",
-      "candidato_apellido_materno": "Apaza",
-      "cantidad": 950
-    },
-    {
-      "candidato_nombre": "Hernán",
-      "candidato_apellido_paterno": "Garrido",
-      "candidato_apellido_materno": "Lecca",
-      "cantidad": 850
-    },
-    {
-      "candidato_nombre": "Yonhy",
-      "candidato_apellido_paterno": "Lescano",
-      "candidato_apellido_materno": "Ancieta",
-      "cantidad": 680
-    },
-    {
-      "candidato_nombre": "George",
-      "candidato_apellido_paterno": "Forsyth",
-      "candidato_apellido_materno": "Sommer",
-      "cantidad": 1250
-    },
-    {
-      "candidato_nombre": "Roberto",
-      "candidato_apellido_paterno": "Chiabra",
-      "candidato_apellido_materno": "León",
-      "cantidad": 920
-    },
-    {
-      "candidato_nombre": "Alfonso",
-      "candidato_apellido_paterno": "López",
-      "candidato_apellido_materno": "Chau",
-      "cantidad": 780
     },
     {
       "candidato_nombre": "Fiorella",
       "candidato_apellido_paterno": "Molinelli",
       "candidato_apellido_materno": "Alfaro",
-      "cantidad": 640
+      "tipo": "propuesta",
+      "titulo": "Reforma minera con comisión autónoma de alto nivel",
+      "descripcion": "Propone creación de comisión autónoma para reforma del sector minero, con participación de academia, sociedad civil y expertos técnicos, excluyendo al Congreso por falta de credibilidad. Plantea simplificación de trámites para minería artesanal, acompañamiento estatal real en formalización, y reforma de la ley MAPE. Critica fracaso del Reinfo y propone nuevo sistema de formalización minera.",
+      "fecha": "2024-09-08",
+      "fuente_url": "https://www.redimin.cl/critica-de-fiorella-molinelli-congreso-no-es-capaz-de-reformar-la-minera/"
     },
     {
-      "candidato_nombre": "Hernando",
-      "candidato_apellido_paterno": "De Soto",
-      "candidato_apellido_materno": "Polar",
-      "cantidad": 1100
+      "candidato_nombre": "Fiorella",
+      "candidato_apellido_paterno": "Molinelli",
+      "candidato_apellido_materno": "Alfaro",
+      "tipo": "propuesta",
+      "titulo": "Agenda programática: seguridad, educación e infraestructura",
+      "descripcion": "Como candidata presidencial de Fuerza y Libertad, presenta propuesta centrada en temas estratégicos: mejora de seguridad ciudadana con enfoque preventivo, reforma del sistema educativo para cerrar brechas de calidad, cierre de brechas en infraestructura social y productiva, y construcción de Estado eficiente y descentralizado cercano a las regiones.",
+      "fecha": "2025-10-25",
+      "fuente_url": "https://tudiariohuanuco.pe/nacional/fiorella-molinelli-encabeza-formula-presidencial-de-la-alianza-fuerza-y-libertad-para-el-2026/"
     },
     {
-      "candidato_nombre": "Marisol",
-      "candidato_apellido_paterno": "Pérez",
-      "candidato_apellido_materno": "Tello",
-      "cantidad": 870
-    },
-    {
-      "candidato_nombre": "Guillermo",
-      "candidato_apellido_paterno": "Bermejo",
-      "candidato_apellido_materno": "Rojas",
-      "cantidad": 890
-    },
-    {
-      "candidato_nombre": "Mario",
-      "candidato_apellido_paterno": "Vizcarra",
-      "candidato_apellido_materno": "Zea",
-      "cantidad": 1050
-    },
-    {
-      "candidato_nombre": "Martha",
-      "candidato_apellido_paterno": "Chávez",
-      "candidato_apellido_materno": "Cossío",
-      "cantidad": 980
+      "candidato_nombre": "Fiorella",
+      "candidato_apellido_paterno": "Molinelli",
+      "candidato_apellido_materno": "Alfaro",
+      "tipo": "proyecto",
+      "titulo": "Gestión en EsSalud y Ministerio de Salud",
+      "descripcion": "Exministra de Salud y expresidenta ejecutiva de EsSalud con trayectoria en gestión pública. Durante su gestión en EsSalud implementó programas de modernización hospitalaria y mejora de servicios, aunque estuvo en centro de controversias administrativas. Tiene experiencia adicional en Ministerio de Transportes y Comunicaciones.",
+      "fecha": "2022-05-15",
+      "fuente_url": "https://caretas.pe/politica/fuerza-y-libertad-oficializa-su-formula-presidencial-2026-con-fiorella-molinelli-a-la-cabeza"
     },
     {
       "candidato_nombre": "Jorge",
       "candidato_apellido_paterno": "Del Castillo",
       "candidato_apellido_materno": "Gálvez",
-      "cantidad": 760
+      "tipo": "proyecto",
+      "titulo": "Gestión como Premier durante gobierno aprista",
+      "descripcion": "Fue Presidente del Consejo de Ministros durante el segundo gobierno de Alan García (2006-2011). Lideró gabinete en periodo de crecimiento económico del país. Impulsó políticas de inversión pública y programas sociales. Figura histórica del APRA con amplia experiencia en gestión estatal y negociación política.",
+      "fecha": "2008-06-20",
+      "fuente_url": "https://ejemplo.com/premier-jdcg"
     },
     {
-      "candidato_nombre": "Patricia",
-      "candidato_apellido_paterno": "Chirinos",
-      "candidato_apellido_materno": "Venegas",
-      "cantidad": 840
+      "candidato_nombre": "Jorge",
+      "candidato_apellido_paterno": "Del Castillo",
+      "candidato_apellido_materno": "Gálvez",
+      "tipo": "propuesta",
+      "titulo": "Reactivación económica con inversión pública",
+      "descripcion": "Propone reactivar economía mediante inversión pública masiva en infraestructura: carreteras, hospitales, colegios y saneamiento. Plantea alianzas público-privadas para megaproyectos, reducción de trabas burocráticas para inversión, y programas de empleos temporales en zonas rurales. Inversión proyectada: S/ 20,000 millones en primer año.",
+      "fecha": "2024-08-10",
+      "fuente_url": "https://ejemplo.com/reactivacion-jdcg"
     },
     {
       "candidato_nombre": "José",
       "candidato_apellido_paterno": "Luna",
       "candidato_apellido_materno": "Morales",
-      "cantidad": 670
+      "tipo": "propuesta",
+      "titulo": "Plan de industrialización del agro peruano",
+      "descripcion": "Propone transformar agricultura peruana mediante industrialización de productos agrícolas, creación de cadenas de valor agregado, plantas procesadoras en zonas rurales, y apertura de nuevos mercados internacionales. Incluye carreteras de penetración, riego tecnificado y capacitación a agricultores. Inversión: S/ 8,000 millones.",
+      "fecha": "2024-07-15",
+      "fuente_url": "https://ejemplo.com/industrializacion-agro-jlm"
+    },
+    {
+      "candidato_nombre": "José",
+      "candidato_apellido_paterno": "Luna",
+      "candidato_apellido_materno": "Morales",
+      "tipo": "proyecto",
+      "titulo": "Gestión parlamentaria en temas agrarios",
+      "descripcion": "Como congresista ha presidido comisiones relacionadas con agricultura y pueblos andinos. Impulsó leyes para protección de productos bandera, registro de variedades nativas, y fondos de emergencia agrícola ante desastres naturales. Defensor de agricultura familiar y comunidades campesinas.",
+      "fecha": "2022-11-20",
+      "fuente_url": "https://ejemplo.com/gestion-parlamentaria-jlm"
     },
     {
       "candidato_nombre": "Lady",
       "candidato_apellido_paterno": "Camones",
       "candidato_apellido_materno": "Soriano",
-      "cantidad": 910
+      "tipo": "proyecto",
+      "titulo": "Presidencia del Congreso 2022-2023",
+      "descripcion": "Primera mujer en presidir el Congreso de la República en más de 200 años de historia republicana. Durante su gestión (2022-2023) enfrentó crisis política post-vacancia de Castillo. Impulsó agenda legislativa en medio de protestas sociales y tensión entre poderes del Estado. Lideró diálogo con diversos sectores.",
+      "fecha": "2022-07-26",
+      "fuente_url": "https://ejemplo.com/presidencia-congreso-lcs"
+    },
+    {
+      "candidato_nombre": "Lady",
+      "candidato_apellido_paterno": "Camones",
+      "candidato_apellido_materno": "Soriano",
+      "tipo": "propuesta",
+      "titulo": "Empoderamiento de mujeres rurales y empresarias",
+      "descripcion": "Propone programa integral de empoderamiento femenino con acceso a microcréditos sin intereses para mujeres emprendedoras, capacitación empresarial gratuita, guarderías infantiles en zonas rurales, y cuotas de género en directorios de empresas estatales. Fondo de S/ 500 millones para capital semilla.",
+      "fecha": "2024-05-18",
+      "fuente_url": "https://ejemplo.com/empoderamiento-mujeres-lcs"
     },
     {
       "candidato_nombre": "Norma",
       "candidato_apellido_paterno": "Yarrow",
       "candidato_apellido_materno": "Lumbreras",
-      "cantidad": 820
+      "tipo": "proyecto",
+      "titulo": "Gestión parlamentaria en defensa del consumidor",
+      "descripcion": "Como congresista ha impulsado leyes de protección al consumidor, regulación de servicios básicos y control de tarifas eléctricas. Propuso iniciativas contra abusos de empresas de telecomunicaciones y bancos. Defensora de derechos de usuarios y transparencia en contratación de servicios públicos.",
+      "fecha": "2023-04-12",
+      "fuente_url": "https://ejemplo.com/defensa-consumidor-nyl"
+    },
+    {
+      "candidato_nombre": "Norma",
+      "candidato_apellido_paterno": "Yarrow",
+      "candidato_apellido_materno": "Lumbreras",
+      "tipo": "propuesta",
+      "titulo": "Ley de protección de adultos mayores y pensión universal",
+      "descripcion": "Propone pensión universal de S/ 500 para todos los adultos mayores de 65 años sin importar si aportaron o no al sistema. Incluye seguro de salud gratuito, medicamentos subsidiados, transporte público sin costo, y programas recreativos. Inversión estimada: S/ 6,000 millones anuales financiados con reforma tributaria.",
+      "fecha": "2024-06-22",
+      "fuente_url": "https://ejemplo.com/adultos-mayores-nyl"
     },
     {
       "candidato_nombre": "Susel",
       "candidato_apellido_paterno": "Paredes",
       "candidato_apellido_materno": "Piqué",
-      "cantidad": 790
+      "tipo": "propuesta",
+      "titulo": "Ley de matrimonio igualitario y derechos LGBTIQ+",
+      "descripcion": "Activista histórica por derechos LGBTIQ+, propone aprobación de matrimonio igualitario, unión civil con todos los derechos patrimoniales, adopción homoparental, y ley integral contra discriminación por orientación sexual e identidad de género. Incluye protocolos en sector salud y educación, y reforma del código civil.",
+      "fecha": "2024-03-28",
+      "fuente_url": "https://ejemplo.com/matrimonio-igualitario-spp"
+    },
+    {
+      "candidato_nombre": "Susel",
+      "candidato_apellido_paterno": "Paredes",
+      "candidato_apellido_materno": "Piqué",
+      "tipo": "proyecto",
+      "titulo": "Trabajo parlamentario por derechos humanos",
+      "descripcion": "Como congresista ha sido vocal en temas de derechos humanos, igualdad de género y diversidad sexual. Impulsó debates sobre violencia de género, femicidios y crímenes de odio. Presentó proyectos de ley para reconocimiento legal de identidad de género y protección de personas trans.",
+      "fecha": "2022-08-15",
+      "fuente_url": "https://ejemplo.com/ddhh-spp"
     },
     {
       "candidato_nombre": "Diego",
       "candidato_apellido_paterno": "Bazán",
       "candidato_apellido_materno": "Calderón",
-      "cantidad": 710
+      "tipo": "proyecto",
+      "titulo": "Gestión en fiscalización y transparencia",
+      "descripcion": "Como congresista ha integrado comisiones de fiscalización y ha cuestionado actos de corrupción en diversos sectores del Estado. Impulsor de control político sobre ministerios y entidades públicas. Ha solicitado interpelaciones a ministros por presuntas irregularidades en sus gestiones.",
+      "fecha": "2023-05-20",
+      "fuente_url": "https://ejemplo.com/fiscalizacion-dbc"
+    },
+    {
+      "candidato_nombre": "Diego",
+      "candidato_apellido_paterno": "Bazán",
+      "candidato_apellido_materno": "Calderón",
+      "tipo": "propuesta",
+      "titulo": "Fortalecimiento de gobiernos locales y presupuesto participativo",
+      "descripcion": "Propone transferir mayores recursos directamente a municipios distritales, implementar presupuesto participativo obligatorio en todos los gobiernos locales, y simplificar requisitos para ejecución de obras menores. Incluye capacitación a autoridades locales y plataforma digital de seguimiento ciudadano a obras públicas.",
+      "fecha": "2024-04-10",
+      "fuente_url": "https://ejemplo.com/gobiernos-locales-dbc"
     },
     {
       "candidato_nombre": "Jaime",
       "candidato_apellido_paterno": "Yoshiyama",
       "candidato_apellido_materno": "Tanaka",
-      "cantidad": 650
+      "tipo": "denuncia",
+      "titulo": "Investigación por caso Lava Jato",
+      "descripcion": "Investigado por fiscalía por presunta participación en red de corrupción Odebrecht durante gobiernos de Alberto Fujimori. Se le imputa recepción de aportes ilícitos para campañas electorales en los años 90. Ha estado prófugo y posteriormente se entregó a autoridades. Enfrenta proceso judicial en curso.",
+      "fecha": "2017-03-15",
+      "fuente_url": "https://ejemplo.com/lava-jato-jyt"
     },
     {
-      "candidato_nombre": "Ruth",
-      "candidato_apellido_paterno": "Buendía",
-      "candidato_apellido_materno": "Mestoquiari",
-      "cantidad": 580
+      "candidato_nombre": "Jaime",
+      "candidato_apellido_paterno": "Yoshiyama",
+      "candidato_apellido_materno": "Tanaka",
+      "tipo": "proyecto",
+      "titulo": "Gestión en gobierno de Fujimori",
+      "descripcion": "Fue ministro de Estado durante gobierno de Alberto Fujimori (1990-2000). Ocupó carteras de Energía y Minas, Agricultura y Transportes. Participó en implementación de reformas económicas neoliberales y proceso de privatizaciones. Figura clave del fujimorismo histórico.",
+      "fecha": "1995-08-28",
+      "fuente_url": "https://ejemplo.com/gestion-fujimorista-jyt"
     },
     {
       "candidato_nombre": "María",
       "candidato_apellido_paterno": "Cordero",
       "candidato_apellido_materno": "Jon",
-      "cantidad": 650
+      "tipo": "propuesta",
+      "titulo": "Reforma del sistema de justicia y lucha anticorrupción",
+      "descripcion": "Abogada especialista en derecho constitucional, propone reforma integral del sistema de justicia: implementación de expediente electrónico obligatorio, juicios orales en todas las instancias, reducción de plazos procesales, y fortalecimiento de juzgados anticorrupción. Incluye evaluación permanente de jueces y fiscales.",
+      "fecha": "2024-05-15",
+      "fuente_url": "https://ejemplo.com/reforma-justicia-mcj"
+    },
+    {
+      "candidato_nombre": "María",
+      "candidato_apellido_paterno": "Cordero",
+      "candidato_apellido_materno": "Jon",
+      "tipo": "proyecto",
+      "titulo": "Defensa de víctimas en casos emblemáticos",
+      "descripcion": "Como litigante ha defendido víctimas de violaciones de derechos humanos y casos de corrupción. Ha representado a organizaciones de sociedad civil en procesos constitucionales. Especialista en derecho administrativo y control de constitucionalidad de leyes.",
+      "fecha": "2022-09-10",
+      "fuente_url": "https://ejemplo.com/defensa-victimas-mcj"
     },
     {
       "candidato_nombre": "Luis",
       "candidato_apellido_paterno": "Valdez",
       "candidato_apellido_materno": "Farías",
-      "cantidad": 580
+      "tipo": "proyecto",
+      "titulo": "Gestión en Ministerio de Educación",
+      "descripcion": "Fue Ministro de Educación durante gobierno de Ollanta Humala. Impulsó reforma de carrera pública magisterial, aumento de inversión en infraestructura educativa, y programas de capacitación docente. Implementó evaluación censal de estudiantes y plan de mejora de calidad educativa en zonas rurales.",
+      "fecha": "2012-07-28",
+      "fuente_url": "https://ejemplo.com/minedu-lvf"
+    },
+    {
+      "candidato_nombre": "Luis",
+      "candidato_apellido_paterno": "Valdez",
+      "candidato_apellido_materno": "Farías",
+      "tipo": "propuesta",
+      "titulo": "Nueva reforma educativa y aumento de salarios docentes",
+      "descripcion": "Propone reforma educativa integral: aumento del 50% en salarios de maestros, construcción de 2,000 colegios en zonas rurales, universalización de educación inicial desde 3 años, programa de becas para docentes, y eliminación de brechas digitales con laptops para estudiantes de secundaria.",
+      "fecha": "2024-03-20",
+      "fuente_url": "https://ejemplo.com/reforma-educativa-lvf"
     },
     {
       "candidato_nombre": "Eduardo",
       "candidato_apellido_paterno": "Salhuana",
       "candidato_apellido_materno": "Cavides",
-      "cantidad": 720
+      "tipo": "proyecto",
+      "titulo": "Presidencia del Congreso 2024-2025",
+      "descripcion": "Presidente del Congreso elegido para periodo 2024-2025. Durante su gestión ha buscado mejorar imagen del Parlamento mediante transparencia y diálogo con sectores políticos. Impulsor de agenda legislativa consensuada y promoción de reformas institucionales pendientes.",
+      "fecha": "2024-07-26",
+      "fuente_url": "https://ejemplo.com/presidencia-congreso-esc"
+    },
+    {
+      "candidato_nombre": "Eduardo",
+      "candidato_apellido_paterno": "Salhuana",
+      "candidato_apellido_materno": "Cavides",
+      "tipo": "propuesta",
+      "titulo": "Pacto social por la gobernabilidad",
+      "descripcion": "Propone crear gran pacto nacional entre partidos políticos, sociedad civil, empresarios y sindicatos para garantizar gobernabilidad. Incluye acuerdos básicos en política económica, lucha anticorrupción, reforma del Estado, y agenda social mínima. Busca reducir confrontación política y construir consensos.",
+      "fecha": "2024-09-12",
+      "fuente_url": "https://ejemplo.com/pacto-social-esc"
     },
     {
       "candidato_nombre": "Rosángela",
       "candidato_apellido_paterno": "Barbarán",
       "candidato_apellido_materno": "Reyes",
-      "cantidad": 540
+      "tipo": "propuesta",
+      "titulo": "Plan de desarrollo portuario del Callao",
+      "descripcion": "Propone modernización integral del puerto del Callao, ampliación de muelles, implementación de tecnología de punta para agilizar operaciones, y creación de zona económica especial. Incluye mejora de conectividad vial, reducción de tiempos de despacho, y programa de capacitación para trabajadores portuarios. Inversión: S/ 3,000 millones.",
+      "fecha": "2024-06-15",
+      "fuente_url": "https://ejemplo.com/desarrollo-portuario-rbr"
     },
     {
-      "candidato_nombre": "Carlos",
-      "candidato_apellido_paterno": "Anderson",
-      "candidato_apellido_materno": "Ramírez",
-      "cantidad": 610
-    },
-    {
-      "candidato_nombre": "Waldemar",
-      "candidato_apellido_paterno": "Cerrón",
-      "candidato_apellido_materno": "Rojas",
-      "cantidad": 490
+      "candidato_nombre": "Rosángela",
+      "candidato_apellido_paterno": "Barbarán",
+      "candidato_apellido_materno": "Reyes",
+      "tipo": "proyecto",
+      "titulo": "Gestión parlamentaria por el Callao",
+      "descripcion": "Como congresista por el Callao ha impulsado proyectos para mejorar seguridad ciudadana en la región, inversión en obras de saneamiento, y defensa de trabajadores portuarios. Ha cuestionado privatizaciones que afectan derechos laborales y promovido fiscalización de autoridades locales.",
+      "fecha": "2023-03-18",
+      "fuente_url": "https://ejemplo.com/gestion-callao-rbr"
     },
     {
       "candidato_nombre": "Javier",
       "candidato_apellido_paterno": "Velásquez",
       "candidato_apellido_materno": "Quesquén",
-      "cantidad": 560
+      "tipo": "proyecto",
+      "titulo": "Liderazgo en bancada aprista",
+      "descripcion": "Figura histórica del APRA, ha sido vocero y líder de bancada en múltiples periodos legislativos. Impulsor de políticas sociales apristas y defensor del legado de Alan García. Ha participado en debates sobre grandes reformas nacionales y negociaciones políticas intersectoriales.",
+      "fecha": "2020-07-28",
+      "fuente_url": "https://ejemplo.com/liderazgo-aprista-jvq"
+    },
+    {
+      "candidato_nombre": "Javier",
+      "candidato_apellido_paterno": "Velásquez",
+      "candidato_apellido_materno": "Quesquén",
+      "tipo": "propuesta",
+      "titulo": "Reactivación del norte y gran proyecto Olmos",
+      "descripcion": "Propone reactivar economía del norte mediante ampliación del proyecto Olmos en Lambayeque, construcción de nueva carretera longitudinal de la costa, y programa de industrialización agrícola. Incluye fondo de S/ 5,000 millones para infraestructura de riego, energía y puertos en regiones del norte.",
+      "fecha": "2024-04-25",
+      "fuente_url": "https://ejemplo.com/reactivacion-norte-jvq"
     },
     {
       "candidato_nombre": "Francis",
       "candidato_apellido_paterno": "Allison",
       "candidato_apellido_materno": "Oyague",
-      "cantidad": 680
+      "tipo": "propuesta",
+      "titulo": "Desarrollo del sur y proyecto Majes Siguas II",
+      "descripcion": "Propone culminar proyecto Majes Siguas II en Arequipa para irrigar 38,500 hectáreas nuevas, generar energía hidroeléctrica, y crear 100,000 empleos. Incluye carretera interoceánica ampliada, modernización del aeropuerto de Arequipa, y zona económica especial para agroindustria. Inversión: S/ 8,000 millones.",
+      "fecha": "2024-08-20",
+      "fuente_url": "https://ejemplo.com/desarrollo-sur-fao"
+    },
+    {
+      "candidato_nombre": "Francis",
+      "candidato_apellido_paterno": "Allison",
+      "candidato_apellido_materno": "Oyague",
+      "tipo": "proyecto",
+      "titulo": "Gestión parlamentaria por Arequipa",
+      "descripcion": "Como congresista por Arequipa ha impulsado proyectos de inversión para la región, defensa del proyecto Tía María ante conflictos sociales, y fiscalización de canon minero. Ha promovido diálogo entre empresas mineras y comunidades, buscando consensos para desarrollo con responsabilidad social.",
+      "fecha": "2023-06-10",
+      "fuente_url": "https://ejemplo.com/gestion-arequipa-fao"
     },
     {
       "candidato_nombre": "Alejandro",
       "candidato_apellido_paterno": "Cavero",
       "candidato_apellido_materno": "Alva",
-      "cantidad": 530
+      "tipo": "propuesta",
+      "titulo": "Reforma laboral y flexibilización del mercado de trabajo",
+      "descripcion": "Propone reforma laboral para facilitar contratación: reducción de costos de despido, promoción de contratos a plazo fijo, simplificación de planillas, y eliminación de sobrecostos laborales. Incluye seguro de desempleo temporal financiado con aportes compartidos. Busca generar 500,000 empleos formales en primer año.",
+      "fecha": "2024-05-08",
+      "fuente_url": "https://ejemplo.com/reforma-laboral-aca"
+    },
+    {
+      "candidato_nombre": "Alejandro",
+      "candidato_apellido_paterno": "Cavero",
+      "candidato_apellido_materno": "Alva",
+      "tipo": "proyecto",
+      "titulo": "Vocería de Avanza País en temas económicos",
+      "descripcion": "Vocero de Avanza País en temas económicos y laborales. Ha defendido modelo de economía de mercado, reducción de trabas burocráticas, y apertura comercial. Crítico de estatismo y regulaciones excesivas. Promotor de inversión privada como motor de desarrollo.",
+      "fecha": "2022-10-15",
+      "fuente_url": "https://ejemplo.com/voceria-economia-aca"
     },
     {
       "candidato_nombre": "Paul",
       "candidato_apellido_paterno": "Gutiérrez",
       "candidato_apellido_materno": "Ticse",
-      "cantidad": 470
+      "tipo": "propuesta",
+      "titulo": "Desarrollo turístico de Cusco y Machu Picchu",
+      "descripcion": "Propone plan maestro para desarrollo turístico sostenible en Cusco: ampliación de capacidad de carga en Machu Picchu con protección arqueológica, nuevo aeropuerto internacional, tren turístico moderno, y promoción de circuitos alternativos. Incluye capacitación en turismo y formalización de guías. Inversión: S/ 2,500 millones.",
+      "fecha": "2024-07-18",
+      "fuente_url": "https://ejemplo.com/turismo-cusco-pgt"
+    },
+    {
+      "candidato_nombre": "Paul",
+      "candidato_apellido_paterno": "Gutiérrez",
+      "candidato_apellido_materno": "Ticse",
+      "tipo": "proyecto",
+      "titulo": "Defensa del patrimonio cultural cusqueño",
+      "descripcion": "Como representante cusqueño ha defendido protección del patrimonio cultural, cuestionado proyectos que amenacen sitios arqueológicos, y promovido inversión en restauración de monumentos. Ha impulsado leyes para regular turismo responsable y proteger comunidades andinas de explotación.",
+      "fecha": "2023-08-12",
+      "fuente_url": "https://ejemplo.com/patrimonio-cusco-pgt"
     },
     {
       "candidato_nombre": "María",
       "candidato_apellido_paterno": "Agüero",
       "candidato_apellido_materno": "Gutiérrez",
-      "cantidad": 620
+      "tipo": "propuesta",
+      "titulo": "Plan agroindustrial para La Libertad",
+      "descripcion": "Propone convertir La Libertad en potencia agroindustrial mediante plantas procesadoras de espárragos, arándanos y palta, ampliación de sistemas de riego, carreteras rurales, y acceso a tecnología agrícola. Incluye programa de asociatividad de pequeños agricultores y apertura de mercados asiáticos. Inversión: S/ 1,800 millones.",
+      "fecha": "2024-06-28",
+      "fuente_url": "https://ejemplo.com/agroindustria-lalibertad-mag"
+    },
+    {
+      "candidato_nombre": "María",
+      "candidato_apellido_paterno": "Agüero",
+      "candidato_apellido_materno": "Gutiérrez",
+      "tipo": "proyecto",
+      "titulo": "Gestión como regidora de Trujillo",
+      "descripcion": "Fue regidora del municipio de Trujillo, donde impulsó proyectos de mejoramiento urbano, apoyo a pequeños comerciantes, y programas sociales en asentamientos humanos. Promovió fiscalización de obras municipales y transparencia en licitaciones. Defensora de participación ciudadana en gestión local.",
+      "fecha": "2018-11-20",
+      "fuente_url": "https://ejemplo.com/regidora-trujillo-mag"
     },
     {
       "candidato_nombre": "Segundo",
       "candidato_apellido_paterno": "Quiroz",
       "candidato_apellido_materno": "Barboza",
-      "cantidad": 590
+      "tipo": "propuesta",
+      "titulo": "Megapuerto de Chancay y desarrollo logístico",
+      "descripcion": "Propone aprovechar megapuerto de Chancay para convertir a Piura en hub logístico del norte. Incluye carretera directa Piura-Chancay, parque industrial en Piura, y zona franca para exportaciones. Plantea incentivos tributarios para empresas que se instalen en región. Inversión: S/ 4,000 millones.",
+      "fecha": "2024-09-05",
+      "fuente_url": "https://ejemplo.com/logistica-piura-sqb"
+    },
+    {
+      "candidato_nombre": "Segundo",
+      "candidato_apellido_paterno": "Quiroz",
+      "candidato_apellido_materno": "Barboza",
+      "tipo": "proyecto",
+      "titulo": "Impulso a reconstrucción post Niño Costero",
+      "descripcion": "Como congresista por Piura ha fiscalizado recursos de reconstrucción tras Niño Costero 2017. Ha denunciado demoras en ejecución de obras, exigido rendición de cuentas, y propuesto aceleración de proyectos de drenaje pluvial, puentes y defensas ribereñas. Defensor de damnificados.",
+      "fecha": "2023-02-15",
+      "fuente_url": "https://ejemplo.com/reconstruccion-piura-sqb"
     },
     {
       "candidato_nombre": "Elías",
       "candidato_apellido_paterno": "Ávalos",
       "candidato_apellido_materno": "Vizcarra",
-      "cantidad": 410
+      "tipo": "propuesta",
+      "titulo": "Proyecto Quellaveco y desarrollo de Moquegua",
+      "descripcion": "Propone maximizar beneficios del proyecto minero Quellaveco para Moquegua: negociación de mayor canon minero, inversión en infraestructura educativa y sanitaria con recursos mineros, programa de empleo local, y fiscalización de compromisos ambientales de empresa. Incluye fondo de desarrollo sostenible post-minería.",
+      "fecha": "2024-04-30",
+      "fuente_url": "https://ejemplo.com/quellaveco-moquegua-eav"
+    },
+    {
+      "candidato_nombre": "Elías",
+      "candidato_apellido_paterno": "Ávalos",
+      "candidato_apellido_materno": "Vizcarra",
+      "tipo": "proyecto",
+      "titulo": "Hermano del expresidente Martín Vizcarra",
+      "descripcion": "Hermano del expresidente Martín Vizcarra. Ha trabajado en sector privado y gestión pública regional. Participó en equipos técnicos durante gobierno de su hermano. Tiene experiencia en gestión de proyectos y desarrollo regional en Moquegua.",
+      "fecha": "2020-05-10",
+      "fuente_url": "https://ejemplo.com/trayectoria-eav"
     },
     {
       "candidato_nombre": "Gladys",
       "candidato_apellido_paterno": "Echaiz",
       "candidato_apellido_materno": "Ramos",
-      "cantidad": 520
+      "tipo": "propuesta",
+      "titulo": "Defensa del lago Titicaca y desarrollo sostenible",
+      "descripcion": "Propone plan integral de rescate del lago Titicaca: plantas de tratamiento de aguas residuales en Puno y Juliaca, control de contaminación minera, programa de limpieza de totorales, y fiscalización ambiental estricta. Incluye desarrollo de turismo ecológico y pesca sostenible. Inversión: S/ 800 millones.",
+      "fecha": "2024-06-05",
+      "fuente_url": "https://ejemplo.com/titicaca-ger"
+    },
+    {
+      "candidato_nombre": "Gladys",
+      "candidato_apellido_paterno": "Echaiz",
+      "candidato_apellido_materno": "Ramos",
+      "tipo": "proyecto",
+      "titulo": "Gestión parlamentaria por derechos de pueblos andinos",
+      "descripcion": "Como congresista ha defendido derechos de comunidades campesinas puneñas, impulsado proyectos de electrificación rural, y fiscalizado ejecución de presupuesto en Puno. Ha cuestionado contaminación minera y promovido consulta previa en proyectos extractivos que afecten territorios ancestrales.",
+      "fecha": "2022-12-08",
+      "fuente_url": "https://ejemplo.com/gestion-puno-ger"
     },
     {
       "candidato_nombre": "Pedro",
       "candidato_apellido_paterno": "Martínez",
       "candidato_apellido_materno": "Talavera",
-      "cantidad": 480
+      "tipo": "propuesta",
+      "titulo": "Modernización minera en Áncash con responsabilidad",
+      "descripcion": "Propone modernización de actividad minera en Áncash con protección ambiental: fiscalización estricta de pasivos mineros, remediación de zonas contaminadas, monitoreo de calidad de agua, y participación ciudadana en decisiones. Incluye canon minero transparente y programas de desarrollo alternativo. Inversión: S/ 1,200 millones.",
+      "fecha": "2024-07-22",
+      "fuente_url": "https://ejemplo.com/mineria-ancash-pmt"
+    },
+    {
+      "candidato_nombre": "Pedro",
+      "candidato_apellido_paterno": "Martínez",
+      "candidato_apellido_materno": "Talavera",
+      "tipo": "proyecto",
+      "titulo": "Alcalde de distrito en Áncash",
+      "descripcion": "Fue alcalde de distrito en Áncash donde implementó programas de obra pública menor, mejoramiento de servicios básicos, y apoyo a agricultura familiar. Promovió participación ciudadana mediante presupuesto participativo y asambleas comunitarias. Experiencia en gestión municipal y liderazgo local.",
+      "fecha": "2014-12-15",
+      "fuente_url": "https://ejemplo.com/alcalde-ancash-pmt"
     },
     {
       "candidato_nombre": "Alfredo",
       "candidato_apellido_paterno": "Azurín",
       "candidato_apellido_materno": "Loayza",
-      "cantidad": 450
+      "tipo": "propuesta",
+      "titulo": "Desarrollo agroindustrial de Ica y defensa del agua",
+      "descripcion": "Propone plan de desarrollo agroindustrial sostenible en Ica: uso eficiente del agua mediante riego tecnificado obligatorio, control de pozos ilegales, plantas desalinizadoras, y cultivos de menor consumo hídrico. Incluye promoción de agroexportación responsable y protección de acuíferos. Inversión: S/ 900 millones.",
+      "fecha": "2024-05-25",
+      "fuente_url": "https://ejemplo.com/agroindustria-ica-aal"
+    },
+    {
+      "candidato_nombre": "Alfredo",
+      "candidato_apellido_paterno": "Azurín",
+      "candidato_apellido_materno": "Loayza",
+      "tipo": "proyecto",
+      "titulo": "Experiencia en sector privado agroindustrial",
+      "descripcion": "Empresario del sector agroindustrial en Ica con experiencia en exportación de productos agrícolas. Ha liderado asociaciones de agroexportadores y promovido buenas prácticas ambientales. Defensor de modernización agrícola con responsabilidad social y protección de recursos hídricos.",
+      "fecha": "2020-03-10",
+      "fuente_url": "https://ejemplo.com/empresario-ica-aal"
     },
     {
       "candidato_nombre": "Ruth",
       "candidato_apellido_paterno": "Luque",
       "candidato_apellido_materno": "Ibarra",
-      "cantidad": 390
+      "tipo": "propuesta",
+      "titulo": "Reconstrucción de Ayacucho y memoria histórica",
+      "descripcion": "Propone programa integral de reconstrucción de Ayacucho post-conflicto armado: reparaciones colectivas a comunidades afectadas, programa de salud mental, recuperación de memoria histórica, y desarrollo productivo en zonas rurales. Incluye museo de la memoria, monumentos a víctimas, y programas educativos. Inversión: S/ 500 millones.",
+      "fecha": "2024-08-28",
+      "fuente_url": "https://ejemplo.com/reconstruccion-ayacucho-rli"
+    },
+    {
+      "candidato_nombre": "Ruth",
+      "candidato_apellido_paterno": "Luque",
+      "candidato_apellido_materno": "Ibarra",
+      "tipo": "proyecto",
+      "titulo": "Defensa de derechos humanos en Ayacucho",
+      "descripcion": "Abogada defensora de derechos humanos con trabajo en comunidades afectadas por violencia política. Ha representado a víctimas en casos de desaparición forzada y ejecuciones extrajudiciales. Promotora de justicia transicional y reconciliación nacional.",
+      "fecha": "2019-06-15",
+      "fuente_url": "https://ejemplo.com/ddhh-ayacucho-rli"
     },
     {
       "candidato_nombre": "Américo",
       "candidato_apellido_paterno": "Gonza",
       "candidato_apellido_materno": "Castillo",
-      "cantidad": 550
+      "tipo": "propuesta",
+      "titulo": "Desarrollo agrícola y ganadero en Cajamarca",
+      "descripcion": "Propone programa de mejoramiento genético de ganado vacuno en zonas altoandinas de Cajamarca, construcción de reservorios de agua para riego, y centros de acopio lechero en distritos rurales. Incluye asistencia técnica gratuita y créditos agrarios con tasa preferencial del 4% anual para pequeños ganaderos.",
+      "fecha": "2024-02-10",
+      "fuente_url": "https://ejemplo.com/agricultura-cajamarca-agc"
+    },
+    {
+      "candidato_nombre": "Américo",
+      "candidato_apellido_paterno": "Gonza",
+      "candidato_apellido_materno": "Castillo",
+      "tipo": "proyecto",
+      "titulo": "Gestión como regidor en Cajamarca",
+      "descripcion": "Fue regidor provincial donde impulsó proyectos de electrificación rural, mejoramiento de caminos vecinales y programas de alfabetización digital para adultos mayores. Promovió alianzas con universidades locales para capacitación técnica en comunidades campesinas.",
+      "fecha": "2019-07-15",
+      "fuente_url": "https://ejemplo.com/gestion-regidor-agc"
     },
     {
       "candidato_nombre": "Flor",
       "candidato_apellido_paterno": "Pablo",
       "candidato_apellido_materno": "Medina",
-      "cantidad": 430
+      "tipo": "propuesta",
+      "titulo": "Reforma educativa con enfoque en primera infancia",
+      "descripcion": "Propone universalización de educación inicial desde los 3 años con infraestructura moderna, capacitación especializada para docentes de inicial, programa nacional de estimulación temprana, y comedores escolares nutritivos en zonas rurales. Inversión estimada de S/ 2,000 millones anuales.",
+      "fecha": "2024-04-12",
+      "fuente_url": "https://ejemplo.com/educacion-inicial-fpm"
+    },
+    {
+      "candidato_nombre": "Flor",
+      "candidato_apellido_paterno": "Pablo",
+      "candidato_apellido_materno": "Medina",
+      "tipo": "proyecto",
+      "titulo": "Ministra de Educación en gobierno de Vizcarra",
+      "descripcion": "Como Ministra de Educación (2018-2019) implementó programa de educación intercultural bilingüe, amplió cobertura de Qali Warma, e impulsó modernización de currículo escolar. Promovió evaluación y capacitación continua de docentes, especialmente en zonas rurales y amazónicas.",
+      "fecha": "2018-04-02",
+      "fuente_url": "https://ejemplo.com/ministra-educacion-fpm"
     },
     {
       "candidato_nombre": "Jorge",
       "candidato_apellido_paterno": "Montoya",
       "candidato_apellido_materno": "Manrique",
-      "cantidad": 380
+      "tipo": "propuesta",
+      "titulo": "Fortalecimiento de las Fuerzas Armadas y seguridad nacional",
+      "descripcion": "Propone incremento del presupuesto de defensa al 2% del PBI, modernización de equipamiento militar, mejora salarial del 45% para personal de tropa, y fortalecimiento del control de fronteras. Incluye programa de vivienda para militares y reforma de la justicia militar.",
+      "fecha": "2024-05-08",
+      "fuente_url": "https://ejemplo.com/fuerzas-armadas-jmm"
+    },
+    {
+      "candidato_nombre": "Jorge",
+      "candidato_apellido_paterno": "Montoya",
+      "candidato_apellido_materno": "Manrique",
+      "tipo": "proyecto",
+      "titulo": "Comandante General de la Marina de Guerra del Perú",
+      "descripcion": "Fue Comandante General de la Marina (2018-2020). Durante su gestión modernizó la flota naval, fortaleció el control marítimo contra pesca ilegal, e implementó programas de capacitación en derechos humanos. Lideró operaciones de interdicción contra narcotráfico en el Pacífico.",
+      "fecha": "2018-01-01",
+      "fuente_url": "https://ejemplo.com/comandante-marina-jmm"
     },
     {
       "candidato_nombre": "Diana",
       "candidato_apellido_paterno": "Gonzales",
       "candidato_apellido_materno": "Delgado",
-      "cantidad": 420
+      "tipo": "propuesta",
+      "titulo": "Plan de desarrollo amazónico y conectividad en Loreto",
+      "descripcion": "Propone construcción de carretera Iquitos-Saramiriza para conectar Loreto con red nacional, modernización del puerto de Iquitos, programa de internet satelital para comunidades ribereñas, y desarrollo de industria forestal sostenible. Inversión: S/ 3,500 millones.",
+      "fecha": "2024-06-18",
+      "fuente_url": "https://ejemplo.com/desarrollo-loreto-dgd"
+    },
+    {
+      "candidato_nombre": "Diana",
+      "candidato_apellido_paterno": "Gonzales",
+      "candidato_apellido_materno": "Delgado",
+      "tipo": "proyecto",
+      "titulo": "Liderazgo en organizaciones de mujeres amazónicas",
+      "descripcion": "Presidenta de federación de mujeres empresarias de Loreto. Ha liderado proyectos de empoderamiento económico femenino, microcréditos para artesanas, y programas de capacitación en ecoturismo. Defensora de derechos de pueblos indígenas amazónicos y medio ambiente.",
+      "fecha": "2021-03-15",
+      "fuente_url": "https://ejemplo.com/liderazgo-mujeres-dgd"
     },
     {
       "candidato_nombre": "Raúl",
       "candidato_apellido_paterno": "Doroteo",
       "candidato_apellido_materno": "Carbajal",
-      "cantidad": 510
+      "tipo": "propuesta",
+      "titulo": "Seguridad ciudadana con participación comunitaria",
+      "descripcion": "Propone programa de juntas vecinales de seguridad en todos los distritos de Lima, instalación de botones de pánico en zonas vulnerables, aplicativo móvil de emergencias integrado con PNP, y programa de prevención del delito con jóvenes en riesgo. Inversión: S/ 600 millones.",
+      "fecha": "2024-07-05",
+      "fuente_url": "https://ejemplo.com/seguridad-comunitaria-rdc"
+    },
+    {
+      "candidato_nombre": "Raúl",
+      "candidato_apellido_paterno": "Doroteo",
+      "candidato_apellido_materno": "Carbajal",
+      "tipo": "proyecto",
+      "titulo": "Exoficial de la Policía Nacional",
+      "descripcion": "Excoronel de la Policía Nacional con 30 años de servicio. Se desempeñó en divisiones de investigación criminal y lucha contra el narcotráfico. Después de su retiro trabajó como consultor en seguridad ciudadana para municipalidades y asesor en temas de reforma policial.",
+      "fecha": "2020-12-31",
+      "fuente_url": "https://ejemplo.com/trayectoria-policial-rdc"
     },
     {
       "candidato_nombre": "Isabel",
       "candidato_apellido_paterno": "Cortez",
       "candidato_apellido_materno": "Aguirre",
-      "cantidad": 360
+      "tipo": "propuesta",
+      "titulo": "Defensa de derechos de mujeres rurales en Huancavelica",
+      "descripcion": "Propone programa integral contra violencia de género en zonas rurales: casas de refugio, defensorías itinerantes, capacitación en quechua sobre derechos, y acceso a justicia gratuita. Incluye programa de alfabetización y capacitación laboral para mujeres víctimas de violencia.",
+      "fecha": "2024-03-08",
+      "fuente_url": "https://ejemplo.com/derechos-mujeres-ica"
+    },
+    {
+      "candidato_nombre": "Isabel",
+      "candidato_apellido_paterno": "Cortez",
+      "candidato_apellido_materno": "Aguirre",
+      "tipo": "proyecto",
+      "titulo": "Activismo en organizaciones de base en Huancavelica",
+      "descripcion": "Lideresa social que ha trabajado con comunidades campesinas en Huancavelica. Fundadora de asociación de mujeres tejedoras, promoviendo comercio justo de artesanías. Ha liderado protestas contra minería informal que contamina fuentes de agua en la región.",
+      "fecha": "2019-05-20",
+      "fuente_url": "https://ejemplo.com/activismo-huancavelica-ica"
     },
     {
       "candidato_nombre": "Héctor",
       "candidato_apellido_paterno": "Ventura",
       "candidato_apellido_materno": "Ángel",
-      "cantidad": 340
+      "tipo": "propuesta",
+      "titulo": "Reactivación económica de Huánuco con agroindustria",
+      "descripcion": "Propone crear polo agroindustrial en Huánuco: plantas procesadoras de papa, maíz y coca legal, carretera Tingo María-Pucallpa mejorada, programa de reconversión para cultivadores de coca, y zona franca para exportaciones. Inversión: S/ 1,500 millones.",
+      "fecha": "2024-08-14",
+      "fuente_url": "https://ejemplo.com/agroindustria-huanuco-hva"
+    },
+    {
+      "candidato_nombre": "Héctor",
+      "candidato_apellido_paterno": "Ventura",
+      "candidato_apellido_materno": "Ángel",
+      "tipo": "proyecto",
+      "titulo": "Congresista por Huánuco periodo 2021-2026",
+      "descripcion": "Como congresista ha impulsado proyectos para carretera central, defensa de productores de café y cacao, y fiscalización de recursos del Vraem. Ha cuestionado erradicación forzosa de coca sin alternativas económicas, promoviendo desarrollo alternativo sostenible.",
+      "fecha": "2021-07-28",
+      "fuente_url": "https://ejemplo.com/congresista-huanuco-hva"
     },
     {
       "candidato_nombre": "Kira",
       "candidato_apellido_paterno": "Alcarraz",
       "candidato_apellido_materno": "Serna",
-      "cantidad": 310
+      "tipo": "propuesta",
+      "titulo": "Desarrollo fronterizo y zona franca en Tacna",
+      "descripcion": "Propone convertir Tacna en hub comercial sudamericano: zona franca con incentivos tributarios, modernización de complejo fronterizo, tren de cercanías Tacna-Arica, y programa de inversión en turismo de compras. Incluye hospital de alta complejidad y centro de convenciones internacional.",
+      "fecha": "2024-09-22",
+      "fuente_url": "https://ejemplo.com/desarrollo-tacna-kas"
     },
     {
-      "candidato_nombre": "Adriana",
-      "candidato_apellido_paterno": "Tudela",
-      "candidato_apellido_materno": "Gutiérrez",
-      "cantidad": 590
+      "candidato_nombre": "Kira",
+      "candidato_apellido_paterno": "Alcarraz",
+      "candidato_apellido_materno": "Serna",
+      "tipo": "proyecto",
+      "titulo": "Empresaria del sector comercio en Tacna",
+      "descripcion": "Empresaria tacneña del sector comercial con negocios en zona franca. Ha presidido gremio de comerciantes, promoviendo formalización y mejores condiciones tributarias. Impulsora de modernización del comercio fronterizo y facilitación aduanera para microempresarios.",
+      "fecha": "2020-06-10",
+      "fuente_url": "https://ejemplo.com/empresaria-tacna-kas"
     },
     {
       "candidato_nombre": "Wilson",
       "candidato_apellido_paterno": "Quispe",
       "candidato_apellido_materno": "Mamani",
-      "cantidad": 460
+      "tipo": "propuesta",
+      "titulo": "Protección del altiplano y desarrollo ganadero sostenible",
+      "descripcion": "Propone programa de mejoramiento de alpacas y llamas con genética seleccionada, construcción de centros de transformación de fibra, acceso a mercados internacionales para textiles, y seguro ganadero contra heladas. Incluye protección de bofedales y gestión sostenible de pastos naturales.",
+      "fecha": "2024-05-30",
+      "fuente_url": "https://ejemplo.com/ganaderia-puno-wqm"
+    },
+    {
+      "candidato_nombre": "Wilson",
+      "candidato_apellido_paterno": "Quispe",
+      "candidato_apellido_materno": "Mamani",
+      "tipo": "proyecto",
+      "titulo": "Alcalde de distrito en Puno",
+      "descripcion": "Fue alcalde de distrito altiplánico en Puno donde implementó programas de electrificación con paneles solares, construcción de invernaderos familiares, y mejoramiento de escuelas rurales. Promovió rescate de tecnologías ancestrales andinas y fortalecimiento de organizaciones comunales.",
+      "fecha": "2018-12-31",
+      "fuente_url": "https://ejemplo.com/alcalde-puno-wqm"
     },
     {
       "candidato_nombre": "José",
       "candidato_apellido_paterno": "Jerí",
       "candidato_apellido_materno": "Oré",
-      "cantidad": 520
+      "tipo": "propuesta",
+      "titulo": "Modernización del transporte público en Lima",
+      "descripcion": "Propone ampliar red de Metropolitano a 10 nuevos corredores, construcción de 4 líneas adicionales de Metro, implementación de buses eléctricos en rutas alimentadoras, y sistema integrado de pago con tarjeta única. Inversión: S/ 15,000 millones en 8 años.",
+      "fecha": "2024-04-18",
+      "fuente_url": "https://ejemplo.com/transporte-lima-jjo"
+    },
+    {
+      "candidato_nombre": "José",
+      "candidato_apellido_paterno": "Jerí",
+      "candidato_apellido_materno": "Oré",
+      "tipo": "proyecto",
+      "titulo": "Ingeniero civil especialista en infraestructura vial",
+      "descripcion": "Ingeniero civil con especialización en transporte público. Ha trabajado en consultoría para proyectos viales en Lima, diseño de intercambios viales, y estudios de factibilidad para líneas de metro. Docente universitario en cursos de ingeniería de transportes.",
+      "fecha": "2022-03-15",
+      "fuente_url": "https://ejemplo.com/ingeniero-transporte-jjo"
     },
     {
       "candidato_nombre": "Nilza",
       "candidato_apellido_paterno": "Chacón",
       "candidato_apellido_materno": "Trujillo",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo turístico y conservación en Amazonas",
+      "descripcion": "Propone promoción internacional de Kuélap y cataratas de Gocta, construcción de aeropuerto internacional en Amazonas, mejoramiento de carretera a sitios turísticos, y programa de capacitación en turismo comunitario. Incluye protección de bosques nubosos y áreas naturales protegidas.",
+      "fecha": "2024-07-12",
+      "fuente_url": "https://ejemplo.com/turismo-amazonas-nct"
+    },
+    {
+      "candidato_nombre": "Nilza",
+      "candidato_apellido_paterno": "Chacón",
+      "candidato_apellido_materno": "Trujillo",
+      "tipo": "proyecto",
+      "titulo": "Regidora provincial en Amazonas",
+      "descripcion": "Fue regidora provincial en Chachapoyas donde impulsó proyectos de conservación del patrimonio arqueológico, mejoramiento de servicios turísticos, y fortalecimiento de artesanía local. Promovió ordenanzas de protección ambiental y desarrollo sostenible en la provincia.",
+      "fecha": "2018-12-31",
+      "fuente_url": "https://ejemplo.com/regidora-amazonas-nct"
+    },
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Sánchez",
+      "candidato_apellido_materno": "Palomino",
+      "tipo": "propuesta",
+      "titulo": "Ordenamiento territorial y minería responsable en Madre de Dios",
+      "descripcion": "Propone plan de ordenamiento territorial con zonificación clara para minería, agricultura y conservación. Incluye formalización real de mineros artesanales con acompañamiento técnico, remediación de zonas degradadas, y control estricto de mercurio. Inversión en reforestación y ecoturismo.",
+      "fecha": "2024-06-25",
+      "fuente_url": "https://ejemplo.com/ordenamiento-mdd-rsp"
+    },
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Sánchez",
+      "candidato_apellido_materno": "Palomino",
+      "tipo": "proyecto",
+      "titulo": "Exfuncionario de gobierno regional de Madre de Dios",
+      "descripcion": "Trabajó en dirección de recursos naturales del gobierno regional, participando en programas de control forestal y fiscalización ambiental. Coordinó con comunidades nativas proyectos de manejo sostenible de recursos. Experiencia en gestión de áreas naturales protegidas.",
+      "fecha": "2019-12-31",
+      "fuente_url": "https://ejemplo.com/gestion-regional-rsp"
+    },
+    {
+      "candidato_nombre": "Carmen",
+      "candidato_apellido_paterno": "Omonte",
+      "candidato_apellido_materno": "Durand",
+      "tipo": "propuesta",
+      "titulo": "Carretera interoceánica y desarrollo económico en Madre de Dios",
+      "descripcion": "Propone aprovechar carretera interoceánica para desarrollo: parque industrial en Puerto Maldonado, mejoramiento de conectividad con Brasil, facilitación de comercio transfronterizo, y programa de exportación de castaña, cacao y productos forestales no maderables. Inversión: S/ 800 millones.",
+      "fecha": "2024-08-30",
+      "fuente_url": "https://ejemplo.com/interoceanica-mdd-cod"
+    },
+    {
+      "candidato_nombre": "Carmen",
+      "candidato_apellido_paterno": "Omonte",
+      "candidato_apellido_materno": "Durand",
+      "tipo": "proyecto",
+      "titulo": "Congresista periodo 2016-2021",
+      "descripcion": "Fue congresista donde integró comisiones de comercio exterior y defensa. Cuestionó contratos de obras públicas con sobrecostos, fiscalizó ministerios, e impulsó transparencia en contrataciones. Promovió leyes de protección al consumidor y regulación de servicios públicos.",
+      "fecha": "2016-07-28",
+      "fuente_url": "https://ejemplo.com/congresista-2016-cod"
+    },
+    {
+      "candidato_nombre": "Miguel",
+      "candidato_apellido_paterno": "Granda",
+      "candidato_apellido_materno": "Olaechea",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo agrícola y riego tecnificado en Apurímac",
+      "descripcion": "Propone construcción de represa de Pampamarca para irrigar 15,000 hectáreas, programa de riego tecnificado subsidiado, siembra de frutales de exportación, y carreteras rurales. Incluye electrificación rural completa y programa de capacitación agrícola con universidades.",
+      "fecha": "2024-05-15",
+      "fuente_url": "https://ejemplo.com/agricultura-apurimac-mgo"
+    },
+    {
+      "candidato_nombre": "Miguel",
+      "candidato_apellido_paterno": "Granda",
+      "candidato_apellido_materno": "Olaechea",
+      "tipo": "proyecto",
+      "titulo": "Empresario agrícola en Apurímac",
+      "descripcion": "Empresario del sector agrícola con fincas en Apurímac. Ha promovido asociatividad de pequeños productores, acceso a mercados mayoristas, y mejoramiento de cadenas productivas. Presidente de asociación de agricultores, impulsando tecnificación del agro en la región.",
+      "fecha": "2021-08-10",
+      "fuente_url": "https://ejemplo.com/empresario-apurimac-mgo"
+    },
+    {
+      "candidato_nombre": "Yeni",
+      "candidato_apellido_paterno": "Vilcatoma",
+      "candidato_apellido_materno": "Perez",
+      "tipo": "propuesta",
+      "titulo": "Lucha contra la corrupción y transparencia total",
+      "descripcion": "Propone cadena perpetua para funcionarios corruptos que malversen más de S/ 1 millón, pérdida automática de beneficios penitenciarios, publicación obligatoria de declaraciones juradas en tiempo real, y fortalecimiento de procuradurías anticorrupción con recursos suficientes.",
+      "fecha": "2024-09-10",
+      "fuente_url": "https://ejemplo.com/anticorrupcion-yvp"
+    },
+    {
+      "candidato_nombre": "Yeni",
+      "candidato_apellido_paterno": "Vilcatoma",
+      "candidato_apellido_materno": "Perez",
+      "tipo": "proyecto",
+      "titulo": "Congresista periodo 2016-2020",
+      "descripcion": "Fue congresista donde se destacó por denuncias contra corrupción gubernamental. Integró comisión de fiscalización, cuestionó actos irregulares de funcionarios, y promovió investigaciones sobre casos emblemáticos. Conocida por posiciones confrontacionales con gobiernos de turno.",
+      "fecha": "2016-07-28",
+      "fuente_url": "https://ejemplo.com/congresista-fiscalizacion-yvp"
+    },
+    {
+      "candidato_nombre": "Modesto",
+      "candidato_apellido_paterno": "Figueroa",
+      "candidato_apellido_materno": "Minaya",
+      "tipo": "propuesta",
+      "titulo": "Educación rural intercultural en Apurímac",
+      "descripcion": "Propone construcción de 50 colegios secundarios en zonas rurales de Apurímac, educación intercultural bilingüe efectiva en quechua-español, becas completas para estudiantes destacados, internet satelital en todas las escuelas, y programa de alimentación escolar mejorado. Inversión: S/ 400 millones.",
+      "fecha": "2024-06-20",
+      "fuente_url": "https://ejemplo.com/educacion-apurimac-mfm"
+    },
+    {
+      "candidato_nombre": "Modesto",
+      "candidato_apellido_paterno": "Figueroa",
+      "candidato_apellido_materno": "Minaya",
+      "tipo": "proyecto",
+      "titulo": "Docente en comunidades rurales de Apurímac",
+      "descripcion": "Profesor de educación secundaria con 25 años de experiencia en escuelas rurales de Apurímac. Ha trabajado en comunidades campesinas remotas, implementando metodologías de educación intercultural. Director de colegio rural, promovió mejoras en infraestructura educativa y retención escolar.",
+      "fecha": "2020-03-01",
+      "fuente_url": "https://ejemplo.com/docente-rural-mfm"
+    },
+    {
+      "candidato_nombre": "Clayton",
+      "candidato_apellido_paterno": "Galván",
+      "candidato_apellido_materno": "Vento",
+      "tipo": "propuesta",
+      "titulo": "Reactivación minera responsable en Pasco",
+      "descripcion": "Propone remediación de pasivos ambientales mineros en Cerro de Pasco, reubicación de zonas críticas afectadas por contaminación, modernización de operaciones mineras con tecnología limpia, y creación de fondo de desarrollo post-minero. Incluye programa de salud para población afectada por metales pesados.",
+      "fecha": "2024-07-28",
+      "fuente_url": "https://ejemplo.com/mineria-pasco-cgv"
+    },
+    {
+      "candidato_nombre": "Clayton",
+      "candidato_apellido_paterno": "Galván",
+      "candidato_apellido_materno": "Vento",
+      "tipo": "proyecto",
+      "titulo": "Activista ambiental en Pasco",
+      "descripcion": "Activista y defensor ambiental en Pasco, ha liderado protestas contra contaminación minera en Cerro de Pasco. Miembro de organizaciones que exigen remediación de suelos y agua contaminados. Ha documentado impactos de minería en salud de población, especialmente niños con plomo en sangre.",
+      "fecha": "2019-11-15",
+      "fuente_url": "https://ejemplo.com/activismo-ambiental-cgv"
+    },
+    {
+      "candidato_nombre": "Roy",
+      "candidato_apellido_paterno": "Ventura",
+      "candidato_apellido_materno": "Valdes",
+      "tipo": "propuesta",
+      "titulo": "Ganadería moderna y cadenas productivas en Pasco",
+      "descripcion": "Propone programa de mejoramiento genético de ganado vacuno y ovino, construcción de camales modernos con certificación sanitaria, plantas procesadoras de lácteos y derivados, y carreteras de penetración a zonas ganaderas. Incluye capacitación en manejo ganadero y acceso a créditos.",
+      "fecha": "2024-05-18",
+      "fuente_url": "https://ejemplo.com/ganaderia-pasco-rvv"
+    },
+    {
+      "candidato_nombre": "Roy",
+      "candidato_apellido_paterno": "Ventura",
+      "candidato_apellido_materno": "Valdes",
+      "tipo": "proyecto",
+      "titulo": "Ganadero y empresario en Pasco",
+      "descripcion": "Empresario ganadero con experiencia en producción de lácteos y carne en zonas altoandinas de Pasco. Ha promovido asociatividad de ganaderos, mejoramiento de razas, y acceso a mercados formales. Presidente de asociación de ganaderos, impulsando cadenas productivas competitivas.",
+      "fecha": "2020-09-12",
+      "fuente_url": "https://ejemplo.com/empresario-ganadero-rvv"
+    },
+    {
+      "candidato_nombre": "Gerardo",
+      "candidato_apellido_paterno": "Espinoza",
+      "candidato_apellido_materno": "Lozano",
+      "tipo": "propuesta",
+      "titulo": "Recuperación del legado aprista en Pasco",
+      "descripcion": "Propone retomar políticas de industrialización regional aprista: apoyo estatal a pequeña industria, cooperativismo agrario y minero, programa de vivienda social masiva, y fortalecimiento de sindicatos. Incluye nacionalización de recursos estratégicos mal administrados y redistribución de riqueza minera.",
+      "fecha": "2024-08-07",
+      "fuente_url": "https://ejemplo.com/politicas-apristas-gel"
+    },
+    {
+      "candidato_nombre": "Gerardo",
+      "candidato_apellido_paterno": "Espinoza",
+      "candidato_apellido_materno": "Lozano",
+      "tipo": "proyecto",
+      "titulo": "Militante histórico del APRA en Pasco",
+      "descripcion": "Militante aprista con 35 años de trayectoria en el partido. Ha ocupado cargos dirigenciales en comités regionales, participado en campañas electorales, y promovido organización de bases. Defensor del legado de Haya de la Torre y políticas sociales apristas históricas.",
+      "fecha": "2015-04-15",
+      "fuente_url": "https://ejemplo.com/militante-apra-gel"
+    },
+    {
+      "candidato_nombre": "Bienvenido",
+      "candidato_apellido_paterno": "Ramírez",
+      "candidato_apellido_materno": "Paredes",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo fronterizo y pesca artesanal en Tumbes",
+      "descripcion": "Propone modernización de desembarcadero pesquero de Tumbes, programa de acuicultura de langostinos con tecnología, fortalecimiento de control fronterizo contra contrabando, y desarrollo turístico de playas y manglares. Incluye zona económica especial fronteriza con Ecuador.",
+      "fecha": "2024-09-15",
+      "fuente_url": "https://ejemplo.com/desarrollo-tumbes-brp"
+    },
+    {
+      "candidato_nombre": "Bienvenido",
+      "candidato_apellido_paterno": "Ramírez",
+      "candidato_apellido_materno": "Paredes",
+      "tipo": "proyecto",
+      "titulo": "Empresario pesquero en Tumbes",
+      "descripcion": "Empresario del sector pesquero artesanal con experiencia en extracción y comercialización de productos hidrobiológicos. Ha presidido asociación de pescadores, promoviendo pesca responsable y mejores precios. Impulsor de proyectos de acuicultura comunitaria en esteros tumbesinos.",
+      "fecha": "2018-06-20",
+      "fuente_url": "https://ejemplo.com/empresario-pesca-brp"
+    },
+    {
+      "candidato_nombre": "Juan",
+      "candidato_apellido_paterno": "Yuyes",
+      "candidato_apellido_materno": "Saavedra",
+      "tipo": "propuesta",
+      "titulo": "Agricultura de exportación y mango tumbesino",
+      "descripcion": "Propone programa de tecnificación de cultivos de mango, banano orgánico y limón, construcción de planta empacadora con certificación internacional, acceso a mercados asiáticos y europeos, y sistema de riego tecnificado. Incluye carreteras rurales asfaltadas y centro de capacitación agrícola. Inversión: S/ 350 millones.",
+      "fecha": "2024-04-22",
+      "fuente_url": "https://ejemplo.com/agroexportacion-tumbes-jys"
+    },
+    {
+      "candidato_nombre": "Juan",
+      "candidato_apellido_paterno": "Yuyes",
+      "candidato_apellido_materno": "Saavedra",
+      "tipo": "proyecto",
+      "titulo": "Alcalde de distrito en Tumbes",
+      "descripcion": "Fue alcalde distrital donde implementó programa de desarrollo agrícola, mejoramiento de canales de riego, y fortalecimiento de organizaciones de productores. Promovió formalización de agricultores y acceso a créditos del Agrobanco. Construcción de mercado de productores y apoyo a comercialización directa.",
+      "fecha": "2018-12-31",
+      "fuente_url": "https://ejemplo.com/alcalde-tumbes-jys"
+    },
+    {
+      "candidato_nombre": "Glider",
+      "candidato_apellido_paterno": "Ushñahua",
+      "candidato_apellido_materno": "Huasanga",
+      "tipo": "propuesta",
+      "titulo": "Derechos de pueblos indígenas amazónicos en Ucayali",
+      "descripcion": "Propone titulación inmediata de territorios indígenas pendientes en Ucayali, creación de área de conservación indígena, programa de salud intercultural con medicina tradicional, y educación intercultural bilingüe real. Incluye control de tala ilegal y expulsión de invasores de territorios ancestrales.",
+      "fecha": "2024-08-12",
+      "fuente_url": "https://ejemplo.com/indigenas-ucayali-guh"
+    },
+    {
+      "candidato_nombre": "Glider",
+      "candidato_apellido_paterno": "Ushñahua",
+      "candidato_apellido_materno": "Huasanga",
+      "tipo": "proyecto",
+      "titulo": "Dirigente indígena shipibo-konibo",
+      "descripcion": "Líder de comunidad shipibo-konibo en Ucayali, ha defendido territorios ancestrales contra invasiones y tala ilegal. Coordinador de federación de comunidades nativas, promoviendo derechos colectivos y consulta previa. Ha denunciado internacionalmente violaciones de derechos de pueblos indígenas.",
+      "fecha": "2019-10-15",
+      "fuente_url": "https://ejemplo.com/lider-indigena-guh"
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Tubino",
+      "candidato_apellido_materno": "Arias",
+      "tipo": "propuesta",
+      "titulo": "Seguridad y lucha contra el narcotráfico en Ucayali",
+      "descripcion": "Propone incremento de presencia policial y militar en zonas de narcotráfico, erradicación de pistas clandestinas, interdicción aérea y fluvial permanente, y programa de desarrollo alternativo para cultivadores de coca. Incluye mejora de penales para evitar que sean centros de comando criminal.",
+      "fecha": "2024-07-18",
+      "fuente_url": "https://ejemplo.com/seguridad-ucayali-cta"
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Tubino",
+      "candidato_apellido_materno": "Arias",
+      "tipo": "proyecto",
+      "titulo": "Congresista fujimorista periodo 2016-2019",
+      "descripcion": "Fue congresista por Fuerza Popular donde integró comisión de defensa. Defensor de políticas de mano dura contra criminalidad, promovió leyes de seguridad ciudadana, y cuestionó políticas de derechos humanos que consideraba excesivas. Vocero en temas de defensa nacional y fuerzas armadas.",
+      "fecha": "2016-07-28",
+      "fuente_url": "https://ejemplo.com/congresista-defensa-cta"
+    },
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Kamiche",
+      "candidato_apellido_materno": "Morante",
+      "tipo": "propuesta",
+      "titulo": "Conservación de bosques y ecoturismo en Amazonas",
+      "descripcion": "Propone programa de conservación de bosques de neblina, pago por servicios ambientales a comunidades que protegen bosques, desarrollo de ecoturismo comunitario en rutas alternativas a Kuélap, y centro de investigación de biodiversidad amazónica. Inversión: S/ 250 millones.",
+      "fecha": "2024-06-30",
+      "fuente_url": "https://ejemplo.com/conservacion-amazonas-rkm"
+    },
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Kamiche",
+      "candidato_apellido_materno": "Morante",
+      "tipo": "proyecto",
+      "titulo": "Biólogo investigador en Amazonas",
+      "descripcion": "Biólogo especializado en conservación de ecosistemas amazónicos. Ha trabajado en proyectos de investigación de biodiversidad, catalogación de especies endémicas, y programas de educación ambiental. Asesor de áreas naturales protegidas y consultor en evaluaciones de impacto ambiental.",
+      "fecha": "2021-09-05",
+      "fuente_url": "https://ejemplo.com/biologo-amazonas-rkm"
+    },
+    {
+      "candidato_nombre": "Elva",
+      "candidato_apellido_paterno": "Julón",
+      "candidato_apellido_materno": "Irigoin",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo de la mujer rural en Áncash",
+      "descripcion": "Propone programa de empoderamiento económico para mujeres campesinas: acceso a microcréditos sin intereses, capacitación en emprendimientos rurales, construcción de centros de cuidado infantil en comunidades, y titulación de tierras a nombre de mujeres. Incluye programa contra violencia de género rural.",
+      "fecha": "2024-03-08",
+      "fuente_url": "https://ejemplo.com/mujer-rural-ancash-eji"
+    },
+    {
+      "candidato_nombre": "Elva",
+      "candidato_apellido_paterno": "Julón",
+      "candidato_apellido_materno": "Irigoin",
+      "tipo": "proyecto",
+      "titulo": "Lideresa de organizaciones de mujeres en Áncash",
+      "descripcion": "Presidenta de federación de mujeres campesinas de Áncash. Ha liderado programas de alfabetización, capacitación productiva, y defensa de derechos de mujeres rurales. Impulsora de proyectos de biohuertos, crianza de cuyes, y artesanía textil. Reconocida por trabajo en empoderamiento femenino.",
+      "fecha": "2018-11-20",
+      "fuente_url": "https://ejemplo.com/lideresa-mujeres-eji"
+    },
+    {
+      "candidato_nombre": "Hernando",
+      "candidato_apellido_paterno": "Guerra",
+      "candidato_apellido_materno": "García",
+      "tipo": "propuesta",
+      "titulo": "Defensa de inversión minera y desarrollo en Arequipa",
+      "descripcion": "Propone destrabar proyectos mineros paralizados como Tía María mediante diálogo con comunidades, garantías ambientales verificables, y inversión social directa en educación y salud. Incluye fortalecimiento de institucionalidad ambiental y sanciones severas a empresas que contaminen.",
+      "fecha": "2024-09-20",
+      "fuente_url": "https://ejemplo.com/mineria-arequipa-hgg"
+    },
+    {
+      "candidato_nombre": "Hernando",
+      "candidato_apellido_paterno": "Guerra",
+      "candidato_apellido_materno": "García",
+      "tipo": "proyecto",
+      "titulo": "Congresista y vocero fujimorista",
+      "descripcion": "Congresista por varios periodos, ha sido vocero principal de Fuerza Popular. Se ha desempeñado en comisiones de presupuesto y fiscalización. Defensor del liberalismo económico, ha cuestionado intervencionismo estatal y promovido inversión privada. Conocido por debates confrontacionales en medios.",
+      "fecha": "2020-01-15",
+      "fuente_url": "https://ejemplo.com/vocero-fujimorista-hgg"
+    },
+    {
+      "candidato_nombre": "Juana",
+      "candidato_apellido_paterno": "Ancalla",
+      "candidato_apellido_materno": "Condori",
+      "tipo": "propuesta",
+      "titulo": "Recuperación del quechua y cultura andina en Ayacucho",
+      "descripcion": "Propone declarar el quechua como idioma oficial en Ayacucho con uso obligatorio en servicios públicos, programa masivo de enseñanza de quechua en escuelas, revitalización de festividades tradicionales andinas, y centro cultural de preservación de tradiciones. Incluye titulación de tierras comunales.",
+      "fecha": "2024-06-24",
+      "fuente_url": "https://ejemplo.com/cultura-quechua-jac"
+    },
+    {
+      "candidato_nombre": "Juana",
+      "candidato_apellido_paterno": "Ancalla",
+      "candidato_apellido_materno": "Condori",
+      "tipo": "proyecto",
+      "titulo": "Docente de educación intercultural bilingüe",
+      "descripcion": "Profesora especializada en educación intercultural bilingüe quechua-español en Ayacucho. Ha desarrollado materiales educativos en quechua, capacitado docentes en metodología intercultural, y promovido rescate de saberes ancestrales. Directora de escuela rural, implementó currículo culturalmente pertinente.",
+      "fecha": "2019-03-10",
+      "fuente_url": "https://ejemplo.com/docente-eib-jac"
+    },
+    {
+      "candidato_nombre": "Mesías",
+      "candidato_apellido_paterno": "Guevara",
+      "candidato_apellido_materno": "Amasifuen",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo ganadero y lechero en Cajamarca",
+      "descripcion": "Propone programa de mejoramiento genético de ganado lechero, construcción de plantas procesadoras de lácteos con marca regional, sistema de frío para conservación de leche, y carreteras rurales mejoradas. Incluye capacitación en manejo ganadero tecnificado y acceso a mercados nacionales e internacionales.",
+      "fecha": "2024-05-28",
+      "fuente_url": "https://ejemplo.com/ganaderia-cajamarca-mga"
+    },
+    {
+      "candidato_nombre": "Mesías",
+      "candidato_apellido_paterno": "Guevara",
+      "candidato_apellido_materno": "Amasifuen",
+      "tipo": "proyecto",
+      "titulo": "Congresista periodo 2020-2026",
+      "descripcion": "Congresista por Cajamarca que ha trabajado en comisiones de agricultura y presupuesto. Ha fiscalizado programas agrarios, cuestionado importación de leche en polvo que afecta a ganaderos locales, y promovido apoyo estatal a pequeños productores. Defensor de agricultura familiar cajamarquina.",
+      "fecha": "2020-07-28",
+      "fuente_url": "https://ejemplo.com/congresista-cajamarca-mga"
+    },
+    {
+      "candidato_nombre": "Eduardo",
+      "candidato_apellido_paterno": "Castillo",
+      "candidato_apellido_materno": "Rivas",
+      "tipo": "propuesta",
+      "titulo": "Modernización portuaria y desarrollo del Callao",
+      "descripcion": "Propone ampliación del puerto del Callao con nuevos muelles, profundización de canal de acceso, zona de actividades logísticas, y mejoramiento de avenida Néstor Gambetta. Incluye programa de vivienda para trabajadores portuarios y mejora de seguridad ciudadana en zonas críticas del Callao.",
+      "fecha": "2024-08-15",
+      "fuente_url": "https://ejemplo.com/puerto-callao-ecr"
+    },
+    {
+      "candidato_nombre": "Eduardo",
+      "candidato_apellido_paterno": "Castillo",
+      "candidato_apellido_materno": "Rivas",
+      "tipo": "proyecto",
+      "titulo": "Funcionario de Enapu",
+      "descripcion": "Trabajó en Empresa Nacional de Puertos (Enapu) en áreas de operaciones portuarias y logística. Experiencia en gestión de terminales portuarios, coordinación con navieras, y optimización de procesos de carga y descarga. Conocedor de problemática portuaria del Callao y necesidades de modernización.",
+      "fecha": "2018-12-31",
+      "fuente_url": "https://ejemplo.com/funcionario-enapu-ecr"
+    },
+    {
+      "candidato_nombre": "Fernando",
+      "candidato_apellido_paterno": "Herrera",
+      "candidato_apellido_materno": "Mamani",
+      "tipo": "propuesta",
+      "titulo": "Turismo sostenible y patrimonio cultural en Cusco",
+      "descripcion": "Propone implementar sistema de reservas obligatorio para Machu Picchu con cupos diferenciados, circuitos turísticos alternativos a Choquequirao y Vilcabamba, tren turístico de lujo Cusco-Machu Picchu, y programa de capacitación de guías oficiales. Incluye protección estricta de sitios arqueológicos y monitoreo de impactos.",
+      "fecha": "2024-07-25",
+      "fuente_url": "https://ejemplo.com/turismo-cusco-fhm"
+    },
+    {
+      "candidato_nombre": "Fernando",
+      "candidato_apellido_paterno": "Herrera",
+      "candidato_apellido_materno": "Mamani",
+      "tipo": "proyecto",
+      "titulo": "Dirigente aprista en Cusco",
+      "descripcion": "Militante histórico del APRA en Cusco, ha ocupado cargos dirigenciales regionales del partido. Participó en gobiernos apristas como funcionario de cultura y turismo. Promovió políticas de democratización del acceso a sitios turísticos y mejora de condiciones laborales de trabajadores del sector.",
+      "fecha": "2010-05-15",
+      "fuente_url": "https://ejemplo.com/dirigente-cusco-fhm"
+    },
+    {
+      "candidato_nombre": "Grimaldo",
+      "candidato_apellido_paterno": "Vásquez",
+      "candidato_apellido_materno": "Tan",
+      "tipo": "propuesta",
+      "titulo": "Superación de pobreza extrema en Huancavelica",
+      "descripcion": "Propone programa masivo de transferencias monetarias para familias en extrema pobreza, construcción de viviendas dignas con servicios básicos, electrificación rural completa, y programa de empleo temporal en obras comunales. Incluye atención integral de salud y nutrición infantil, priorizando desnutrición crónica.",
+      "fecha": "2024-04-18",
+      "fuente_url": "https://ejemplo.com/pobreza-huancavelica-gvt"
+    },
+    {
+      "candidato_nombre": "Grimaldo",
+      "candidato_apellido_paterno": "Vásquez",
+      "candidato_apellido_materno": "Tan",
+      "tipo": "proyecto",
+      "titulo": "Alcalde provincial en Huancavelica",
+      "descripcion": "Fue alcalde provincial donde implementó programas sociales focalizados en extrema pobreza, construcción de postas médicas rurales, y mejoramiento de sistemas de agua potable. Promovió trabajo comunal organizado, rescate de tecnologías ancestrales, y fortalecimiento de organizaciones campesinas.",
+      "fecha": "2014-12-31",
+      "fuente_url": "https://ejemplo.com/alcalde-huancavelica-gvt"
+    },
+    {
+      "candidato_nombre": "Martha",
+      "candidato_apellido_paterno": "Moyano",
+      "candidato_apellido_materno": "Delgado",
+      "tipo": "propuesta",
+      "titulo": "Defensa de valores conservadores y familia tradicional",
+      "descripcion": "Propone fortalecer modelo de familia tradicional mediante programas de orientación familiar, prohibición de adopción por parejas del mismo sexo, eliminación de enfoque de género en currículo escolar, y promoción de valores cristianos. Incluye oposición al aborto en cualquier circunstancia y defensa de la vida desde la concepción.",
+      "fecha": "2024-05-12",
+      "fuente_url": "https://ejemplo.com/valores-familia-mmd"
+    },
+    {
+      "candidato_nombre": "Martha",
+      "candidato_apellido_paterno": "Moyano",
+      "candidato_apellido_materno": "Delgado",
+      "tipo": "proyecto",
+      "titulo": "Congresista fujimorista periodo 2011-2016",
+      "descripcion": "Fue congresista por Fuerza Popular, hermana de Keiko Fujimori. Integró comisiones de mujer y familia, promoviendo agenda conservadora. Defensora del legado de Alberto Fujimori, ha participado activamente en campañas del fujimorismo. Conocida por posiciones tradicionalistas en temas sociales.",
+      "fecha": "2011-07-28",
+      "fuente_url": "https://ejemplo.com/congresista-fujimorista-mmd"
+    },
+    {
+      "candidato_nombre": "María",
+      "candidato_apellido_paterno": "Céspedes",
+      "candidato_apellido_materno": "Cárdenas",
+      "tipo": "propuesta",
+      "titulo": "Agroindustria y agroexportación en Ica",
+      "descripcion": "Propone consolidar a Ica como potencia agroexportadora: plantas empacadoras modernas para uvas, paltas y espárragos, sistema de riego tecnificado obligatorio para reducir consumo de agua, investigación en variedades de bajo consumo hídrico, y certificaciones internacionales. Inversión: S/ 700 millones.",
+      "fecha": "2024-09-08",
+      "fuente_url": "https://ejemplo.com/agroexportacion-ica-mcc"
+    },
+    {
+      "candidato_nombre": "María",
+      "candidato_apellido_paterno": "Céspedes",
+      "candidato_apellido_materno": "Cárdenas",
+      "tipo": "proyecto",
+      "titulo": "Regidora de municipalidad en Ica",
+      "descripcion": "Fue regidora provincial donde impulsó ordenanzas de protección del acuífero de Ica, control de pozos ilegales, y fiscalización de agroexportadoras. Promovió agricultura sostenible, uso responsable del agua, y programas de capacitación en riego tecnificado para pequeños agricultores.",
+      "fecha": "2018-12-31",
+      "fuente_url": "https://ejemplo.com/regidora-ica-mcc"
+    },
+    {
+      "candidato_nombre": "Lucinda",
+      "candidato_apellido_paterno": "Vásquez",
+      "candidato_apellido_materno": "Vela",
+      "tipo": "propuesta",
+      "titulo": "Educación y desarrollo económico en Junín",
+      "descripcion": "Propone construcción de instituto tecnológico de excelencia en Junín, programa de becas técnicas para jóvenes en carreras productivas, fortalecimiento de educación técnica agropecuaria, y alianzas con empresas para prácticas pre-profesionales. Incluye mejoramiento de infraestructura de colegios emblemáticos.",
+      "fecha": "2024-06-15",
+      "fuente_url": "https://ejemplo.com/educacion-junin-lvv"
+    },
+    {
+      "candidato_nombre": "Lucinda",
+      "candidato_apellido_paterno": "Vásquez",
+      "candidato_apellido_materno": "Vela",
+      "tipo": "proyecto",
+      "titulo": "Docente universitaria en Junín",
+      "descripcion": "Profesora universitaria en Junín con especialización en educación. Ha investigado sobre mejora de calidad educativa en zonas rurales, metodologías de enseñanza innovadoras, y educación técnico-productiva. Asesora de tesis y consultora en proyectos educativos regionales.",
+      "fecha": "2020-03-10",
+      "fuente_url": "https://ejemplo.com/docente-universitaria-lvv"
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Zeballos",
+      "candidato_apellido_materno": "Madariaga",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo industrial y empleo en La Libertad",
+      "descripcion": "Propone crear parque industrial en Trujillo con incentivos tributarios, programa de capacitación técnica para jóvenes en industria, modernización del puerto Salaverry, y zona franca para exportaciones. Incluye mejoramiento de carreteras de acceso y programa de formalización de pequeñas industrias.",
+      "fecha": "2024-07-30",
+      "fuente_url": "https://ejemplo.com/industria-lalibertad-czm"
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Zeballos",
+      "candidato_apellido_materno": "Madariaga",
+      "tipo": "proyecto",
+      "titulo": "Empresario industrial en La Libertad",
+      "descripcion": "Empresario del sector industrial en Trujillo con fábricas de calzado y confecciones. Ha presidido gremio de industriales, promoviendo competitividad y acceso a mercados. Impulsor de formalización empresarial y mejoras en clima de negocios. Defensor de industria nacional ante competencia desleal.",
+      "fecha": "2019-11-20",
+      "fuente_url": "https://ejemplo.com/empresario-industrial-czm"
+    },
+    {
+      "candidato_nombre": "Omar",
+      "candidato_apellido_paterno": "Chehade",
+      "candidato_apellido_materno": "Moya",
+      "tipo": "propuesta",
+      "titulo": "Agricultura tecnificada en Lambayeque",
+      "descripcion": "Propone culminar proyecto Olmos con distribución equitativa de tierras, sistema de riego presurizado en valle Chancay-Lambayeque, programa de reconversión a cultivos de exportación, y plantas agroindustriales. Incluye titulación de tierras agrícolas y programa de asociatividad para pequeños productores.",
+      "fecha": "2024-08-20",
+      "fuente_url": "https://ejemplo.com/agricultura-lambayeque-ocm"
+    },
+    {
+      "candidato_nombre": "Omar",
+      "candidato_apellido_paterno": "Chehade",
+      "candidato_apellido_materno": "Moya",
+      "tipo": "proyecto",
+      "titulo": "Vicepresidente en gobierno de Humala",
+      "descripcion": "Fue Segundo Vicepresidente durante gobierno de Ollanta Humala (2011-2012). Renunció tras escándalo de presuntos vínculos con narcotráfico. Anteriormente fue congresista por el Partido Nacionalista. Ha retornado a política buscando reivindicación y negando acusaciones en su contra.",
+      "fecha": "2011-07-28",
+      "fuente_url": "https://ejemplo.com/vicepresidente-ocm"
+    },
+    {
+      "candidato_nombre": "Cecilia",
+      "candidato_apellido_paterno": "García",
+      "candidato_apellido_materno": "Quispe",
+      "tipo": "propuesta",
+      "titulo": "Vivienda popular y regularización en Lima",
+      "descripcion": "Propone programa masivo de vivienda social en Lima con subsidios del 70% para familias pobres, regularización de asentamientos humanos consolidados, construcción de edificios multifamiliares en zonas periféricas, y mejoramiento de barrios con servicios básicos completos. Inversión: S/ 5,000 millones.",
+      "fecha": "2024-05-25",
+      "fuente_url": "https://ejemplo.com/vivienda-lima-cgq"
+    },
+    {
+      "candidato_nombre": "Cecilia",
+      "candidato_apellido_paterno": "García",
+      "candidato_apellido_materno": "Quispe",
+      "tipo": "proyecto",
+      "titulo": "Dirigenta de organización de pobladores",
+      "descripcion": "Lideresa de federación de pobladores de asentamientos humanos en Lima. Ha organizado tomas de tierra, negociado con autoridades por servicios básicos, y defendido derecho a vivienda. Promotora de construcción comunitaria, autoconstrucción asistida, y titulación de predios en asentamientos.",
+      "fecha": "2018-08-15",
+      "fuente_url": "https://ejemplo.com/dirigenta-pobladores-cgq"
+    },
+    {
+      "candidato_nombre": "Alberto",
+      "candidato_apellido_paterno": "de Belaunde",
+      "candidato_apellido_materno": "de Cárdenas",
+      "tipo": "propuesta",
+      "titulo": "Lucha anticorrupción e institucionalidad democrática",
+      "descripcion": "Propone fortalecer organismos autónomos como Contraloría y Defensoría, reforma del sistema de justicia con jueces probos, separación real de poderes del Estado, y mecanismos de rendición de cuentas transparentes. Incluye protección de periodistas y denunciantes de corrupción.",
+      "fecha": "2024-09-18",
+      "fuente_url": "https://ejemplo.com/anticorrupcion-abdec"
+    },
+    {
+      "candidato_nombre": "Alberto",
+      "candidato_apellido_paterno": "de Belaunde",
+      "candidato_apellido_materno": "de Cárdenas",
+      "tipo": "proyecto",
+      "titulo": "Congresista por Acción Popular",
+      "descripcion": "Congresista desde 2016, hijo del expresidente Fernando Belaunde Terry. Ha sido portavoz de Acción Popular, integrado comisiones de justicia y fiscalización. Defensor de institucionalidad democrática, ha cuestionado intentos de golpes de estado y cercos al Congreso. Promotor de diálogo y consensos.",
+      "fecha": "2016-07-28",
+      "fuente_url": "https://ejemplo.com/congresista-accionpopular-abdec"
+    },
+    {
+      "candidato_nombre": "Hernán",
+      "candidato_apellido_paterno": "Condori",
+      "candidato_apellido_materno": "Machaca",
+      "tipo": "propuesta",
+      "titulo": "Conectividad amazónica y desarrollo en Loreto",
+      "descripcion": "Propone construcción de hidrovía amazónica para transporte fluvial eficiente, internet satelital en comunidades ribereñas, programa de electrificación con paneles solares, y desarrollo de piscicultura amazónica. Incluye mejoramiento de centros de salud fluviales y educación con enfoque intercultural.",
+      "fecha": "2024-06-12",
+      "fuente_url": "https://ejemplo.com/conectividad-loreto-hcm"
+    },
+    {
+      "candidato_nombre": "Hernán",
+      "candidato_apellido_paterno": "Condori",
+      "candidato_apellido_materno": "Machaca",
+      "tipo": "proyecto",
+      "titulo": "Funcionario de gobierno regional de Loreto",
+      "descripcion": "Trabajó en dirección de transportes del gobierno regional de Loreto, gestionando proyectos de mejoramiento de puertos fluviales y embarcaderos. Experiencia en coordinación con comunidades ribereñas, planificación de transporte amazónico, y gestión de recursos para proyectos de conectividad.",
+      "fecha": "2019-12-31",
+      "fuente_url": "https://ejemplo.com/funcionario-loreto-hcm"
+    },
+    {
+      "candidato_nombre": "Janet",
+      "candidato_apellido_paterno": "Sánchez",
+      "candidato_apellido_materno": "Alva",
+      "tipo": "propuesta",
+      "titulo": "Minería sostenible en Moquegua",
+      "descripcion": "Propone aprovechar boom de cobre con proyecto Quellaveco: negociar mayor canon minero para Moquegua, programa de empleo local preferente, fiscalización ambiental estricta, y fondo de desarrollo sostenible. Incluye proyectos de diversificación económica para preparar economía post-minera.",
+      "fecha": "2024-07-08",
+      "fuente_url": "https://ejemplo.com/mineria-moquegua-jsa"
+    },
+    {
+      "candidato_nombre": "Janet",
+      "candidato_apellido_paterno": "Sánchez",
+      "candidato_apellido_materno": "Alva",
+      "tipo": "proyecto",
+      "titulo": "Regidora provincial en Moquegua",
+      "descripcion": "Fue regidora donde fiscalizó ejecución de canon minero, cuestionó obras sobrevaluadas, y promovió participación ciudadana en decisiones sobre inversiones. Impulsora de transparencia en gobierno local, rendición de cuentas públicas, y priorización de proyectos de impacto social.",
+      "fecha": "2018-12-31",
+      "fuente_url": "https://ejemplo.com/regidora-moquegua-jsa"
+    },
+    {
+      "candidato_nombre": "Edgar",
+      "candidato_apellido_paterno": "Alarcón",
+      "candidato_apellido_materno": "Tejada",
+      "tipo": "propuesta",
+      "titulo": "Fiscalización y control del gasto público",
+      "descripcion": "Propone fortalecer Contraloría General con más recursos y autonomía real, auditorías permanentes a todas las entidades públicas, sistema digital de seguimiento de obras en tiempo real, y sanciones ejemplares a funcionarios corruptos. Incluye participación ciudadana en control de obras y transparencia total en contrataciones.",
+      "fecha": "2024-08-05",
+      "fuente_url": "https://ejemplo.com/fiscalizacion-eat"
+    },
+    {
+      "candidato_nombre": "Edgar",
+      "candidato_apellido_paterno": "Alarcón",
+      "candidato_apellido_materno": "Tejada",
+      "tipo": "proyecto",
+      "titulo": "Contralor General de la República",
+      "descripcion": "Fue Contralor General de la República (2017-2020), cargo desde el cual impulsó auditorías a gobiernos regionales y locales. Cuestionó irregularidades en diversas obras públicas y denunció actos de corrupción. Posteriormente fue congresista donde continuó labor de fiscalización desde el Legislativo.",
+      "fecha": "2017-04-12",
+      "fuente_url": "https://ejemplo.com/contralor-eat"
+    },
+    {
+      "candidato_nombre": "Edgar",
+      "candidato_apellido_paterno": "Alarcón",
+      "candidato_apellido_materno": "Tejada",
+      "tipo": "denuncia",
+      "titulo": "Investigación por presunta organización criminal",
+      "descripcion": "Fiscalía investiga presunta red criminal para favorecer empresas en licitaciones durante su gestión como contralor. Se analizan auditorías selectivas, contrataciones irregulares de personal, y presuntos pagos ilícitos. La investigación incluye interceptaciones telefónicas y análisis de movimientos bancarios. Está en etapa de investigación preparatoria.",
+      "fecha": "2021-09-15",
+      "fuente_url": "https://ejemplo.com/investigacion-eat"
+    },
+    {
+      "candidato_nombre": "Flavio",
+      "candidato_apellido_paterno": "Cruz",
+      "candidato_apellido_materno": "Mamani",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo del altiplano puneño y ganadería",
+      "descripcion": "Propone programa de mejoramiento de camélidos sudamericanos, construcción de centros de esquila y clasificación de fibra, apertura de mercados internacionales para textiles de alpaca, y carreteras rurales asfaltadas. Incluye seguro ganadero contra friaje, sequías e inundaciones, y programa de sanidad animal.",
+      "fecha": "2024-05-18",
+      "fuente_url": "https://ejemplo.com/altiplano-puno-fcm"
+    },
+    {
+      "candidato_nombre": "Flavio",
+      "candidato_apellido_paterno": "Cruz",
+      "candidato_apellido_materno": "Mamani",
+      "tipo": "proyecto",
+      "titulo": "Dirigente aprista histórico en Puno",
+      "descripcion": "Militante del APRA con más de 30 años de trayectoria en Puno. Ha ocupado secretarías regionales del partido, participado en campañas electorales históricas, y promovido organización de bases apristas. Defensor de políticas de industrialización y justicia social aprista en la región altiplánica.",
+      "fecha": "2012-06-20",
+      "fuente_url": "https://ejemplo.com/aprista-puno-fcm"
+    },
+    {
+      "candidato_nombre": "Segundo",
+      "candidato_apellido_paterno": "Tapia",
+      "candidato_apellido_materno": "Bardales",
+      "tipo": "propuesta",
+      "titulo": "Desarrollo agroindustrial y café en San Martín",
+      "descripcion": "Propone convertir San Martín en potencia cafetalera y cacaotera: plantas procesadoras de café especial, centros de fermentación de cacao, certificaciones orgánicas, y apertura de mercados premium internacionales. Incluye carretera marginal mejorada, electrificación rural, y programa de reconversión productiva de cultivos ilícitos.",
+      "fecha": "2024-06-30",
+      "fuente_url": "https://ejemplo.com/cafe-sanmartin-stb"
+    },
+    {
+      "candidato_nombre": "Segundo",
+      "candidato_apellido_paterno": "Tapia",
+      "candidato_apellido_materno": "Bardales",
+      "tipo": "proyecto",
+      "titulo": "Alcalde provincial en San Martín",
+      "descripcion": "Fue alcalde provincial donde implementó programa de desarrollo agrícola, mejoramiento de caminos rurales, y fortalecimiento de cooperativas cafetaleras. Promovió agricultura sostenible, reducción de deforestación, y apoyo a productores de café y cacao. Constructor de mercados de productores y centros de acopio.",
+      "fecha": "2018-12-31",
+      "fuente_url": "https://ejemplo.com/alcalde-sanmartin-stb"
+    },
+    {
+      "candidato_nombre": "Paúl",
+      "candidato_apellido_paterno": "García",
+      "candidato_apellido_materno": "Oviedo",
+      "tipo": "propuesta",
+      "titulo": "Zona franca y desarrollo fronterizo en Tacna",
+      "descripcion": "Propone ampliar zona franca de Tacna con mayores incentivos tributarios, modernización de complejo fronterizo Santa Rosa, agilización de trámites aduaneros, y construcción de centro comercial internacional. Incluye programa de formalización de comerciantes y mejoramiento de servicios turísticos fronterizos.",
+      "fecha": "2024-09-12",
+      "fuente_url": "https://ejemplo.com/zonafranca-tacna-pgo"
+    },
+    {
+      "candidato_nombre": "Paúl",
+      "candidato_apellido_paterno": "García",
+      "candidato_apellido_materno": "Oviedo",
+      "tipo": "proyecto",
+      "titulo": "Empresario del sector comercio en Tacna",
+      "descripcion": "Empresario comerciante en Tacna con negocios en zona franca. Ha presidido cámara de comercio tacneña, promoviendo mejoras en condiciones tributarias, facilitación aduanera, y modernización del comercio fronterizo. Impulsor de fortalecimiento de Tacna como polo comercial binacional.",
+      "fecha": "2019-07-15",
+      "fuente_url": "https://ejemplo.com/empresario-comercio-pgo"
+    },
+    {
+      "candidato_nombre": "Rosío",
+      "candidato_apellido_paterno": "Sasieta",
+      "candidato_apellido_materno": "Morales",
+      "tipo": "propuesta",
+      "titulo": "Defensa nacional y fuerzas armadas modernas",
+      "descripcion": "Propone incrementar presupuesto de defensa al 2.5% del PBI, modernización tecnológica de fuerzas armadas, compra de equipamiento militar de última generación, y mejora salarial del 50% para personal militar. Incluye fortalecimiento de inteligencia militar, ciberseguridad, y control efectivo de fronteras contra amenazas transnacionales.",
+      "fecha": "2024-07-22",
+      "fuente_url": "https://ejemplo.com/defensa-nacional-rsm"
+    },
+    {
+      "candidato_nombre": "Rosío",
+      "candidato_apellido_paterno": "Sasieta",
+      "candidato_apellido_materno": "Morales",
+      "tipo": "proyecto",
+      "titulo": "Abogada y analista política",
+      "descripcion": "Abogada especializada en derecho constitucional y análisis político. Ha sido comentarista en medios sobre temas de defensa, seguridad nacional, y relaciones exteriores. Asesora legal de instituciones castrenses, promoviendo modernización de fuerzas armadas y reforma de justicia militar.",
+      "fecha": "2020-03-10",
+      "fuente_url": "https://ejemplo.com/abogada-analista-rsm"
+    },
+    {
+      "candidato_nombre": "Sigrid",
+      "candidato_apellido_paterno": "Bazán",
+      "candidato_apellido_materno": "Narro",
+      "tipo": "propuesta",
+      "titulo": "Reforma del sistema de justicia y acceso ciudadano",
+      "descripcion": "Propone democratizar acceso a justicia mediante defensorías públicas gratuitas en todos los distritos, simplificación de procesos judiciales, juzgados itinerantes en zonas rurales, y expediente electrónico obligatorio. Incluye evaluación permanente de jueces, transparencia en nombramientos judiciales, y lucha frontal contra corrupción judicial.",
+      "fecha": "2024-08-28",
+      "fuente_url": "https://ejemplo.com/justicia-sbn"
+    },
+    {
+      "candidato_nombre": "Sigrid",
+      "candidato_apellido_paterno": "Bazán",
+      "candidato_apellido_materno": "Narro",
+      "tipo": "proyecto",
+      "titulo": "Periodista y activista anticorrupción",
+      "descripcion": "Periodista de investigación especializada en casos de corrupción judicial y gubernamental. Ha denunciado redes de tráfico de influencias, sobornos a magistrados, y actos irregulares de funcionarios. Reconocida por reportajes sobre 'Los Cuellos Blancos del Puerto' y otros escándalos que involucraron a jueces y fiscales.",
+      "fecha": "2018-07-15",
+      "fuente_url": "https://ejemplo.com/periodista-investigacion-sbn"
+    },
+    {
+      "candidato_nombre": "Wilmar",
+      "candidato_apellido_paterno": "Elera",
+      "candidato_apellido_materno": "García",
+      "tipo": "propuesta",
+      "titulo": "Agricultura de exportación y agua en Piura",
+      "descripcion": "Propone gestión sostenible del agua en Piura: represas para almacenamiento de agua de lluvias, riego tecnificado obligatorio, control de pozos ilegales, y cultivos de menor consumo hídrico. Incluye plantas desalinizadoras para agricultura, tecnificación de cultivos de banano orgánico, mango y limón, y apertura de mercados internacionales.",
+      "fecha": "2024-05-20",
+      "fuente_url": "https://ejemplo.com/agricultura-piura-weg"
+    },
+    {
+      "candidato_nombre": "Wilmar",
+      "candidato_apellido_paterno": "Elera",
+      "candidato_apellido_materno": "García",
+      "tipo": "proyecto",
+      "titulo": "Ingeniero agrónomo y consultor",
+      "descripcion": "Ingeniero agrónomo especializado en sistemas de riego y manejo de cultivos de agroexportación. Ha trabajado como consultor para empresas agrícolas en Piura, diseñando sistemas de riego tecnificado, planes de fertilización, y programas de certificación orgánica. Docente en universidad local en cursos de agronomía.",
+      "fecha": "2021-04-18",
+      "fuente_url": "https://ejemplo.com/ingeniero-agronomo-weg"
+    }
+  ],
+
+  "votos_simulados": [
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Sánchez",
+      "candidato_apellido_materno": "Palomino",
+      "cantidad": 320
+    },
+    {
+      "candidato_nombre": "Carmen",
+      "candidato_apellido_paterno": "Omonte",
+      "candidato_apellido_materno": "Durand",
       "cantidad": 380
     },
     {
-      "candidato_nombre": "Kelly",
-      "candidato_apellido_paterno": "Portalatino",
-      "candidato_apellido_materno": "Ávalos",
+      "candidato_nombre": "Miguel",
+      "candidato_apellido_paterno": "Granda",
+      "candidato_apellido_materno": "Olaechea",
+      "cantidad": 420
+    },
+    {
+      "candidato_nombre": "Yeni",
+      "candidato_apellido_paterno": "Vilcatoma",
+      "candidato_apellido_materno": "Perez",
+      "cantidad": 460
+    },
+    {
+      "candidato_nombre": "Modesto",
+      "candidato_apellido_paterno": "Figueroa",
+      "candidato_apellido_materno": "Minaya",
+      "cantidad": 390
+    },
+    {
+      "candidato_nombre": "Clayton",
+      "candidato_apellido_paterno": "Galván",
+      "candidato_apellido_materno": "Vento",
       "cantidad": 440
+    },
+    {
+      "candidato_nombre": "Roy",
+      "candidato_apellido_paterno": "Ventura",
+      "candidato_apellido_materno": "Valdes",
+      "cantidad": 410
+    },
+    {
+      "candidato_nombre": "Gerardo",
+      "candidato_apellido_paterno": "Espinoza",
+      "candidato_apellido_materno": "Lozano",
+      "cantidad": 350
+    },
+    {
+      "candidato_nombre": "Bienvenido",
+      "candidato_apellido_paterno": "Ramírez",
+      "candidato_apellido_materno": "Paredes",
+      "cantidad": 480
+    },
+    {
+      "candidato_nombre": "Juan",
+      "candidato_apellido_paterno": "Yuyes",
+      "candidato_apellido_materno": "Saavedra",
+      "cantidad": 450
+    },
+    {
+      "candidato_nombre": "Glider",
+      "candidato_apellido_paterno": "Ushñahua",
+      "candidato_apellido_materno": "Huasanga",
+      "cantidad": 370
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Tubino",
+      "candidato_apellido_materno": "Arias",
+      "cantidad": 530
+    },
+    {
+      "candidato_nombre": "Eduardo",
+      "candidato_apellido_paterno": "Salhuana",
+      "candidato_apellido_materno": "Cavides",
+      "cantidad": 400
+    },
+    {
+      "candidato_nombre": "Roberto",
+      "candidato_apellido_paterno": "Kamiche",
+      "candidato_apellido_materno": "Morante",
+      "cantidad": 360
+    },
+    {
+      "candidato_nombre": "Elva",
+      "candidato_apellido_paterno": "Julón",
+      "candidato_apellido_materno": "Irigoin",
+      "cantidad": 430
+    },
+    {
+      "candidato_nombre": "Hernando",
+      "candidato_apellido_paterno": "Guerra",
+      "candidato_apellido_materno": "García",
+      "cantidad": 670
+    },
+    {
+      "candidato_nombre": "Juana",
+      "candidato_apellido_paterno": "Ancalla",
+      "candidato_apellido_materno": "Condori",
+      "cantidad": 340
+    },
+    {
+      "candidato_nombre": "Mesías",
+      "candidato_apellido_paterno": "Guevara",
+      "candidato_apellido_materno": "Amasifuen",
+      "cantidad": 510
+    },
+    {
+      "candidato_nombre": "Eduardo",
+      "candidato_apellido_paterno": "Castillo",
+      "candidato_apellido_materno": "Rivas",
+      "cantidad": 490
+    },
+    {
+      "candidato_nombre": "Fernando",
+      "candidato_apellido_paterno": "Herrera",
+      "candidato_apellido_materno": "Mamani",
+      "cantidad": 420
+    },
+    {
+      "candidato_nombre": "Grimaldo",
+      "candidato_apellido_paterno": "Vásquez",
+      "candidato_apellido_materno": "Tan",
+      "cantidad": 310
+    },
+    {
+      "candidato_nombre": "Martha",
+      "candidato_apellido_paterno": "Moyano",
+      "candidato_apellido_materno": "Delgado",
+      "cantidad": 380
+    },
+    {
+      "candidato_nombre": "María",
+      "candidato_apellido_paterno": "Céspedes",
+      "candidato_apellido_materno": "Cárdenas",
+      "cantidad": 470
+    },
+    {
+      "candidato_nombre": "Lucinda",
+      "candidato_apellido_paterno": "Vásquez",
+      "candidato_apellido_materno": "Vela",
+      "cantidad": 440
+    },
+    {
+      "candidato_nombre": "Carlos",
+      "candidato_apellido_paterno": "Zeballos",
+      "candidato_apellido_materno": "Madariaga",
+      "cantidad": 580
+    },
+    {
+      "candidato_nombre": "Omar",
+      "candidato_apellido_paterno": "Chehade",
+      "candidato_apellido_materno": "Moya",
+      "cantidad": 520
+    },
+    {
+      "candidato_nombre": "Cecilia",
+      "candidato_apellido_paterno": "García",
+      "candidato_apellido_materno": "Quispe",
+      "cantidad": 570
+    },
+    {
+      "candidato_nombre": "Alberto",
+      "candidato_apellido_paterno": "de Belaunde",
+      "candidato_apellido_materno": "de Cárdenas",
+      "cantidad": 600
+    },
+    {
+      "candidato_nombre": "Hernán",
+      "candidato_apellido_paterno": "Condori",
+      "candidato_apellido_materno": "Machaca",
+      "cantidad": 390
+    },
+    {
+      "candidato_nombre": "Janet",
+      "candidato_apellido_paterno": "Sánchez",
+      "candidato_apellido_materno": "Alva",
+      "cantidad": 370
+    },
+    {
+      "candidato_nombre": "Edgar",
+      "candidato_apellido_paterno": "Alarcón",
+      "candidato_apellido_materno": "Tejada",
+      "cantidad": 640
+    },
+    {
+      "candidato_nombre": "Flavio",
+      "candidato_apellido_paterno": "Cruz",
+      "candidato_apellido_materno": "Mamani",
+      "cantidad": 410
+    },
+    {
+      "candidato_nombre": "Segundo",
+      "candidato_apellido_paterno": "Tapia",
+      "candidato_apellido_materno": "Bardales",
+      "cantidad": 350
+    },
+    {
+      "candidato_nombre": "Paúl",
+      "candidato_apellido_paterno": "García",
+      "candidato_apellido_materno": "Oviedo",
+      "cantidad": 290
+    },
+    {
+      "candidato_nombre": "Rosío",
+      "candidato_apellido_paterno": "Sasieta",
+      "candidato_apellido_materno": "Morales",
+      "cantidad": 610
+    },
+    {
+      "candidato_nombre": "Sigrid",
+      "candidato_apellido_paterno": "Bazán",
+      "candidato_apellido_materno": "Narro",
+      "cantidad": 580
+    },
+    {
+      "candidato_nombre": "Wilmar",
+      "candidato_apellido_paterno": "Elera",
+      "candidato_apellido_materno": "García",
+      "cantidad": 550
     }
   ]
 }
