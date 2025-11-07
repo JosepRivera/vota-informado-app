@@ -72,7 +72,7 @@ python manage.py migrate
 
 ### 7. Cargar datos iniciales
 ```bash
-python manage.py seed_data
+python manage.py load_seed --with-votes
 ```
 
 ### 8. Ejecutar servidor
