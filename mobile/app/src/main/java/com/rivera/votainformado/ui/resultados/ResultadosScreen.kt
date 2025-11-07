@@ -1036,26 +1036,22 @@ fun ResultadoPartidoCardMejorado(
 
 @Composable
 fun MedalPosicion(posicion: Int, isDarkMode: Boolean) {
-    val (backgroundColor, textColor, icon) = when (posicion) {
-        1 -> Triple(
-            Color(0xFFFFD700),
-            Color(0xFF8B6914),
-            Icons.Default.EmojiEvents
+    val (backgroundColor, textColor) = when (posicion) {
+        1 -> Pair(
+            if (isDarkMode) Color(0xFF1A73E8) else Color(0xFF2196F3),
+            Color.White
         )
-        2 -> Triple(
-            Color(0xFFC0C0C0),
-            Color(0xFF5A5A5A),
-            Icons.Default.EmojiEvents
+        2 -> Pair(
+            if (isDarkMode) Color(0xFF0D47A1) else Color(0xFF1976D2),
+            Color.White
         )
-        3 -> Triple(
-            Color(0xFFCD7F32),
-            Color(0xFF5C3A1F),
-            Icons.Default.EmojiEvents
+        3 -> Pair(
+            if (isDarkMode) Color(0xFF01579B) else Color(0xFF0D47A1),
+            Color.White
         )
-        else -> Triple(
+        else -> Pair(
             if (isDarkMode) DarkSurf else NeutralLight,
-            if (isDarkMode) NeutralGray else NeutralMedium,
-            null
+            if (isDarkMode) NeutralGray else NeutralMedium
         )
     }
 
@@ -1068,22 +1064,14 @@ fun MedalPosicion(posicion: Int, isDarkMode: Boolean) {
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize()
         ) {
-            if (icon != null && posicion <= 3) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = null,
-                    tint = textColor,
-                    modifier = Modifier.size(28.dp)
-                )
-            } else {
-                Text(
-                    text = "$posicion",
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Bold
-                    ),
-                    color = textColor
-                )
-            }
+            Text(
+                text = "$posicion",
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+                ),
+                color = textColor
+            )
         }
     }
 }
