@@ -3,13 +3,9 @@ package com.rivera.votainformado.ui.comparar
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.scaleIn
-import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -17,16 +13,17 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.outlined.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
@@ -36,13 +33,23 @@ import com.rivera.votainformado.R
 import com.rivera.votainformado.ui.theme.*
 import com.rivera.votainformado.ui.navigation.BottomNavigationBar
 
+// Colores optimizados
+private val PrimaryBlue = Color(0xFF1565C0)
+private val LightBlue = Color(0xFFE3F2FD)
+private val SuccessGreen = Color(0xFF2E7D32)
+private val WarningRed = Color(0xFFD32F2F)
+private val NeutralGray = Color(0xFF757575)
+private val BackgroundGray = Color(0xFFF5F7FA)
+private val CardWhite = Color(0xFFFFFFFF)
+private val TextPrimary = Color(0xFF212121)
+private val TextSecondary = Color(0xFF616161)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CompararScreen(
     onNavigate: (String) -> Unit = {},
     onNavigateToDetail: (Int) -> Unit = {}
 ) {
-    val isDarkMode = isSystemInDarkTheme()
     val viewModel: CompararViewModel = viewModel()
     val state by viewModel.compararState.collectAsState()
 
@@ -53,27 +60,37 @@ fun CompararScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = "Comparar Candidatos",
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            fontWeight = FontWeight.Bold,
-                            color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.CompareArrows,
+                            contentDescription = null,
+                            tint = PrimaryBlue
                         )
-                    )
+                        Text(
+                            text = "Comparar Candidatos",
+                            style = MaterialTheme.typography.titleLarge.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = PrimaryBlue
+                            )
+                        )
+                    }
                 },
                 actions = {
                     if (state.candidato1 != null || state.candidato2 != null) {
                         IconButton(onClick = { viewModel.limpiarComparacion() }) {
                             Icon(
-                                imageVector = Icons.Default.Clear,
-                                contentDescription = "Limpiar",
-                                tint = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+                                imageVector = Icons.Outlined.RestartAlt,
+                                contentDescription = "Limpiar comparación",
+                                tint = WarningRed
                             )
                         }
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
+                    containerColor = CardWhite
                 )
             )
         },
@@ -82,10 +99,11 @@ fun CompararScreen(
                 currentRoute = "comparar",
                 onNavigate = onNavigate
             )
-        }
+        },
+        containerColor = BackgroundGray
     ) { innerPadding ->
         val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
-        
+
         SwipeRefresh(
             state = swipeRefreshState,
             onRefresh = { viewModel.cargarListaCandidatos() },
@@ -94,118 +112,105 @@ fun CompararScreen(
                 .padding(innerPadding)
         ) {
             LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.background),
-                contentPadding = PaddingValues(20.dp),
-                verticalArrangement = Arrangement.spacedBy(24.dp)
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-            // Selectores de candidatos
-            item {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    // Selector 1
-                    SelectorCandidato(
-                        candidato = state.candidato1,
-                        label = "Candidato 1",
-                        onClick = { showSelector1 = true },
-                        onClear = { viewModel.limpiarCandidato1() },
-                        modifier = Modifier.weight(1f),
-                        isDarkMode = isDarkMode
-                    )
-
-                    // Selector 2
-                    SelectorCandidato(
-                        candidato = state.candidato2,
-                        label = "Candidato 2",
-                        onClick = { showSelector2 = true },
-                        onClear = { viewModel.limpiarCandidato2() },
-                        modifier = Modifier.weight(1f),
-                        isDarkMode = isDarkMode
-                    )
-                }
-            }
-
-            // Comparación con animación
-            if (state.candidato1 != null && state.candidato2 != null) {
+                // Selectores de candidatos
                 item {
-                    AnimatedVisibility(
-                        visible = true,
-                        enter = fadeIn() + scaleIn(),
-                        exit = fadeOut() + scaleOut()
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        ComparacionHeader(
-                            candidato1 = state.candidato1!!,
-                            candidato2 = state.candidato2!!,
-                            isDarkMode = isDarkMode,
-                            onNavigateToDetail = onNavigateToDetail
+                        SelectorCandidato(
+                            candidato = state.candidato1,
+                            label = "Primer Candidato",
+                            onClick = { showSelector1 = true },
+                            onClear = { viewModel.limpiarCandidato1() },
+                            modifier = Modifier.weight(1f)
+                        )
+
+                        SelectorCandidato(
+                            candidato = state.candidato2,
+                            label = "Segundo Candidato",
+                            onClick = { showSelector2 = true },
+                            onClear = { viewModel.limpiarCandidato2() },
+                            modifier = Modifier.weight(1f)
                         )
                     }
                 }
 
-                item {
-                    ComparacionBasica(
-                        candidato1 = state.candidato1!!,
-                        candidato2 = state.candidato2!!,
-                        isDarkMode = isDarkMode
-                    )
+                // Comparación completa
+                if (state.candidato1 != null && state.candidato2 != null) {
+                    item {
+                        AnimatedVisibility(
+                            visible = true,
+                            enter = fadeIn(),
+                            exit = fadeOut()
+                        ) {
+                            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                                // Encabezado con fotos
+                                ComparacionHeader(
+                                    candidato1 = state.candidato1!!,
+                                    candidato2 = state.candidato2!!,
+                                    onNavigateToDetail = onNavigateToDetail
+                                )
+
+                                // Resumen de métricas
+                                ComparacionMetricas(
+                                    candidato1 = state.candidato1!!,
+                                    candidato2 = state.candidato2!!
+                                )
+
+                                // Información básica
+                                ComparacionBasica(
+                                    candidato1 = state.candidato1!!,
+                                    candidato2 = state.candidato2!!
+                                )
+
+                                // Denuncias
+                                ComparacionAntecedentes(
+                                    titulo = "Denuncias",
+                                    icono = Icons.Outlined.Gavel,
+                                    antecedentes1 = state.candidato1!!.denuncias ?: emptyList(),
+                                    antecedentes2 = state.candidato2!!.denuncias ?: emptyList(),
+                                    isNegative = true
+                                )
+
+                                // Proyectos de Ley
+                                ComparacionAntecedentes(
+                                    titulo = "Proyectos de Ley",
+                                    icono = Icons.Outlined.Description,
+                                    antecedentes1 = state.candidato1!!.proyectos ?: emptyList(),
+                                    antecedentes2 = state.candidato2!!.proyectos ?: emptyList(),
+                                    isNegative = false
+                                )
+
+                                // Propuestas
+                                ComparacionAntecedentes(
+                                    titulo = "Propuestas",
+                                    icono = Icons.Outlined.Lightbulb,
+                                    antecedentes1 = state.candidato1!!.propuestas ?: emptyList(),
+                                    antecedentes2 = state.candidato2!!.propuestas ?: emptyList(),
+                                    isNegative = false
+                                )
+                            }
+                        }
+                    }
+                } else {
+                    item {
+                        EmptyComparisonCard()
+                    }
                 }
 
-                // Indicador visual de mejor/peor
                 item {
-                    ComparacionMetricas(
-                        candidato1 = state.candidato1!!,
-                        candidato2 = state.candidato2!!,
-                        isDarkMode = isDarkMode
-                    )
-                }
-
-                item {
-                    ComparacionAntecedentes(
-                        titulo = "Denuncias",
-                        antecedentes1 = state.candidato1!!.denuncias ?: emptyList(),
-                        antecedentes2 = state.candidato2!!.denuncias ?: emptyList(),
-                        isDarkMode = isDarkMode,
-                        isNegative = true // Denuncias son negativas
-                    )
-                }
-
-                item {
-                    ComparacionAntecedentes(
-                        titulo = "Proyectos de Ley",
-                        antecedentes1 = state.candidato1!!.proyectos ?: emptyList(),
-                        antecedentes2 = state.candidato2!!.proyectos ?: emptyList(),
-                        isDarkMode = isDarkMode,
-                        isNegative = false // Proyectos son positivos
-                    )
-                }
-
-                item {
-                    ComparacionAntecedentes(
-                        titulo = "Propuestas",
-                        antecedentes1 = state.candidato1!!.propuestas ?: emptyList(),
-                        antecedentes2 = state.candidato2!!.propuestas ?: emptyList(),
-                        isDarkMode = isDarkMode,
-                        isNegative = false // Propuestas son positivas
-                    )
-                }
-            } else {
-                item {
-                    EmptyComparisonCard(isDarkMode = isDarkMode)
-                }
-            }
-
-                // Espaciado final
-                item {
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
             }
         }
     }
 
-    // Dialogs para seleccionar candidatos
+    // Diálogos de selección
     if (showSelector1) {
         CandidatoSelectorDialog(
             onCandidatoSelected = { id ->
@@ -213,7 +218,6 @@ fun CompararScreen(
                 showSelector1 = false
             },
             onDismiss = { showSelector1 = false },
-            isDarkMode = isDarkMode,
             viewModel = viewModel
         )
     }
@@ -225,7 +229,6 @@ fun CompararScreen(
                 showSelector2 = false
             },
             onDismiss = { showSelector2 = false },
-            isDarkMode = isDarkMode,
             viewModel = viewModel
         )
     }
@@ -237,82 +240,102 @@ fun SelectorCandidato(
     label: String,
     onClick: () -> Unit,
     onClear: () -> Unit,
-    modifier: Modifier = Modifier,
-    isDarkMode: Boolean
+    modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .clickable { onClick() },
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
-        ),
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            if (candidato == null) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = null,
-                    modifier = Modifier.size(48.dp),
-                    tint = if (isDarkMode) NeutralGray else NeutralMedium
-                )
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = if (isDarkMode) NeutralGray else NeutralMedium
-                )
-                Text(
-                    text = "Seleccionar",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = if (isDarkMode) NeutralGray else NeutralMedium
-                )
-            } else {
-                Box(
-                    modifier = Modifier
-                        .size(80.dp)
-                        .clip(CircleShape)
-                        .background(if (isDarkMode) DarkSurf else NeutralLight)
-                ) {
-                    Image(
-                        painter = rememberAsyncImagePainter(
-                            model = candidato.fotoUrl ?: candidato.partido.logoUrl.orEmpty(),
-                            error = painterResource(id = R.drawable.carrusel_foto_1)
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (candidato == null) {
+                    Box(
+                        modifier = Modifier
+                            .size(80.dp)
+                            .clip(CircleShape)
+                            .background(LightBlue),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.PersonAdd,
+                            contentDescription = null,
+                            modifier = Modifier.size(40.dp),
+                            tint = PrimaryBlue
+                        )
+                    }
+                    Text(
+                        text = label,
+                        style = MaterialTheme.typography.titleSmall.copy(
+                            fontWeight = FontWeight.SemiBold,
+                            color = TextPrimary
+                        )
+                    )
+                    Text(
+                        text = "Toca para seleccionar",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = TextSecondary
+                    )
+                } else {
+                    Box(
+                        modifier = Modifier
+                            .size(90.dp)
+                            .clip(CircleShape)
+                            .background(LightBlue)
+                    ) {
+                        Image(
+                            painter = rememberAsyncImagePainter(
+                                model = candidato.fotoUrl ?: candidato.partido.logoUrl.orEmpty(),
+                                error = painterResource(id = R.drawable.carrusel_foto_1)
+                            ),
+                            contentDescription = null,
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                    Text(
+                        text = candidato.nombreCompleto,
+                        style = MaterialTheme.typography.titleSmall.copy(
+                            fontWeight = FontWeight.Bold,
+                            color = TextPrimary
                         ),
-                        contentDescription = null,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Crop
+                        textAlign = TextAlign.Center,
+                        maxLines = 2
+                    )
+                    Text(
+                        text = candidato.partido.nombrePartido,
+                        style = MaterialTheme.typography.bodySmall.copy(
+                            color = PrimaryBlue
+                        ),
+                        textAlign = TextAlign.Center,
+                        maxLines = 1
                     )
                 }
-                Text(
-                    text = candidato.nombreCompleto,
-                    style = MaterialTheme.typography.titleSmall.copy(
-                        fontWeight = FontWeight.Bold
-                    ),
-                    maxLines = 2
-                )
-                Text(
-                    text = candidato.partido.nombrePartido,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue,
-                    maxLines = 1
-                )
+            }
+
+            if (candidato != null) {
                 IconButton(
                     onClick = onClear,
-                    modifier = Modifier.size(32.dp)
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(8.dp)
+                        .size(32.dp)
+                        .background(WarningRed.copy(alpha = 0.1f), CircleShape)
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Close,
+                        imageVector = Icons.Outlined.Close,
                         contentDescription = "Limpiar",
-                        modifier = Modifier.size(20.dp),
-                        tint = ErrorRed
+                        modifier = Modifier.size(18.dp),
+                        tint = WarningRed
                     )
                 }
             }
@@ -324,85 +347,124 @@ fun SelectorCandidato(
 fun ComparacionHeader(
     candidato1: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
     candidato2: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
-    isDarkMode: Boolean,
     onNavigateToDetail: (Int) -> Unit
 ) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-        CandidatoHeaderCard(
-            candidato = candidato1,
-            isDarkMode = isDarkMode,
-            onClick = { onNavigateToDetail(candidato1.id) },
-            modifier = Modifier.weight(1f)
-        )
-        CandidatoHeaderCard(
-            candidato = candidato2,
-            isDarkMode = isDarkMode,
-            onClick = { onNavigateToDetail(candidato2.id) },
-            modifier = Modifier.weight(1f)
-        )
-    }
-}
-
-@Composable
-fun CandidatoHeaderCard(
-    candidato: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
-    isDarkMode: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable { onClick() },
+        modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Column(
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+                .padding(20.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Box(
+            // Candidato 1
+            Column(
                 modifier = Modifier
-                    .size(100.dp)
-                    .clip(CircleShape)
-                    .background(if (isDarkMode) DarkSurf else NeutralLight)
+                    .weight(1f)
+                    .clickable { onNavigateToDetail(candidato1.id) },
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Image(
-                    painter = rememberAsyncImagePainter(
-                        model = candidato.fotoUrl ?: candidato.partido.logoUrl.orEmpty(),
-                        error = painterResource(id = R.drawable.carrusel_foto_1)
+                Box(
+                    modifier = Modifier
+                        .size(100.dp)
+                        .clip(CircleShape)
+                        .background(LightBlue)
+                ) {
+                    Image(
+                        painter = rememberAsyncImagePainter(
+                            model = candidato1.fotoUrl ?: candidato1.partido.logoUrl.orEmpty(),
+                            error = painterResource(id = R.drawable.carrusel_foto_1)
+                        ),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                }
+                Text(
+                    text = candidato1.nombreCompleto,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = TextPrimary
                     ),
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop
+                    textAlign = TextAlign.Center,
+                    maxLines = 2
+                )
+                Text(
+                    text = candidato1.cargo.nombreCargo,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = TextSecondary,
+                    textAlign = TextAlign.Center
                 )
             }
-            Text(
-                text = candidato.nombreCompleto,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Bold
-                ),
-                maxLines = 2
-            )
-            Text(
-                text = candidato.partido.nombrePartido,
-                style = MaterialTheme.typography.bodyMedium,
-                color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
-            )
-            Text(
-                text = candidato.cargo.nombreCargo,
-                style = MaterialTheme.typography.bodySmall,
-                color = if (isDarkMode) NeutralGray else NeutralMedium
-            )
+
+            // Separador VS
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier.padding(vertical = 20.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(CircleShape)
+                        .background(LightBlue),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "VS",
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.Bold,
+                            color = PrimaryBlue
+                        )
+                    )
+                }
+            }
+
+            // Candidato 2
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onNavigateToDetail(candidato2.id) },
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(100.dp)
+                        .clip(CircleShape)
+                        .background(LightBlue)
+                ) {
+                    Image(
+                        painter = rememberAsyncImagePainter(
+                            model = candidato2.fotoUrl ?: candidato2.partido.logoUrl.orEmpty(),
+                            error = painterResource(id = R.drawable.carrusel_foto_1)
+                        ),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                }
+                Text(
+                    text = candidato2.nombreCompleto,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = TextPrimary
+                    ),
+                    textAlign = TextAlign.Center,
+                    maxLines = 2
+                )
+                Text(
+                    text = candidato2.cargo.nombreCargo,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = TextSecondary,
+                    textAlign = TextAlign.Center
+                )
+            }
         }
     }
 }
@@ -410,101 +472,52 @@ fun CandidatoHeaderCard(
 @Composable
 fun ComparacionMetricas(
     candidato1: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
-    candidato2: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
-    isDarkMode: Boolean
+    candidato2: com.rivera.votainformado.data.model.candidatos.CandidatoDetail
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
-        )
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+                .padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
-            Text(
-                text = "Resumen Comparativo",
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Bold,
-                    color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.Assessment,
+                    contentDescription = null,
+                    tint = PrimaryBlue,
+                    modifier = Modifier.size(24.dp)
                 )
-            )
-
-            // Comparación de votos si están disponibles
-            if (candidato1.totalVotos != null && candidato2.totalVotos != null) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column(
-                        modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = "${candidato1.totalVotos}",
-                            style = MaterialTheme.typography.headlineMedium.copy(
-                                fontWeight = FontWeight.Bold,
-                                color = if (candidato1.totalVotos > candidato2.totalVotos) 
-                                    CivicGreen else MaterialTheme.colorScheme.onSurface
-                            )
-                        )
-                        Text(
-                            text = "votos",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = if (isDarkMode) NeutralGray else NeutralMedium
-                        )
-                        if (candidato1.totalVotos > candidato2.totalVotos) {
-                            Icon(
-                                imageVector = Icons.Default.TrendingUp,
-                                contentDescription = "Líder",
-                                tint = CivicGreen,
-                                modifier = Modifier.size(20.dp)
-                            )
-                        }
-                    }
-                    
-                    Icon(
-                        imageVector = Icons.Default.CompareArrows,
-                        contentDescription = null,
-                        modifier = Modifier.size(32.dp),
-                        tint = if (isDarkMode) NeutralGray else NeutralMedium
+                Text(
+                    text = "Resumen Comparativo",
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = PrimaryBlue
                     )
-                    
-                    Column(
-                        modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = "${candidato2.totalVotos}",
-                            style = MaterialTheme.typography.headlineMedium.copy(
-                                fontWeight = FontWeight.Bold,
-                                color = if (candidato2.totalVotos > candidato1.totalVotos) 
-                                    CivicGreen else MaterialTheme.colorScheme.onSurface
-                            )
-                        )
-                        Text(
-                            text = "votos",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = if (isDarkMode) NeutralGray else NeutralMedium
-                        )
-                        if (candidato2.totalVotos > candidato1.totalVotos) {
-                            Icon(
-                                imageVector = Icons.Default.TrendingUp,
-                                contentDescription = "Líder",
-                                tint = CivicGreen,
-                                modifier = Modifier.size(20.dp)
-                            )
-                        }
-                    }
-                }
+                )
             }
-            
-            // Comparación de antecedentes
+
+            // Votos
+            if (candidato1.totalVotos != null && candidato2.totalVotos != null) {
+                MetricaComparativaGrande(
+                    label = "Total de Votos",
+                    valor1 = candidato1.totalVotos,
+                    valor2 = candidato2.totalVotos,
+                    icono = Icons.Outlined.HowToVote
+                )
+            }
+
+            Divider(color = BackgroundGray, thickness = 1.dp)
+
+            // Métricas en fila
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
@@ -513,23 +526,117 @@ fun ComparacionMetricas(
                     label = "Denuncias",
                     valor1 = candidato1.denuncias?.size ?: 0,
                     valor2 = candidato2.denuncias?.size ?: 0,
-                    isNegative = true,
-                    isDarkMode = isDarkMode
+                    icono = Icons.Outlined.Gavel,
+                    isNegative = true
                 )
                 MetricaResumen(
                     label = "Proyectos",
                     valor1 = candidato1.proyectos?.size ?: 0,
                     valor2 = candidato2.proyectos?.size ?: 0,
-                    isNegative = false,
-                    isDarkMode = isDarkMode
+                    icono = Icons.Outlined.Description,
+                    isNegative = false
                 )
                 MetricaResumen(
                     label = "Propuestas",
                     valor1 = candidato1.propuestas?.size ?: 0,
                     valor2 = candidato2.propuestas?.size ?: 0,
-                    isNegative = false,
-                    isDarkMode = isDarkMode
+                    icono = Icons.Outlined.Lightbulb,
+                    isNegative = false
                 )
+            }
+        }
+    }
+}
+
+@Composable
+fun MetricaComparativaGrande(
+    label: String,
+    valor1: Int,
+    valor2: Int,
+    icono: androidx.compose.ui.graphics.vector.ImageVector
+) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
+            Icon(
+                imageVector = icono,
+                contentDescription = null,
+                tint = TextSecondary,
+                modifier = Modifier.size(20.dp)
+            )
+            Text(
+                text = label,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontWeight = FontWeight.Medium,
+                    color = TextSecondary
+                )
+            )
+        }
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Text(
+                    text = "$valor1",
+                    style = MaterialTheme.typography.headlineLarge.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = if (valor1 > valor2) SuccessGreen else TextPrimary
+                    )
+                )
+                if (valor1 > valor2) {
+                    Icon(
+                        imageVector = Icons.Outlined.TrendingUp,
+                        contentDescription = "Mayor",
+                        tint = SuccessGreen,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
+
+            Box(
+                modifier = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .background(BackgroundGray),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.CompareArrows,
+                    contentDescription = null,
+                    tint = NeutralGray,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Text(
+                    text = "$valor2",
+                    style = MaterialTheme.typography.headlineLarge.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = if (valor2 > valor1) SuccessGreen else TextPrimary
+                    )
+                )
+                if (valor2 > valor1) {
+                    Icon(
+                        imageVector = Icons.Outlined.TrendingUp,
+                        contentDescription = "Mayor",
+                        tint = SuccessGreen,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
             }
         }
     }
@@ -540,49 +647,57 @@ fun MetricaResumen(
     label: String,
     valor1: Int,
     valor2: Int,
-    isNegative: Boolean,
-    isDarkMode: Boolean
+    icono: androidx.compose.ui.graphics.vector.ImageVector,
+    isNegative: Boolean
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        Icon(
+            imageVector = icono,
+            contentDescription = null,
+            tint = PrimaryBlue,
+            modifier = Modifier.size(28.dp)
+        )
         Text(
             text = label,
-            style = MaterialTheme.typography.bodySmall,
-            color = if (isDarkMode) NeutralGray else NeutralMedium
+            style = MaterialTheme.typography.bodySmall.copy(
+                fontWeight = FontWeight.Medium,
+                color = TextSecondary
+            )
         )
         Row(
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "$valor1",
-                style = MaterialTheme.typography.bodyMedium.copy(
+                style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
                 ),
                 color = when {
-                    isNegative && valor1 < valor2 -> CivicGreen
-                    !isNegative && valor1 > valor2 -> CivicGreen
-                    valor1 != valor2 -> ErrorRed
-                    else -> MaterialTheme.colorScheme.onSurface
+                    isNegative && valor1 < valor2 -> SuccessGreen
+                    !isNegative && valor1 > valor2 -> SuccessGreen
+                    valor1 != valor2 -> WarningRed
+                    else -> TextPrimary
                 }
             )
             Text(
-                text = "-",
-                style = MaterialTheme.typography.bodySmall,
-                color = if (isDarkMode) NeutralGray else NeutralMedium
+                text = ":",
+                style = MaterialTheme.typography.titleMedium,
+                color = NeutralGray
             )
             Text(
                 text = "$valor2",
-                style = MaterialTheme.typography.bodyMedium.copy(
+                style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
                 ),
                 color = when {
-                    isNegative && valor2 < valor1 -> CivicGreen
-                    !isNegative && valor2 > valor1 -> CivicGreen
-                    valor1 != valor2 -> ErrorRed
-                    else -> MaterialTheme.colorScheme.onSurface
+                    isNegative && valor2 < valor1 -> SuccessGreen
+                    !isNegative && valor2 > valor1 -> SuccessGreen
+                    valor1 != valor2 -> WarningRed
+                    else -> TextPrimary
                 }
             )
         }
@@ -592,52 +707,54 @@ fun MetricaResumen(
 @Composable
 fun ComparacionBasica(
     candidato1: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
-    candidato2: com.rivera.votainformado.data.model.candidatos.CandidatoDetail,
-    isDarkMode: Boolean
+    candidato2: com.rivera.votainformado.data.model.candidatos.CandidatoDetail
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
-        )
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(
-                text = "Información Básica",
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Bold,
-                    color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.Info,
+                    contentDescription = null,
+                    tint = PrimaryBlue,
+                    modifier = Modifier.size(24.dp)
                 )
-            )
-
-            ComparacionRow(
-                label = "Partido",
-                value1 = candidato1.partido.nombrePartido,
-                value2 = candidato2.partido.nombrePartido,
-                isDarkMode = isDarkMode
-            )
-
-            ComparacionRow(
-                label = "Cargo",
-                value1 = candidato1.cargo.nombreCargo,
-                value2 = candidato2.cargo.nombreCargo,
-                isDarkMode = isDarkMode
-            )
-
-            if (candidato1.totalVotos != null && candidato2.totalVotos != null) {
-                ComparacionRow(
-                    label = "Votos",
-                    value1 = candidato1.totalVotos.toString(),
-                    value2 = candidato2.totalVotos.toString(),
-                    isDarkMode = isDarkMode
+                Text(
+                    text = "Información General",
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = PrimaryBlue
+                    )
                 )
             }
+
+            ComparacionRow(
+                label = "Partido Político",
+                value1 = candidato1.partido.nombrePartido,
+                value2 = candidato2.partido.nombrePartido,
+                icono = Icons.Outlined.AccountBalance
+            )
+
+            Divider(color = BackgroundGray, thickness = 1.dp)
+
+            ComparacionRow(
+                label = "Cargo al que Postula",
+                value1 = candidato1.cargo.nombreCargo,
+                value2 = candidato2.cargo.nombreCargo,
+                icono = Icons.Outlined.WorkOutline
+            )
         }
     }
 }
@@ -647,31 +764,52 @@ fun ComparacionRow(
     label: String,
     value1: String,
     value2: String,
-    isDarkMode: Boolean
+    icono: androidx.compose.ui.graphics.vector.ImageVector
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodySmall,
-            color = if (isDarkMode) NeutralGray else NeutralMedium
-        )
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
+            Icon(
+                imageVector = icono,
+                contentDescription = null,
+                tint = TextSecondary,
+                modifier = Modifier.size(18.dp)
+            )
+            Text(
+                text = label,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontWeight = FontWeight.Medium,
+                    color = TextSecondary
+                )
+            )
+        }
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = value1,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontWeight = FontWeight.SemiBold,
+                    color = TextPrimary
+                ),
                 modifier = Modifier.weight(1f)
             )
-            Text(
-                text = "vs",
-                style = MaterialTheme.typography.bodySmall,
-                color = if (isDarkMode) NeutralGray else NeutralMedium
+            Icon(
+                imageVector = Icons.Outlined.CompareArrows,
+                contentDescription = null,
+                tint = NeutralGray,
+                modifier = Modifier.size(20.dp)
             )
             Text(
                 text = value2,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontWeight = FontWeight.SemiBold,
+                    color = TextPrimary
+                ),
                 modifier = Modifier.weight(1f)
             )
         }
@@ -681,140 +819,215 @@ fun ComparacionRow(
 @Composable
 fun ComparacionAntecedentes(
     titulo: String,
+    icono: androidx.compose.ui.graphics.vector.ImageVector,
     antecedentes1: List<com.rivera.votainformado.data.model.candidatos.Antecedente>,
     antecedentes2: List<com.rivera.votainformado.data.model.candidatos.Antecedente>,
-    isDarkMode: Boolean,
-    isNegative: Boolean = false // Denuncias son negativas, proyectos/propuestas son positivas
+    isNegative: Boolean
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralWhite
-        )
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
+            // Encabezado con contador
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = titulo,
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Bold,
-                        color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
-                    )
-                )
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        imageVector = icono,
+                        contentDescription = null,
+                        tint = PrimaryBlue,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Text(
+                        text = titulo,
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.Bold,
+                            color = PrimaryBlue
+                        )
+                    )
+                }
+
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     // Candidato 1
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                    Box(
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(CircleShape)
+                            .background(
+                                when {
+                                    isNegative && antecedentes1.size < antecedentes2.size -> SuccessGreen.copy(alpha = 0.15f)
+                                    !isNegative && antecedentes1.size > antecedentes2.size -> SuccessGreen.copy(alpha = 0.15f)
+                                    antecedentes1.size != antecedentes2.size -> WarningRed.copy(alpha = 0.15f)
+                                    else -> BackgroundGray
+                                }
+                            ),
+                        contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "${antecedentes1.size}",
-                            style = MaterialTheme.typography.titleMedium.copy(
+                            style = MaterialTheme.typography.titleLarge.copy(
                                 fontWeight = FontWeight.Bold,
                                 color = when {
-                                    isNegative && antecedentes1.size < antecedentes2.size -> CivicGreen
-                                    !isNegative && antecedentes1.size > antecedentes2.size -> CivicGreen
-                                    antecedentes1.size != antecedentes2.size -> ErrorRed
-                                    else -> MaterialTheme.colorScheme.onSurface
+                                    isNegative && antecedentes1.size < antecedentes2.size -> SuccessGreen
+                                    !isNegative && antecedentes1.size > antecedentes2.size -> SuccessGreen
+                                    antecedentes1.size != antecedentes2.size -> WarningRed
+                                    else -> TextPrimary
                                 }
                             )
                         )
-                        if (antecedentes1.size != antecedentes2.size) {
-                            Icon(
-                                imageVector = if (
-                                    (isNegative && antecedentes1.size < antecedentes2.size) ||
-                                    (!isNegative && antecedentes1.size > antecedentes2.size)
-                                ) Icons.Default.CheckCircle else Icons.Default.Warning,
-                                contentDescription = null,
-                                modifier = Modifier.size(16.dp),
-                                tint = if (
-                                    (isNegative && antecedentes1.size < antecedentes2.size) ||
-                                    (!isNegative && antecedentes1.size > antecedentes2.size)
-                                ) CivicGreen else ErrorRed
-                            )
-                        }
                     }
-                    
-                    Text(
-                        text = "vs",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = if (isDarkMode) NeutralGray else NeutralMedium
+
+                    Icon(
+                        imageVector = Icons.Outlined.CompareArrows,
+                        contentDescription = null,
+                        tint = NeutralGray,
+                        modifier = Modifier.size(20.dp)
                     )
-                    
+
                     // Candidato 2
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                    Box(
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(CircleShape)
+                            .background(
+                                when {
+                                    isNegative && antecedentes2.size < antecedentes1.size -> SuccessGreen.copy(alpha = 0.15f)
+                                    !isNegative && antecedentes2.size > antecedentes1.size -> SuccessGreen.copy(alpha = 0.15f)
+                                    antecedentes1.size != antecedentes2.size -> WarningRed.copy(alpha = 0.15f)
+                                    else -> BackgroundGray
+                                }
+                            ),
+                        contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "${antecedentes2.size}",
-                            style = MaterialTheme.typography.titleMedium.copy(
+                            style = MaterialTheme.typography.titleLarge.copy(
                                 fontWeight = FontWeight.Bold,
                                 color = when {
-                                    isNegative && antecedentes2.size < antecedentes1.size -> CivicGreen
-                                    !isNegative && antecedentes2.size > antecedentes1.size -> CivicGreen
-                                    antecedentes1.size != antecedentes2.size -> ErrorRed
-                                    else -> MaterialTheme.colorScheme.onSurface
+                                    isNegative && antecedentes2.size < antecedentes1.size -> SuccessGreen
+                                    !isNegative && antecedentes2.size > antecedentes1.size -> SuccessGreen
+                                    antecedentes1.size != antecedentes2.size -> WarningRed
+                                    else -> TextPrimary
                                 }
                             )
                         )
-                        if (antecedentes1.size != antecedentes2.size) {
-                            Icon(
-                                imageVector = if (
-                                    (isNegative && antecedentes2.size < antecedentes1.size) ||
-                                    (!isNegative && antecedentes2.size > antecedentes1.size)
-                                ) Icons.Default.CheckCircle else Icons.Default.Warning,
-                                contentDescription = null,
-                                modifier = Modifier.size(16.dp),
-                                tint = if (
-                                    (isNegative && antecedentes2.size < antecedentes1.size) ||
-                                    (!isNegative && antecedentes2.size > antecedentes1.size)
-                                ) CivicGreen else ErrorRed
-                            )
-                        }
                     }
                 }
             }
 
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                Column(
-                    modifier = Modifier.weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+            // Lista de antecedentes lado a lado
+            if (antecedentes1.isNotEmpty() || antecedentes2.isNotEmpty()) {
+                Divider(color = BackgroundGray, thickness = 1.dp)
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    antecedentes1.take(3).forEach { antecedente ->
-                        AntecedenteCard(
-                            antecedente = antecedente,
-                            isDarkMode = isDarkMode,
-                            modifier = Modifier.fillMaxWidth()
-                        )
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        if (antecedentes1.isEmpty()) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(BackgroundGray)
+                                    .padding(16.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = "Sin registros",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = TextSecondary,
+                                    textAlign = TextAlign.Center
+                                )
+                            }
+                        } else {
+                            antecedentes1.take(3).forEach { antecedente ->
+                                AntecedenteCard(antecedente = antecedente)
+                            }
+                            if (antecedentes1.size > 3) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(RoundedCornerShape(12.dp))
+                                        .background(LightBlue)
+                                        .padding(12.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = "+${antecedentes1.size - 3} más",
+                                        style = MaterialTheme.typography.bodySmall.copy(
+                                            fontWeight = FontWeight.SemiBold,
+                                            color = PrimaryBlue
+                                        )
+                                    )
+                                }
+                            }
+                        }
                     }
-                }
-                Column(
-                    modifier = Modifier.weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    antecedentes2.take(3).forEach { antecedente ->
-                        AntecedenteCard(
-                            antecedente = antecedente,
-                            isDarkMode = isDarkMode,
-                            modifier = Modifier.fillMaxWidth()
-                        )
+
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        if (antecedentes2.isEmpty()) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(BackgroundGray)
+                                    .padding(16.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = "Sin registros",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = TextSecondary,
+                                    textAlign = TextAlign.Center
+                                )
+                            }
+                        } else {
+                            antecedentes2.take(3).forEach { antecedente ->
+                                AntecedenteCard(antecedente = antecedente)
+                            }
+                            if (antecedentes2.size > 3) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clip(RoundedCornerShape(12.dp))
+                                        .background(LightBlue)
+                                        .padding(12.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = "+${antecedentes2.size - 3} más",
+                                        style = MaterialTheme.typography.bodySmall.copy(
+                                            fontWeight = FontWeight.SemiBold,
+                                            color = PrimaryBlue
+                                        )
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -825,71 +1038,91 @@ fun ComparacionAntecedentes(
 @Composable
 fun AntecedenteCard(
     antecedente: com.rivera.votainformado.data.model.candidatos.Antecedente,
-    isDarkMode: Boolean,
     modifier: Modifier = Modifier
 ) {
     Surface(
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        color = if (isDarkMode) DarkSurf else NeutralLight
+        color = BackgroundGray
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(12.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp)
+            verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             Text(
                 text = antecedente.titulo,
                 style = MaterialTheme.typography.bodySmall.copy(
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.SemiBold,
+                    color = TextPrimary
                 ),
                 maxLines = 2
             )
             antecedente.fecha?.let {
-                Text(
-                    text = it,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = if (isDarkMode) NeutralGray else NeutralMedium
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.CalendarToday,
+                        contentDescription = null,
+                        tint = TextSecondary,
+                        modifier = Modifier.size(14.dp)
+                    )
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = TextSecondary
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-fun EmptyComparisonCard(isDarkMode: Boolean) {
+fun EmptyComparisonCard() {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isDarkMode) DarkSurfVar else NeutralLight
-        )
+        colors = CardDefaults.cardColors(containerColor = CardWhite),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(32.dp),
+                .padding(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Icon(
-                imageVector = Icons.Default.Compare,
-                contentDescription = null,
-                modifier = Modifier.size(64.dp),
-                tint = if (isDarkMode) NeutralGray else NeutralMedium
-            )
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(CircleShape)
+                    .background(LightBlue),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.CompareArrows,
+                    contentDescription = null,
+                    modifier = Modifier.size(40.dp),
+                    tint = PrimaryBlue
+                )
+            }
             Text(
-                text = "Selecciona dos candidatos",
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Bold
+                text = "Comienza la Comparación",
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Bold,
+                    color = TextPrimary
                 ),
-                color = MaterialTheme.colorScheme.onSurface
+                textAlign = TextAlign.Center
             )
             Text(
-                text = "Toca en las tarjetas de arriba para seleccionar los candidatos que deseas comparar",
+                text = "Selecciona dos candidatos usando los botones de arriba para ver una comparación detallada de sus perfiles, propuestas y antecedentes",
                 style = MaterialTheme.typography.bodyMedium,
-                color = if (isDarkMode) NeutralGray else NeutralMedium
+                color = TextSecondary,
+                textAlign = TextAlign.Center
             )
         }
     }
@@ -899,7 +1132,6 @@ fun EmptyComparisonCard(isDarkMode: Boolean) {
 fun CandidatoSelectorDialog(
     onCandidatoSelected: (Int) -> Unit,
     onDismiss: () -> Unit,
-    isDarkMode: Boolean,
     viewModel: CompararViewModel
 ) {
     val state by viewModel.compararState.collectAsState()
@@ -908,7 +1140,7 @@ fun CandidatoSelectorDialog(
     val filteredCandidatos = if (searchQuery.isNotEmpty()) {
         state.listaCandidatos.filter {
             it.nombreCompleto.contains(searchQuery, ignoreCase = true) ||
-            it.partido.nombrePartido.contains(searchQuery, ignoreCase = true)
+                    it.partido.nombrePartido.contains(searchQuery, ignoreCase = true)
         }
     } else {
         state.listaCandidatos
@@ -917,19 +1149,31 @@ fun CandidatoSelectorDialog(
     AlertDialog(
         onDismissRequest = onDismiss,
         title = {
-            Text(
-                text = "Seleccionar Candidato",
-                style = MaterialTheme.typography.titleLarge.copy(
-                    fontWeight = FontWeight.Bold
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.PersonSearch,
+                    contentDescription = null,
+                    tint = PrimaryBlue,
+                    modifier = Modifier.size(24.dp)
                 )
-            )
+                Text(
+                    text = "Seleccionar Candidato",
+                    style = MaterialTheme.typography.titleLarge.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = TextPrimary
+                    )
+                )
+            }
         },
         text = {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(max = 400.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
+                    .heightIn(max = 500.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 // Barra de búsqueda
                 OutlinedTextField(
@@ -937,25 +1181,32 @@ fun CandidatoSelectorDialog(
                     onValueChange = { searchQuery = it },
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = {
-                        Text("Buscar candidato...")
+                        Text("Buscar por nombre o partido...")
                     },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = null
+                            imageVector = Icons.Outlined.Search,
+                            contentDescription = null,
+                            tint = PrimaryBlue
                         )
                     },
                     trailingIcon = {
                         if (searchQuery.isNotEmpty()) {
                             IconButton(onClick = { searchQuery = "" }) {
                                 Icon(
-                                    imageVector = Icons.Default.Clear,
-                                    contentDescription = "Limpiar"
+                                    imageVector = Icons.Outlined.Close,
+                                    contentDescription = "Limpiar",
+                                    tint = TextSecondary
                                 )
                             }
                         }
                     },
-                    singleLine = true
+                    singleLine = true,
+                    shape = RoundedCornerShape(12.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = PrimaryBlue,
+                        unfocusedBorderColor = BackgroundGray
+                    )
                 )
 
                 // Lista de candidatos
@@ -963,39 +1214,64 @@ fun CandidatoSelectorDialog(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .padding(40.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(40.dp),
+                                color = PrimaryBlue
+                            )
+                            Text(
+                                text = "Cargando candidatos...",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = TextSecondary
+                            )
+                        }
+                    }
+                } else if (filteredCandidatos.isEmpty()) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .padding(32.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(32.dp),
-                            color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue
-                        )
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Outlined.SearchOff,
+                                contentDescription = null,
+                                modifier = Modifier.size(48.dp),
+                                tint = NeutralGray
+                            )
+                            Text(
+                                text = if (searchQuery.isNotEmpty()) {
+                                    "No se encontraron candidatos"
+                                } else {
+                                    "No hay candidatos disponibles"
+                                },
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = TextSecondary,
+                                textAlign = TextAlign.Center
+                            )
+                        }
                     }
-                } else if (filteredCandidatos.isEmpty()) {
-                    Text(
-                        text = if (searchQuery.isNotEmpty()) {
-                            "No se encontraron candidatos"
-                        } else {
-                            "No hay candidatos disponibles"
-                        },
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = if (isDarkMode) NeutralGray else NeutralMedium,
-                        modifier = Modifier.padding(16.dp)
-                    )
                 } else {
-                    androidx.compose.foundation.lazy.LazyColumn(
+                    LazyColumn(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .heightIn(max = 300.dp),
+                            .heightIn(max = 350.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         items(filteredCandidatos) { candidato ->
                             CandidatoSelectorItem(
                                 candidato = candidato,
-                                isDarkMode = isDarkMode,
-                                onClick = {
-                                    onCandidatoSelected(candidato.id)
-                                }
+                                onClick = { onCandidatoSelected(candidato.id) }
                             )
                         }
                     }
@@ -1003,18 +1279,28 @@ fun CandidatoSelectorDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancelar")
+            TextButton(
+                onClick = onDismiss,
+                colors = ButtonDefaults.textButtonColors(
+                    contentColor = PrimaryBlue
+                )
+            ) {
+                Text(
+                    text = "Cancelar",
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontWeight = FontWeight.SemiBold
+                    )
+                )
             }
         },
-        containerColor = MaterialTheme.colorScheme.surface
+        containerColor = CardWhite,
+        shape = RoundedCornerShape(20.dp)
     )
 }
 
 @Composable
 fun CandidatoSelectorItem(
     candidato: com.rivera.votainformado.data.model.candidatos.CandidatoItem,
-    isDarkMode: Boolean,
     onClick: () -> Unit
 ) {
     Surface(
@@ -1022,7 +1308,7 @@ fun CandidatoSelectorItem(
             .fillMaxWidth()
             .clickable { onClick() },
         shape = RoundedCornerShape(12.dp),
-        color = if (isDarkMode) DarkSurfVar else NeutralLight
+        color = BackgroundGray
     ) {
         Row(
             modifier = Modifier
@@ -1033,9 +1319,9 @@ fun CandidatoSelectorItem(
         ) {
             Box(
                 modifier = Modifier
-                    .size(50.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(if (isDarkMode) DarkSurf else NeutralGray)
+                    .size(56.dp)
+                    .clip(CircleShape)
+                    .background(LightBlue)
             ) {
                 Image(
                     painter = rememberAsyncImagePainter(
@@ -1048,21 +1334,32 @@ fun CandidatoSelectorItem(
                 )
             }
 
-            Column(modifier = Modifier.weight(1f)) {
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
                 Text(
                     text = candidato.nombreCompleto,
                     style = MaterialTheme.typography.bodyMedium.copy(
-                        fontWeight = FontWeight.Medium
+                        fontWeight = FontWeight.SemiBold,
+                        color = TextPrimary
                     ),
                     maxLines = 1
                 )
                 Text(
                     text = candidato.partido.nombrePartido,
                     style = MaterialTheme.typography.bodySmall,
-                    color = if (isDarkMode) InstitutionalBlueLight else InstitutionalBlue,
+                    color = PrimaryBlue,
                     maxLines = 1
                 )
             }
+
+            Icon(
+                imageVector = Icons.Outlined.ChevronRight,
+                contentDescription = null,
+                tint = NeutralGray,
+                modifier = Modifier.size(24.dp)
+            )
         }
     }
 }
