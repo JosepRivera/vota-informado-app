@@ -737,7 +737,7 @@ fun VotoCard(
                         tint = NeutralMedium
                     )
                     Text(
-                        text = voto.cargo.nombreCargo,
+                        text = voto.cargo,
                         style = MaterialTheme.typography.bodySmall,
                         color = NeutralMedium
                     )

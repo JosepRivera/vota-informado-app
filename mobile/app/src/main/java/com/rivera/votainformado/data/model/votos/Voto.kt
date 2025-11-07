@@ -12,9 +12,9 @@ import com.rivera.votainformado.data.model.core.Cargo
  */
 data class Voto(
     val id: Int,
-    val usuario: User,
     val candidato: CandidatoItem,
-    val cargo: Cargo,
+    @SerializedName("cargo")
+    val cargo: String,
     @SerializedName("created_at")
     val createdAt: String? = null,
     @SerializedName("updated_at")
