@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -33,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
+import androidx.compose.animation.core.tween
 import coil.compose.rememberAsyncImagePainter
 import com.rivera.votainformado.ui.theme.*
 import com.rivera.votainformado.data.model.candidatos.CandidatoItem
@@ -41,11 +43,15 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
 import androidx.annotation.DrawableRes
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.*
+import androidx.compose.animation.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.CompareArrows
 import com.rivera.votainformado.R
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -63,6 +69,26 @@ fun HomeScreen(
         initialPage = 0,
         pageCount = { carouselItems.size }
     )
+
+    val lazyColumnState = rememberLazyListState()
+    val coroutineScope = rememberCoroutineScope()
+    var showNavigationBar by remember { mutableStateOf(false) }
+    var isNavigationExpanded by remember { mutableStateOf(false) }
+    var isProgrammaticScroll by remember { mutableStateOf(false) }
+
+    LaunchedEffect(lazyColumnState.isScrollInProgress) {
+        if (lazyColumnState.firstVisibleItemIndex > 0 || lazyColumnState.firstVisibleItemScrollOffset > 0) {
+            showNavigationBar = true
+        }
+
+        if (lazyColumnState.isScrollInProgress && isNavigationExpanded && !isProgrammaticScroll) {
+            isNavigationExpanded = false
+        }
+
+        if (!lazyColumnState.isScrollInProgress) {
+            isProgrammaticScroll = false
+        }
+    }
 
     // Auto-scroll para el carrusel
     LaunchedEffect(key1 = pagerState) {
@@ -150,213 +176,99 @@ fun HomeScreen(
     ) { innerPadding ->
         val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = state.isLoading)
 
-        SwipeRefresh(
-            state = swipeRefreshState,
-            onRefresh = { viewModel.getCandidatos() }
-        ) {
-            LazyColumn(
-                modifier = Modifier
-                    .padding(innerPadding)
-                    .fillMaxSize()
-                    .background(NeutralLight)
+        Box(modifier = Modifier.fillMaxSize()) {
+            SwipeRefresh(
+                state = swipeRefreshState,
+                onRefresh = { viewModel.getCandidatos() }
             ) {
-                // Carrusel mejorado
-                item {
-                    Column(modifier = Modifier.padding(top = 20.dp, bottom = 24.dp)) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(220.dp)
-                                .padding(horizontal = 20.dp)
-                        ) {
-                            HorizontalPager(
-                                state = pagerState,
-                                pageSpacing = 0.dp,
-                                modifier = Modifier.fillMaxWidth()
-                            ) { page ->
-                                CarouselCard(
-                                    item = carouselItems[page],
-                                    modifier = Modifier.fillMaxWidth()
-                                )
-                            }
-                        }
-
-                        // Indicadores del carrusel
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 16.dp),
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            repeat(carouselItems.size) { index ->
-                                Box(
-                                    modifier = Modifier
-                                        .padding(horizontal = 4.dp)
-                                        .size(
-                                            width = if (pagerState.currentPage == index) 24.dp else 8.dp,
-                                            height = 8.dp
-                                        )
-                                        .clip(RoundedCornerShape(4.dp))
-                                        .background(
-                                            if (pagerState.currentPage == index)
-                                                InstitutionalBlue
-                                            else
-                                                NeutralMedium.copy(alpha = 0.3f)
-                                        )
-                                )
-                            }
-                        }
-                    }
-                }
-
-                // Barra de búsqueda mejorada
-                item {
-                    SearchBar(
-                        query = searchQuery,
-                        onQueryChange = { searchQuery = it },
-                        modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp)
-                    )
-                }
-
-                // Estado de carga
-                if (state.isLoading && state.candidatos.isEmpty()) {
+                LazyColumn(
+                    state = lazyColumnState,
+                    modifier = Modifier
+                        .padding(innerPadding)
+                        .fillMaxSize()
+                        .background(NeutralLight)
+                ) {
+                    // Carrusel mejorado
                     item {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 48.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.spacedBy(16.dp)
+                        Column(modifier = Modifier.padding(top = 20.dp, bottom = 24.dp)) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(220.dp)
+                                    .padding(horizontal = 20.dp)
                             ) {
-                                CircularProgressIndicator(
-                                    color = InstitutionalBlue,
-                                    strokeWidth = 3.dp,
-                                    modifier = Modifier.size(48.dp)
-                                )
-                                Text(
-                                    text = "Cargando candidatos...",
-                                    style = MaterialTheme.typography.bodyMedium.copy(
-                                        fontWeight = FontWeight.Medium,
-                                        color = NeutralMedium
+                                HorizontalPager(
+                                    state = pagerState,
+                                    pageSpacing = 0.dp,
+                                    modifier = Modifier.fillMaxWidth()
+                                ) { page ->
+                                    CarouselCard(
+                                        item = carouselItems[page],
+                                        modifier = Modifier.fillMaxWidth()
                                     )
-                                )
+                                }
                             }
-                        }
-                    }
-                }
 
-                // Mensaje de error mejorado
-                if (state.errorMessage != null) {
-                    item {
-                        Card(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 20.dp, vertical = 12.dp),
-                            colors = CardDefaults.cardColors(
-                                containerColor = ErrorRed.copy(alpha = 0.08f)
-                            ),
-                            shape = RoundedCornerShape(16.dp),
-                            border = androidx.compose.foundation.BorderStroke(
-                                1.dp,
-                                ErrorRed.copy(alpha = 0.2f)
-                            )
-                        ) {
+                            // Indicadores del carrusel
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(20.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(16.dp)
+                                    .padding(top = 16.dp),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically
                             ) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(40.dp)
-                                        .clip(CircleShape)
-                                        .background(ErrorRed.copy(alpha = 0.15f)),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Outlined.ErrorOutline,
-                                        contentDescription = null,
-                                        tint = ErrorRed,
-                                        modifier = Modifier.size(24.dp)
-                                    )
-                                }
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(
-                                        text = "Error al cargar",
-                                        style = MaterialTheme.typography.titleSmall.copy(
-                                            fontWeight = FontWeight.Bold,
-                                            color = ErrorRed
-                                        )
-                                    )
-                                    Text(
-                                        text = state.errorMessage!!,
-                                        style = MaterialTheme.typography.bodySmall.copy(
-                                            color = ErrorRed.copy(alpha = 0.8f)
-                                        )
+                                repeat(carouselItems.size) { index ->
+                                    Box(
+                                        modifier = Modifier
+                                            .padding(horizontal = 4.dp)
+                                            .size(
+                                                width = if (pagerState.currentPage == index) 24.dp else 8.dp,
+                                                height = 8.dp
+                                            )
+                                            .clip(RoundedCornerShape(4.dp))
+                                            .background(
+                                                if (pagerState.currentPage == index)
+                                                    InstitutionalBlue
+                                                else
+                                                    NeutralMedium.copy(alpha = 0.3f)
+                                            )
                                     )
                                 }
                             }
                         }
                     }
-                }
 
-                // Resultados de búsqueda
-                val filteredCandidates = if (searchQuery.isNotEmpty()) {
-                    state.candidatos.filter {
-                        it.nombreCompleto.contains(searchQuery, ignoreCase = true) ||
-                                it.partido.nombrePartido.contains(searchQuery, ignoreCase = true) ||
-                                it.cargo.nombreCargo.contains(searchQuery, ignoreCase = true)
-                    }
-                } else {
-                    emptyList()
-                }
-
-                if (searchQuery.isNotEmpty()) {
+                    // Barra de búsqueda mejorada
                     item {
-                        Surface(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 20.dp, vertical = 12.dp),
-                            color = Color.White,
-                            shape = RoundedCornerShape(16.dp),
-                            shadowElevation = 2.dp
-                        ) {
-                            Column(
-                                modifier = Modifier.padding(16.dp)
+                        SearchBar(
+                            query = searchQuery,
+                            onQueryChange = { searchQuery = it },
+                            modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp)
+                        )
+                    }
+
+                    // Estado de carga
+                    if (state.isLoading && state.candidatos.isEmpty()) {
+                        item {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 48.dp),
+                                contentAlignment = Alignment.Center
                             ) {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                Column(
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.spacedBy(16.dp)
                                 ) {
-                                    Icon(
-                                        imageVector = Icons.Outlined.Search,
-                                        contentDescription = null,
-                                        tint = InstitutionalBlue,
-                                        modifier = Modifier.size(24.dp)
+                                    CircularProgressIndicator(
+                                        color = InstitutionalBlue,
+                                        strokeWidth = 3.dp,
+                                        modifier = Modifier.size(48.dp)
                                     )
                                     Text(
-                                        text = if (filteredCandidates.isEmpty()) {
-                                            "No se encontraron resultados"
-                                        } else {
-                                            "${filteredCandidates.size} candidato${if (filteredCandidates.size > 1) "s" else ""} encontrado${if (filteredCandidates.size > 1) "s" else ""}"
-                                        },
-                                        style = MaterialTheme.typography.titleMedium.copy(
-                                            fontWeight = FontWeight.Bold,
-                                            color = InstitutionalBlue
-                                        )
-                                    )
-                                }
-                                if (filteredCandidates.isNotEmpty()) {
-                                    Spacer(modifier = Modifier.height(6.dp))
-                                    Text(
-                                        text = "Selecciona un candidato para ver su perfil completo",
-                                        style = MaterialTheme.typography.bodySmall.copy(
+                                        text = "Cargando candidatos...",
+                                        style = MaterialTheme.typography.bodyMedium.copy(
+                                            fontWeight = FontWeight.Medium,
                                             color = NeutralMedium
                                         )
                                     )
@@ -365,59 +277,393 @@ fun HomeScreen(
                         }
                     }
 
-                    items(filteredCandidates) { candidato ->
-                        SearchResultCard(
-                            candidato = candidato,
-                            onClick = { onNavigateToDetail(candidato.id) },
-                            modifier = Modifier.padding(horizontal = 20.dp, vertical = 6.dp)
-                        )
-                    }
-
-                    item {
-                        Spacer(modifier = Modifier.height(8.dp))
-                    }
-                }
-
-                // Secciones de candidatos por cargo
-                val cargoSections = listOf(
-                    Triple(
-                        "Candidatos Presidenciales",
-                        listOf("Presidente"),
-                        Icons.Outlined.Gavel
-                    ),
-                    Triple("Candidatos al Senado", listOf("Senador"), Icons.Outlined.AccountBalance),
-                    Triple(
-                        "Candidatos a Diputados",
-                        listOf("Diputado", "Diputada"),
-                        Icons.Outlined.Groups
-                    )
-                )
-
-                cargoSections.forEach { (title, cargos, icon) ->
-                    val candidates = state.candidatos.filter {
-                        cargos.any { cargo ->
-                            it.cargo.nombreCargo.equals(
-                                cargo,
-                                ignoreCase = true
-                            )
-                        }
-                    }
-
-                    if (candidates.isNotEmpty()) {
+                    // Mensaje de error mejorado
+                    if (state.errorMessage != null) {
                         item {
-                            CandidateSection(
-                                title = title,
-                                icon = icon,
-                                candidates = candidates,
-                                onCandidateClick = onNavigateToDetail
+                            Card(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 20.dp, vertical = 12.dp),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = ErrorRed.copy(alpha = 0.08f)
+                                ),
+                                shape = RoundedCornerShape(16.dp),
+                                border = androidx.compose.foundation.BorderStroke(
+                                    1.dp,
+                                    ErrorRed.copy(alpha = 0.2f)
+                                )
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(20.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                                ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(40.dp)
+                                            .clip(CircleShape)
+                                            .background(ErrorRed.copy(alpha = 0.15f)),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Outlined.ErrorOutline,
+                                            contentDescription = null,
+                                            tint = ErrorRed,
+                                            modifier = Modifier.size(24.dp)
+                                        )
+                                    }
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text(
+                                            text = "Error al cargar",
+                                            style = MaterialTheme.typography.titleSmall.copy(
+                                                fontWeight = FontWeight.Bold,
+                                                color = ErrorRed
+                                            )
+                                        )
+                                        Text(
+                                            text = state.errorMessage!!,
+                                            style = MaterialTheme.typography.bodySmall.copy(
+                                                color = ErrorRed.copy(alpha = 0.8f)
+                                            )
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Resultados de búsqueda
+                    val filteredCandidates = if (searchQuery.isNotEmpty()) {
+                        state.candidatos.filter {
+                            it.nombreCompleto.contains(searchQuery, ignoreCase = true) ||
+                                    it.partido.nombrePartido.contains(searchQuery, ignoreCase = true) ||
+                                    it.cargo.nombreCargo.contains(searchQuery, ignoreCase = true)
+                        }
+                    } else {
+                        emptyList()
+                    }
+
+                    if (searchQuery.isNotEmpty()) {
+                        item {
+                            Surface(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 20.dp, vertical = 12.dp),
+                                color = Color.White,
+                                shape = RoundedCornerShape(16.dp),
+                                shadowElevation = 2.dp
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(16.dp)
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Outlined.Search,
+                                            contentDescription = null,
+                                            tint = InstitutionalBlue,
+                                            modifier = Modifier.size(24.dp)
+                                        )
+                                        Text(
+                                            text = if (filteredCandidates.isEmpty()) {
+                                                "No se encontraron resultados"
+                                            } else {
+                                                "${filteredCandidates.size} candidato${if (filteredCandidates.size > 1) "s" else ""} encontrado${if (filteredCandidates.size > 1) "s" else ""}"
+                                            },
+                                            style = MaterialTheme.typography.titleMedium.copy(
+                                                fontWeight = FontWeight.Bold,
+                                                color = InstitutionalBlue
+                                            )
+                                        )
+                                    }
+                                    if (filteredCandidates.isNotEmpty()) {
+                                        Spacer(modifier = Modifier.height(6.dp))
+                                        Text(
+                                            text = "Selecciona un candidato para ver su perfil completo",
+                                            style = MaterialTheme.typography.bodySmall.copy(
+                                                color = NeutralMedium
+                                            )
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        items(filteredCandidates) { candidato ->
+                            SearchResultCard(
+                                candidato = candidato,
+                                onClick = { onNavigateToDetail(candidato.id) },
+                                modifier = Modifier.padding(horizontal = 20.dp, vertical = 6.dp)
+                            )
+                        }
+
+                        item {
+                            Spacer(modifier = Modifier.height(8.dp))
+                        }
+                    }
+
+                    // Secciones de candidatos por cargo
+                    val cargoSections = listOf(
+                        Triple(
+                            "Candidatos Presidenciales",
+                            listOf("Presidente"),
+                            Icons.Outlined.Gavel
+                        ),
+                        Triple("Candidatos al Senado", listOf("Senador"), Icons.Outlined.AccountBalance),
+                        Triple(
+                            "Candidatos a Diputados",
+                            listOf("Diputado", "Diputada"),
+                            Icons.Outlined.Groups
+                        )
+                    )
+
+                    cargoSections.forEach { (title, cargos, icon) ->
+                        val candidates = state.candidatos.filter {
+                            cargos.any { cargo ->
+                                it.cargo.nombreCargo.equals(
+                                    cargo,
+                                    ignoreCase = true
+                                )
+                            }
+                        }
+
+                        if (candidates.isNotEmpty()) {
+                            item {
+                                CandidateSection(
+                                    title = title,
+                                    icon = icon,
+                                    candidates = candidates,
+                                    onCandidateClick = onNavigateToDetail
+                                )
+                            }
+                        }
+                    }
+
+                    // Espaciado final
+                    item {
+                        Spacer(modifier = Modifier.height(24.dp))
+                    }
+                }
+            }
+
+            AnimatedVisibility(
+                visible = showNavigationBar,
+                enter = fadeIn() + slideInHorizontally(),
+                exit = fadeOut() + slideOutHorizontally(),
+                modifier = Modifier.fillMaxSize()
+            ) {
+                VerticalEdgeNavigationBar(
+                    isExpanded = isNavigationExpanded,
+                    onToggle = { isNavigationExpanded = !isNavigationExpanded },
+                    onNavigateToPresidente = {
+                        coroutineScope.launch {
+                            isProgrammaticScroll = true
+                            lazyColumnState.animateScrollToItem(2)
+                        }
+                    },
+                    onNavigateToSenado = {
+                        coroutineScope.launch {
+                            isProgrammaticScroll = true
+                            lazyColumnState.animateScrollToItem(3)
+                        }
+                    },
+                    onNavigateToDiputados = {
+                        coroutineScope.launch {
+                            isProgrammaticScroll = true
+                            lazyColumnState.animateScrollToItem(4)
+                        }
+                    }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun VerticalEdgeNavigationBar(
+    isExpanded: Boolean,
+    onToggle: () -> Unit,
+    onNavigateToPresidente: () -> Unit,
+    onNavigateToSenado: () -> Unit,
+    onNavigateToDiputados: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 8.dp),
+        contentAlignment = Alignment.CenterStart
+    ) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .offset(y = (-68).dp),
+            contentAlignment = Alignment.Center
+        ) {
+            AnimatedVisibility(
+                visible = isExpanded,
+                enter = fadeIn(
+                    animationSpec = tween(durationMillis = 300, delayMillis = 150)
+                ) + slideInVertically(
+                    initialOffsetY = { it },
+                    animationSpec = tween(durationMillis = 400, delayMillis = 150, easing = FastOutSlowInEasing)
+                ),
+                exit = fadeOut(
+                    animationSpec = tween(durationMillis = 250, easing = LinearOutSlowInEasing)
+                ) + slideOutVertically(
+                    targetOffsetY = { it },
+                    animationSpec = tween(durationMillis = 300, easing = LinearOutSlowInEasing)
+                )
+            ) {
+                FloatingActionButton(
+                    onClick = onNavigateToPresidente,
+                    containerColor = InstitutionalBlue,
+                    contentColor = Color.White,
+                    elevation = FloatingActionButtonDefaults.elevation(
+                        defaultElevation = 6.dp
+                    ),
+                    modifier = Modifier.size(56.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.Gavel,
+                        contentDescription = "Presidente",
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
+        }
+
+        Box(
+            modifier = Modifier.align(Alignment.CenterStart),
+            contentAlignment = Alignment.Center
+        ) {
+            AnimatedVisibility(
+                visible = !isExpanded,
+                enter = fadeIn(
+                    animationSpec = tween(durationMillis = 300, delayMillis = 250)
+                ) + scaleIn(
+                    animationSpec = tween(durationMillis = 350, delayMillis = 250, easing = FastOutSlowInEasing)
+                ),
+                exit = fadeOut(
+                    animationSpec = tween(durationMillis = 200, easing = FastOutLinearInEasing)
+                ) + scaleOut(
+                    animationSpec = tween(durationMillis = 250, easing = FastOutLinearInEasing)
+                )
+            ) {
+                Box(
+                    modifier = Modifier
+                        .width(6.dp)
+                        .height(80.dp)
+                        .clip(RoundedCornerShape(3.dp))
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    InstitutionalBlue,
+                                    InstitutionalBlue.copy(alpha = 0.9f),
+                                    InstitutionalBlue
+                                )
+                            )
+                        )
+                        .clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = null
+                        ) { onToggle() },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(6.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        repeat(3) {
+                            Box(
+                                modifier = Modifier
+                                    .size(3.dp)
+                                    .clip(CircleShape)
+                                    .background(Color.White.copy(alpha = 0.8f))
                             )
                         }
                     }
                 }
+            }
+        }
 
-                // Espaciado final
-                item {
-                    Spacer(modifier = Modifier.height(24.dp))
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .offset(y = 0.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            AnimatedVisibility(
+                visible = isExpanded,
+                enter = fadeIn(
+                    animationSpec = tween(durationMillis = 300, delayMillis = 200)
+                ) + slideInVertically(
+                    initialOffsetY = { -it },
+                    animationSpec = tween(durationMillis = 400, delayMillis = 200, easing = FastOutSlowInEasing)
+                ),
+                exit = fadeOut(
+                    animationSpec = tween(durationMillis = 250, easing = LinearOutSlowInEasing)
+                ) + slideOutVertically(
+                    targetOffsetY = { -it },
+                    animationSpec = tween(durationMillis = 300, easing = LinearOutSlowInEasing)
+                )
+            ) {
+                FloatingActionButton(
+                    onClick = onNavigateToSenado,
+                    containerColor = InstitutionalBlue,
+                    contentColor = Color.White,
+                    elevation = FloatingActionButtonDefaults.elevation(
+                        defaultElevation = 6.dp
+                    ),
+                    modifier = Modifier.size(56.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.AccountBalance,
+                        contentDescription = "Senado",
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
+        }
+
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .offset(y = 68.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            AnimatedVisibility(
+                visible = isExpanded,
+                enter = fadeIn(
+                    animationSpec = tween(durationMillis = 300, delayMillis = 250)
+                ) + slideInVertically(
+                    initialOffsetY = { -it },
+                    animationSpec = tween(durationMillis = 400, delayMillis = 250, easing = FastOutSlowInEasing)
+                ),
+                exit = fadeOut(
+                    animationSpec = tween(durationMillis = 250, easing = LinearOutSlowInEasing)
+                ) + slideOutVertically(
+                    targetOffsetY = { -it },
+                    animationSpec = tween(durationMillis = 300, easing = LinearOutSlowInEasing)
+                )
+            ) {
+                FloatingActionButton(
+                    onClick = onNavigateToDiputados,
+                    containerColor = InstitutionalBlue,
+                    contentColor = Color.White,
+                    elevation = FloatingActionButtonDefaults.elevation(
+                        defaultElevation = 6.dp
+                    ),
+                    modifier = Modifier.size(56.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.Groups,
+                        contentDescription = "Diputados",
+                        modifier = Modifier.size(24.dp)
+                    )
                 }
             }
         }
