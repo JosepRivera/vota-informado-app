@@ -13,7 +13,7 @@
 
 ## 📋 Descripción del Proyecto
 
-**VotaInformado** es una aplicación móvil Android que centraliza información pública verificable sobre candidatos al Congreso y la Presidencia del Perú. Permite a los ciudadanos consultar datos oficiales y participar en simulaciones de votación para estimar tendencias electorales.
+*VotaInformado* es una aplicación móvil Android que centraliza información pública verificable sobre candidatos al Congreso y la Presidencia del Perú. Permite a los ciudadanos consultar datos oficiales y participar en simulaciones de votación para estimar tendencias electorales.
 
 ### Características Principales
 
@@ -29,34 +29,20 @@ Facilita el acceso ciudadano a información electoral verificable para la toma d
 
 ---
 
-## 📱 Demo de la Aplicación
-
-### Video Demostrativo
-
-<div align="center">
-  
-  [![Video Demo](./assets/video_thumbnail.png)](https://youtu.be/tu-video-aqui)
-  
-  <p><em>Click en la imagen para ver el video completo</em></p>
-
-</div>
-
----
-
 ## 🎨 Diseño y Prototipo
 
-El diseño de la aplicación fue desarrollado utilizando **Figma**, siguiendo los principios de Material Design 3 para garantizar una experiencia moderna y profesional.
+El diseño de la aplicación fue desarrollado utilizando *Figma*, siguiendo los principios de Material Design 3 para garantizar una experiencia moderna y profesional.
 
 ### 🔗 Enlace al Prototipo
-[Ver prototipo en Figma](https://figma.com/file/tu-prototipo-aqui)
+[Ver prototipo en Figma](https://www.figma.com/design/J7Udxmmeldcz2LR3ZN0iHl/Vota-Informado-Prototipo?node-id=0-1&t=ORyN7i5T9zACxazF-1)
 
 ### Capturas de Pantalla
 
 <div align="center">
   
-  <img src="./screenshots/home_screen.png" alt="Pantalla de Inicio" width="250"/>
-  <img src="./screenshots/candidate_detail.png" alt="Detalle del Candidato" width="250"/>
-  <img src="./screenshots/voting_screen.png" alt="Simulador de Votación" width="250"/>
+  <img src="./assets/pantalla_inicio.jpg" alt="Pantalla de Inicio" width="250"/>
+  <img src="./assets/detalle_candidato.jpg" alt="Detalle del Candidato" width="250"/>
+  <img src="./assets/simulador_votacion.jpg" alt="Simulador de Votación" width="250"/>
   
   <p><em>Pantalla de Inicio | Detalle del Candidato | Simulador de Votación</em></p>
 
@@ -121,19 +107,19 @@ El diseño de la aplicación fue desarrollado utilizando **Figma**, siguiendo lo
 
 ### Pasos de Instalación
 
-1. **Clonar el repositorio:**
-```bash
+1. *Clonar el repositorio:*
+bash
 https://github.com/JosepRivera/vota-informado-app.git
 cd candidatoinfo
-```
 
-2. **Abrir el proyecto en Android Studio:**
+
+2. *Abrir el proyecto en Android Studio:*
    - File → Open → Seleccionar la carpeta del proyecto
 
-3. **Sincronizar dependencias:**
+3. *Sincronizar dependencias:*
    - Esperar a que Gradle sincronice automáticamente
 
-4. **Ejecutar la aplicación:**
+4. *Ejecutar la aplicación:*
    - Conectar un dispositivo físico o iniciar un emulador
    - Run → Run 'app'
 
@@ -142,36 +128,36 @@ cd candidatoinfo
 ## 📊 Fuentes de Información Investigadas
 
 ### JNE - Jurado Nacional de Elecciones
-- **URL Principal:** https://www.jne.gob.pe
-- **Plataforma Electoral:** https://plataformaelectoral.jne.gob.pe
-- **Voto Informado:** https://votoinformado.jne.gob.pe
-- **Datos disponibles:** Hojas de vida, planes de gobierno, sentencias electorales, declaraciones juradas
+- *URL Principal:* https://www.jne.gob.pe
+- *Plataforma Electoral:* https://plataformaelectoral.jne.gob.pe
+- *Voto Informado:* https://votoinformado.jne.gob.pe
+- *Datos disponibles:* Hojas de vida, planes de gobierno, sentencias electorales, declaraciones juradas
 
 ### Infogob - Observatorio para la Gobernabilidad
-- **URL:** https://infogob.jne.gob.pe
-- **Datos disponibles:** Historial político desde 1931, cargos públicos anteriores, trayectoria partidaria, resultados electorales históricos
+- *URL:* https://infogob.jne.gob.pe
+- *Datos disponibles:* Historial político desde 1931, cargos públicos anteriores, trayectoria partidaria, resultados electorales históricos
 
 ### ONPE - Oficina Nacional de Procesos Electorales
-- **URL Principal:** https://www.onpe.gob.pe
-- **Sistema Claridad:** https://claridad.onpe.gob.pe
-- **Datos disponibles:** Resultados electorales en tiempo real, financiamiento de campañas, aportes y gastos electorales
+- *URL Principal:* https://www.onpe.gob.pe
+- *Sistema Claridad:* https://claridad.onpe.gob.pe
+- *Datos disponibles:* Resultados electorales en tiempo real, financiamiento de campañas, aportes y gastos electorales
 
 ### Poder Judicial del Perú
-- **URL Principal:** https://www.pj.gob.pe
-- **Consulta de Expedientes:** https://cej.pj.gob.pe/cej/forms/busquedaform.html
-- **REDAM:** https://casillas.pj.gob.pe/redam/
-- **Datos disponibles:** Expedientes judiciales, sentencias, registro de deudores alimentarios
+- *URL Principal:* https://www.pj.gob.pe
+- *Consulta de Expedientes:* https://cej.pj.gob.pe/cej/forms/busquedaform.html
+- *REDAM:* https://casillas.pj.gob.pe/redam/
+- *Datos disponibles:* Expedientes judiciales, sentencias, registro de deudores alimentarios
 
 ### Contraloría General de la República
-- **URL Principal:** https://www.contraloria.gob.pe
-- **Sistema de DDJJ:** https://apps1.contraloria.gob.pe/ddjj/
-- **Datos disponibles:** Declaración jurada de ingresos y bienes, información patrimonial de funcionarios
+- *URL Principal:* https://www.contraloria.gob.pe
+- *Sistema de DDJJ:* https://apps1.contraloria.gob.pe/ddjj/
+- *Datos disponibles:* Declaración jurada de ingresos y bienes, información patrimonial de funcionarios
 
 ### Congreso de la República
-- **URL Principal:** https://www.congreso.gob.pe
-- **Proyectos de Ley:** https://www.congreso.gob.pe/proyectosdeley
-- **Asistencias y Votaciones:** https://www.congreso.gob.pe/AsistVotPlenoPermanente/
-- **Datos disponibles:** Proyectos de ley por congresista, votaciones nominales, asistencia a sesiones
+- *URL Principal:* https://www.congreso.gob.pe
+- *Proyectos de Ley:* https://www.congreso.gob.pe/proyectosdeley
+- *Asistencias y Votaciones:* https://www.congreso.gob.pe/AsistVotPlenoPermanente/
+- *Datos disponibles:* Proyectos de ley por congresista, votaciones nominales, asistencia a sesiones
 
 ---
 
